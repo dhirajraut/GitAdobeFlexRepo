@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionScriptProperties version="1" mainApplicationPath="_2_getChildmethod.mxml">
+  <compiler additionalCompilerArguments="-locale en_US" copyDependentFiles="true" generateAccessible="false" strict="true" warn="true" htmlGenerate="true" htmlPlayerVersionCheck="true" htmlPlayerVersion="9.0.0" htmlExpressInstall="true" htmlHistoryManagement="true" outputFolderPath="bin">
+    <compilerSourcePath/>
+    <libraryPath>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/playerglobal.swc" linkType="2"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/utilities.swc" linkType="1"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/flex.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/framework.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/rpc.swc" linkType="1"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/charts.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <libraryPathEntry kind="1" path="${FRAMEWORKS}/locale/{locale}" linkType="1"/>
+    </libraryPath>
+    <sourceAttachmentPath>
+      <sourceAttachmentPathEntry kind="3" path="${FRAMEWORKS}/libs/flex.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <sourceAttachmentPathEntry kind="3" path="${FRAMEWORKS}/libs/framework.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <sourceAttachmentPathEntry kind="3" path="${FRAMEWORKS}/libs/charts.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+    </sourceAttachmentPath>
+  </compiler>
+  <applications>
+    <application path="_7_arrayAndArrayCollection.mxml"/>
+    <application path="_7_chartArray.mxml"/>
+    <application path="_4_eventHandler.mxml"/>
+    <application path="_21_bindingToComponentProperties.mxml"/>
+    <application path="_22_sharedObjects.mxml"/>
+    <application path="_17_statesTransition.mxml"/>
+    <application path="_20_eventsWithDragDrop.mxml"/>
+    <application path="_13_MissingFont.mxml"/>
+    <application path="_11_buttonEfects.mxml"/>
+    <application path="_8_sorting.mxml"/>
+    <application path="_12_easingFunction.mxml"/>
+    <application path="_6_arrayAndArrayCollection.mxml"/>
+    <application path="_1_Flicker.mxml"/>
+    <application path="_16_busyCursor.mxml"/>
+    <application path="_19_nonEnhancedDragandDrop.mxml"/>
+    <application path="_14_itemEditorsSpaced.mxml"/>
+    <application path="_15_toolTips.mxml"/>
+    <application path="_9_filter.mxml"/>
+    <application path="_3_insert_components_onFly.mxml"/>
+    <application path="_18_dragandDropToList.mxml"/>
+    <application path="_5_componentResize.mxml"/>
+    <application path="_2_getChildmethod.mxml"/>
+    <application path="_23_javaScript.mxml"/>
+  </applications>
+  <buildCSSFiles/>
+</actionScriptProperties>

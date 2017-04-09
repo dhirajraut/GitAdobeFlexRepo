@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+	backgroundColor="#eeeeee">
+	
+	<mx:XMLList id="menuData">
+		<lenu label="File">
+			<lenu label="New"/>
+			<lenu label="Open"/>
+			<lenu label="Close"/>
+			<lenu label="Log Out"/>
+		</lenu>
+		<lenu label="View">
+			<lenu label="Undo"/>
+			<lenu label="Redo"/>
+			<lenu label="Zoom"/>
+		</lenu>
+		<lenu label="Source">
+			<lenu label="Shift Right"/>
+			<lenu label="Shift Left"/>
+		</lenu>
+	</mx:XMLList>
+	
+	<mx:MenuBar dataProvider="{menuData}"
+		labelField="@label"/>
+	
+</mx:Application>

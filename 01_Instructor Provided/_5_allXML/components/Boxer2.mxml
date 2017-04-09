@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="300">
+
+<mx:Script>
+	<![CDATA[
+		[Bindable]
+		public var nameing:String;
+	]]>
+</mx:Script>
+	<mx:Label text="{nameing}"/>
+</mx:VBox>

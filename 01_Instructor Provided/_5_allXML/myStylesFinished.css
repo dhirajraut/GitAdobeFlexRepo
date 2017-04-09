@@ -1,0 +1,17 @@
+/* CSS file */
+	Label {
+		fontSize:18;
+	}
+	
+	Button {
+		fillColors:#ff0000,#0000ff;
+		cornerRadius:10;
+	}
+	
+	.redObjects {
+		color:#ff0000;
+	}
+	
+	global {
+		fontFamily:Times New Roman;
+	}

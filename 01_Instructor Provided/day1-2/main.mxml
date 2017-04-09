@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:states>
+		<mx:State name="plain">
+			<mx:AddChild relativeTo="{vbox1}" position="lastChild">
+				<mx:TextArea width="100%" height="66"/>
+			</mx:AddChild>
+			<mx:SetProperty target="{panel1}" name="height" value="155"/>
+			<mx:SetProperty target="{vbox1}" name="height" value="95"/>
+		</mx:State>
+		<mx:State name="rich">
+			<mx:AddChild relativeTo="{vbox1}" position="lastChild">
+				<mx:RichTextEditor height="230" width="415">
+				</mx:RichTextEditor>
+			</mx:AddChild>
+			<mx:SetProperty target="{panel1}" name="height" value="359"/>
+			<mx:SetProperty target="{vbox1}" name="height" value="299"/>
+		</mx:State>
+	</mx:states>
+	<mx:Panel x="10" y="10" width="455" height="101" layout="absolute" id="panel1">
+		<mx:VBox x="10" y="10" width="415" height="40" id="vbox1">
+			<mx:HBox width="100%">
+				<mx:RadioButtonGroup id="radiogroup1"/>
+				<mx:RadioButton label="text" groupName="radiogroup1" id="plainText" click="this.currentState='plain'"/>
+				<mx:RadioButton label="richtext" groupName="radiogroup1" id="richText" click="this.currentState='rich'"/>
+			</mx:HBox>
+		</mx:VBox>
+	</mx:Panel>
+</mx:Application>

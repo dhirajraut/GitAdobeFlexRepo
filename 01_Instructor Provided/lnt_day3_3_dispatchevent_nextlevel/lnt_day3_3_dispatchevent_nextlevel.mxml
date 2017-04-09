@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	xmlns:view="view.*">
+	
+		<mx:Script>
+			<![CDATA[				
+				import flash.events.TextEvent;			
+				[Bindable]
+				private var sharedData:String="Initial Value";				
+				private function sharedDataHandler(event:TextEvent):void {
+				sharedData=event.text;
+				}
+			]]>
+		</mx:Script>
+
+		<view:Dispatcher x="50" y="37" 
+			borderStyle="solid" 
+			borderColor="#000000" 
+			width="350"
+			dataShared="sharedDataHandler(event)"/>
+		<view:Receiver x="50" y="116" width="350" 
+			borderStyle="solid"	borderColor="#000000"
+			myProperty="{sharedData}"/>
+	
+</mx:Application>

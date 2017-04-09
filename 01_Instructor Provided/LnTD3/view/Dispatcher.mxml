@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" >
+
+<mx:Metadata>
+	[Event(name="dataShared", type="flash.events.TextEvent")]
+	[Event(name="colorShared", type="mx.events.ColorPickerEvent")]
+</mx:Metadata>
+		<mx:Script>
+			<![CDATA[
+				import mx.events.ColorPickerEvent;
+			[Bindable]
+			public var dispData:String="";
+				private function clickHandler():void{
+					dispData=tin01.text;
+					var event:TextEvent= new TextEvent("dataShared");
+					event.text=tin01.text;
+					dispatchEvent(event);
+				}
+				private function colorHandler():void{
+					var colevent:ColorPickerEvent = new ColorPickerEvent("colorShared");
+					colevent.color=cp01.selectedColor;
+					dispatchEvent(colevent);
+				}
+			]]>
+		</mx:Script>
+		
+	
+	<mx:Label text="Dispatching Components" />
+	<mx:TextInput id="tin01"/>
+	<mx:Button label="Click Me" click="clickHandler()"/>
+	<mx:ColorPicker id="cp01" change="colorHandler()"/>
+
+		
+</mx:VBox> 
+	
+

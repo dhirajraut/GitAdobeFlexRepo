@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	xmlns:filters="flash.filters.*" 
+	xmlns:forms="forms.*"
+	backgroundColor="#eeeeee">
+
+	<filters:BevelFilter id="myBevel"/>
+	<filters:DropShadowFilter id="myDropShadow"
+		color="#0000ff"
+		distance="20"
+		angle="135"/>
+	<filters:GlowFilter id="myGlow"
+		color="#ff0000"/>
+	
+	<forms:LoginForm 
+		borderAlpha="1"
+		filters="{[myDropShadow, myGlow, myBevel]}"/>
+	
+</mx:Application>

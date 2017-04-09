@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+ creationComplete="initApp()" backgroundColor="#FFFFFF"
+  xmlns:ChartData="ChartData.as">
+    <mx:Script>
+    <![CDATA[
+    import mx.collections.ArrayCollection;
+    private var chartData:ChartData = new ChartData();
+    [Bindable]
+    private var productSales:ArrayCollection;
+    private function initApp():void{
+    productSales = chartData.getDataSet1();
+    }
+    ]]>
+    </mx:Script>
+  <mx:Panel title="PieChart Example" width="100%" height="100%"
+    paddingTop="10" paddingLeft="10" paddingRight="10" 
+    paddingBottom="10" layout="horizontal">
+ <mx:PieChart id="gizmoChart" height="100%" width="100%"
+            paddingRight="5" paddingLeft="5"
+            showDataTips="true" dataProvider="{productSales}" >
+      <mx:series>
+        <mx:PieSeries labelPosition="callout" field="Gizmos" 
+        	displayName="Gizmos"/>
+      </mx:series>
+    </mx:PieChart>
+    <mx:PieChart id="widgetChart" height="100%" width="100%"
+            paddingRight="5" paddingLeft="5"
+            showDataTips="true" dataProvider="{productSales}"
+            innerRadius=".25">
+      <mx:series>
+        <mx:PieSeries labelPosition="callout" field="Widgets" 
+        	displayName="Widgets"/>
+      </mx:series>
+    </mx:PieChart>
+    <mx:PieChart id="gadgetChart" height="100%" width="100%"
+            paddingRight="5" paddingLeft="5"
+            showDataTips="true" dataProvider="{productSales}">
+      <mx:series>
+        <mx:PieSeries labelPosition="callout" field="Gizmos" 
+        	displayName="Gizmos"/>
+        <mx:PieSeries labelPosition="callout" field="Widgets" 
+        	displayName="Widgets"/>
+        <mx:PieSeries labelPosition="callout" field="Gadgets" 
+        	displayName="Gadgets"/>
+      </mx:series>
+    </mx:PieChart>
+  </mx:Panel>
+</mx:Application>

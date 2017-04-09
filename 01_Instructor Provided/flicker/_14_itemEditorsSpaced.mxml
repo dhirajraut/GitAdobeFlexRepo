@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:filters="flash.filters.*">
+     <mx:Script>
+        <![CDATA[
+        [Bindable]
+        public var myDP:Array = [
+        {label:"Article 1", datePosted: new Date(2006, 10, 23)},
+        {label:"Article 2", datePosted: new Date(2006, 7, 20)},
+        {label:"Article 3", datePosted: new Date(2006, 5, 11)}
+       ]
+        ]]>
+    </mx:Script>
+     <mx:DataGrid dataProvider="{myDP}" editable="true" 
+     	variableRowHeight="true" width="60%">
+       <mx:columns>
+   <mx:DataGridColumn dataField="label" headerText="Articles" />
+   <mx:DataGridColumn dataField="datePosted" headerText="Date Posted"
+editorXOffset="10" itemEditor="mx.controls.DateField" 
+editorDataField="selectedDate" />
+      </mx:columns>
+     </mx:DataGrid>
+
+</mx:Application>

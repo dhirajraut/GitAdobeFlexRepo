@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Image id="imgHolder" source="assets/rose.png" width="100%" height="100%"/>
+	<mx:Button label="Click me to accept" click="changeme()"/>
+	<mx:Script source="callme.as"/>
+</mx:Application>

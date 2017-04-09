@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+     creationComplete="initApp()">
+     <mx:Script>
+         <![CDATA[
+              import mx.effects.*;
+              import mx.managers.ToolTipManager;
+              public function initApp():void
+              {
+                   var b:Blur = new Blur();
+                   var f:Fade = new Fade();
+                   f.alphaFrom = 0;
+                   f.alphaTo = 1;
+                   var p:Parallel = new Parallel();
+                   p.addChild(b);
+                   p.addChild(f);
+                   ToolTipManager.showEffect = p;
+              }
+         ]]>
+    </mx:Script>
+    <mx:Button label="Enable ToolTips" toolTip="Enable ToolTips" />
+</mx:Application>

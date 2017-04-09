@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="vertical" creationComplete="bookData.send()">
+<mx:Script>
+<![CDATA[
+private function getBookData(repeatData:String):void
+{
+nameLabel.text = repeatData;
+}
+]]>
+</mx:Script>
+<mx:HTTPService id="bookData" url="data/books.xml" />
+<mx:Repeater id="bookRepeater" 
+	dataProvider="{bookData.lastResult.books.stock}">
+<mx:Label text="{bookRepeater.currentIndex + 1} 
+{bookRepeater.currentItem}" />
+<mx:Button label="Add to Cart" 
+	click="getBookData(event.target.getRepeaterItem())" />
+</mx:Repeater>
+<mx:Label id="nameLabel" />
+</mx:Application>

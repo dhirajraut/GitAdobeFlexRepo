@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml"
+	title="Login Form"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off"
+	height="165">
+	<mx:states>
+		<mx:State name="register">
+			<mx:SetProperty target="{button1}" name="label" value="Register"/>
+			<mx:AddChild relativeTo="{formitem1}" position="after">
+				<mx:FormItem label="Confirm:" id="confirmItem">
+					<mx:TextInput id="confirmInput"/>
+				</mx:FormItem>
+			</mx:AddChild>
+			<mx:SetProperty target="{form1}" name="height" value="144"/>
+			<mx:SetProperty target="{linkbutton1}" name="label" value="Log In as Existing User"/>
+			<mx:SetEventHandler target="{linkbutton1}" name="click" handler="this.currentState=''"/>
+			<mx:SetProperty target="{this}" name="height" value="200"/>
+		</mx:State>
+	</mx:states>
+	<mx:transitions>
+		<mx:Transition toState="register">
+			<mx:Parallel>
+				<mx:Resize duration="1000" target="{this}"/>
+				<mx:Move target="{confirmItem}" xFrom="-300"/>				
+			</mx:Parallel>
+		</mx:Transition>
+		<mx:Transition toState="">
+			<mx:Resize duration="1000" target="{this}"/>
+		</mx:Transition>
+	</mx:transitions>
+
+	<mx:Metadata>
+		[Event(name="login", type="events.LoginEvent")]
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import events.LoginEvent;
+			import dto.Login;
+			private function login():void
+			{
+				var loginDTO:Login = new Login(userNameInput.text, passwordInput.text);
+				var event:LoginEvent = new LoginEvent(loginDTO, "login");
+				dispatchEvent(event);
+			}
+		]]>
+	</mx:Script>
+	<mx:Form width="337" height="135" id="form1">
+		<mx:FormItem label="User Name:">
+			<mx:TextInput id="userNameInput"/>
+		</mx:FormItem>
+		<mx:FormItem label="Password:" id="formitem1">
+			<mx:TextInput id="passwordInput" displayAsPassword="true"/>
+		</mx:FormItem>
+	</mx:Form>
+	<mx:ControlBar>
+		<mx:Button label="Login" click="login()" id="button1"/>
+		<mx:Spacer width="100%"/>
+		<mx:LinkButton label="Register as new user"
+			click="this.currentState='register'" id="linkbutton1"/>
+	</mx:ControlBar>
+</mx:Panel>

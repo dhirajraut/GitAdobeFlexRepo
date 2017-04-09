@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of lnt_day1</title>
+	<nodes>
+		<node label="generated">
+		</node>
+		<node label="external.as" icon="actionScriptIcon" url="source/external.as.html"/>
+		<node selected="true" label="lnt_day1_1.mxml" icon="mxmlAppIcon" url="source/lnt_day1_1.mxml.html"/>
+		<node label="lnt_day1_2.mxml" icon="mxmlIcon" url="source/lnt_day1_2.mxml.html"/>
+		<node label="lnt_day1_3.mxml" icon="mxmlIcon" url="source/lnt_day1_3.mxml.html"/>
+		<node label="lnt_day1_3_inclass.mxml" icon="mxmlIcon" url="source/lnt_day1_3_inclass.mxml.html"/>
+		<node label="lnt_day1_4.mxml" icon="mxmlIcon" url="source/lnt_day1_4.mxml.html"/>
+		<node label="sayhellofile.as" icon="actionScriptIcon" url="source/sayhellofile.as.html"/>
+	</nodes>
+	<zipfile label="Download source (ZIP, 3K)" url="lnt_day1.zip"/>
+	<sdklink label="Download Flex 2 SDK" url="http://www.adobe.com/go/flex2_sdk"/>
+</index>

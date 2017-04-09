@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+<mx:Script>
+	<![CDATA[
+	import mx.managers.PopUpManager
+	import mx.containers.TitleWindow;
+	import mx.controls.TextArea;
+	private var window:TitleWindow;
+	private function showWindow(event:MouseEvent):void {
+	var textArea:TextArea = new TextArea( );
+	textArea.text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Sed eget massa iaculis metus interdum accumsan. Mauris pellentesque pulvinar orci. Etiam suscipit tellus a nisl. Mauris elit risus, blandit non, varius vitae,laoreet ac, ipsum. Fusce erat libero, imperdiet id, suscipit lacinia, nonummy quis, metus. Ut sit amet est quis velit ullamcorper congue. Etiam in nunc id mauris porta volutpat. Sed vitae metus. Integer lacinia. Maecenas a tortor. Fusce mauris arcu, ullamcorper ac, sagittis id, condimentum in, dolor. Praesent eros tortor, tincidunt in, blandit a, luctus quis, est.";
+	textArea.height = 200;
+	window = TitleWindow(PopUpManager.createPopUp(this, TitleWindow));
+	window.addChild(textArea);
+	}
+	]]>
+	</mx:Script>
+	<mx:Button id="button" label="Show Window" click="showWindow(event)" />
+	<mx:Button  label="Remove Popup" click="PopUpManager.removePopUp(window)"/>
+</mx:Application>

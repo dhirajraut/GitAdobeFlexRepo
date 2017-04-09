@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+
+
+
+	<mx:Button x="148" y="51" label="Show Busy Cursor" click="mx.managers.CursorManager.setBusyCursor()"/>
+	<mx:Button x="148" y="106" label="Hide Busy Cursor" click="mx.managers.CursorManager.removeBusyCursor()"/>
+	<mx:Script>
+		<![CDATA[
+			import mx.managers.CursorManager;
+		]]>
+	</mx:Script>
+	
+</mx:Application>

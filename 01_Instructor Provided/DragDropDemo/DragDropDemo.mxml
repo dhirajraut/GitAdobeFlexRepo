@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" initialize="mybooks.send()">
+
+<mx:HTTPService id="mybooks" url="data/books.xml"/>
+
+	<mx:DataGrid x="43.5" y="25" dataProvider="{mybooks.lastResult.books.stock}" dragMoveEnabled="true" dragEnabled="true" verticalScrollPolicy="off">
+		<mx:columns>
+			<mx:DataGridColumn headerText="name" dataField="name"/>
+			<mx:DataGridColumn headerText="AUTHOR" dataField="author"/>
+			<mx:DataGridColumn headerText="CATEGORY" dataField="category"/>
+		</mx:columns>
+	</mx:DataGrid>
+	<mx:DataGrid x="43.5" y="189" dropEnabled="true">
+		<mx:columns>
+			<mx:DataGridColumn headerText="Category" dataField="category"/>
+			<mx:DataGridColumn headerText="Name2" dataField="name"/>
+		</mx:columns>
+	</mx:DataGrid>
+	
+</mx:Application>

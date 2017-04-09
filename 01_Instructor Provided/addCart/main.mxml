@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	creationComplete="simpletestCat.send();simpletestFood.send()" >
+
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.IViewCursor;
+			import mx.controls.dataGridClasses.DataGridColumn;
+			import mx.collections.ArrayCollection;
+			import mx.collections.SortField;
+			import mx.collections.Sort;
+			import mx.collections.ArrayCollection;
+
+			[Bindable]
+			public var categoryList:ArrayCollection;
+			[Bindable]
+			public var foodList:ArrayCollection;
+			[Bindable]
+			public var aItems:ArrayCollection = new ArrayCollection();
+			private var cursor:IViewCursor;
+	
+			public function filterByCategory():void 
+			{
+	
+				foodList.filterFunction = catFilter;
+				foodList.refresh();
+			}
+			public function catFilter(item:Object):Boolean
+			{
+				if(categorySelect.selectedItem == "All") 
+				{
+					return true;
+				}
+				else
+				{
+					return item.category_name == categorySelect.selectedItem.category_name;
+				}
+			}
+			private function sortItems():void 
+			{
+				var sortA:Sort = new Sort();
+				sortA.fields=[new SortField("food_id", false)];
+				aItems.sort=sortA;
+				aItems.refresh();
+			}
+			private function manageAddItem(item:Object):void{
+				var temp:Object = getItemInCart(item);
+				if (temp !=null){
+					temp.quantity += 1;
+				}else{
+					item.quantity = 1;
+					aItems.addItem(item);
+				}
+			}
+			
+			private function getItemInCart(item:Object):Object{
+				cursor = aItems.createCursor();
+				sortItems();
+				var found:Boolean = cursor.findAny(item);
+				if (found==true){
+					return cursor.current;
+				}else{
+					return null;
+				}
+			}
+		]]>
+	</mx:Script>
+		
+	<mx:HTTPService id="simpletestCat" 
+		url="assets\categorylist.xml" 
+		result="categoryList=simpletestCat.lastResult.list.category;categoryList.addItemAt('All', 0);categorySelect.selectedIndex=0"/>
+	<mx:HTTPService id="simpletestFood" 
+		url="assets\foodlist.xml" 
+		result="foodList=simpletestFood.lastResult.list.food"/>
+	
+	<mx:ComboBox id="categorySelect" 
+		dataProvider="{categoryList}" 
+		labelField="category_name" 
+		change="filterByCategory()"/>
+	<mx:List id="foodListBox" 
+		dataProvider="{foodList}" 
+		labelField="product_name" 
+		width="200"/>
+	<mx:Button id="myButton" 
+		label="Add to Cart" click="manageAddItem(foodListBox.selectedItem)"/>
+	<mx:Label text="Shopping Cart"/>
+	<mx:DataGrid id="cartDg" 
+		dataProvider="{aItems}" 
+		width="50%">
+		<mx:columns>
+			<mx:DataGridColumn dataField="product_name" headerText="Product"/>
+			<mx:DataGridColumn dataField="product_price" headerText="Price"/>
+			<mx:DataGridColumn dataField="quantity" headerText="Quantity"/>
+		</mx:columns>
+	</mx:DataGrid>
+	
+</mx:Application>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	xmlns:view="view.*">
+	
+<view:myComponent myProperty="Hello Component"/>
+<view:myComponent myProperty="Another Component"/>
+<view:myComponent  id="iamcomp" click="iamcomp.alpha =.5" backgroundColor="green" width="200"/>
+<view:myComponent rotation="45" backgroundColor="yellow" width="100"/>
+	
+</mx:Application>

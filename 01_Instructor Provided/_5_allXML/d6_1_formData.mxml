@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	backgroundGradientColors="[#eeeeee,#eeeeee]"
+	layout="vertical">
+	
+	<mx:Panel title="My Form">
+	
+	<mx:Form>
+
+		<mx:FormItem label="First Name:" required="true">
+			<mx:TextInput id="firstNameInput"/>
+		</mx:FormItem>
+		<mx:FormItem label="Last Name:" required="true">
+			<mx:TextInput id="lastNameInput"/>
+		</mx:FormItem>
+		<mx:FormItem label="Password:" required="true">
+			<mx:TextInput id="passwordInput" displayAsPassword="true"/>
+		</mx:FormItem>
+	</mx:Form>
+	
+	<mx:ControlBar>
+		<mx:Button label="Click Me"/>
+	</mx:ControlBar>
+	
+	</mx:Panel>
+</mx:Application>
+

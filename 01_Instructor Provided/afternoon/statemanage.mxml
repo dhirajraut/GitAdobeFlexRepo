@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:states>
+		<mx:State name="plain">
+			<mx:AddChild relativeTo="{vbox1}" position="lastChild">
+				<mx:TextArea width="442"/>
+			</mx:AddChild>
+			<mx:SetProperty target="{radiobutton1}" name="label" value="plain"/>
+		</mx:State>
+		<mx:State name="rich"/>
+	</mx:states>
+	<mx:Panel x="5" y="10" width="465" height="382" layout="absolute">
+		<mx:VBox x="0" y="10" width="445" height="100%" id="vbox1">
+			<mx:HBox width="100%">
+				<mx:RadioButtonGroup id="radiogroup1"/>
+				<mx:RadioButton label="Plain" groupName="radiogroup1" click="this.currentState='plain'"/>
+				<mx:RadioButton label="rich" groupName="radiogroup1" click="this.currentState='rich'"/>
+			</mx:HBox>
+		</mx:VBox>
+	</mx:Panel>
+	
+</mx:Application>

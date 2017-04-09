@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+ xmlns="*"
+ layout="absolute">
+
+     <mx:Script>
+          <![CDATA[
+
+               public function resizeTextInput():void
+               {
+                    textInput.width += 10;
+                    textInput.height += 10;
+               }
+
+          ]]>
+     </mx:Script>
+
+     <mx:TextInput id="textInput" x="100" y="10" />
+     <mx:Button label="Resize" click="resizeTextInput()" x="10" y="10" />
+
+</mx:Application>

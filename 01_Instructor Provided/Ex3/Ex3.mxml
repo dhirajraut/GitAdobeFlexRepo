@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Button x="150" y="189" label="Button"/>
+	<mx:DateField x="125" y="93" id="dt01" displayedMonth="11" dayNames="Sun"/>
+	<mx:Label x="150" y="10" text="{tin01.text}"/>
+	<mx:TextInput x="102" y="49" id="tin01" text="{dt01.text}"/>
+	
+</mx:Application>

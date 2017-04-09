@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+   backgroundColor="#FFFFFF">
+
+  <mx:Panel title="Empty Panel" width="{mySlider.value}" height="150" />
+  <mx:TextArea width="300" text="The width property of the Panel above is bound to
+the value property of the HSlider below." />
+
+  <mx:DataGrid id="cart" width="{mySlider.value}">
+    <mx:columns>
+      <mx:DataGridColumn dataField="name" headerText="Name" width="{hisSlider.value}"/>
+      <mx:DataGridColumn dataField="price" headerText="Price" width="{mySlider.value}"/>
+      <mx:DataGridColumn dataField="Range" headerText="Price" width="{hisSlider.value}"/>
+      <mx:DataGridColumn dataField="Verity" headerText="Price" width="{mySlider.value}"/>
+    </mx:columns>
+  </mx:DataGrid>
+    <mx:HSlider id="hisSlider" snapInterval="5" minimum="100" maximum="350"
+value="250"/>
+  <mx:HSlider id="mySlider" snapInterval="5" minimum="100" maximum="350"
+value="250"/>
+</mx:Application>

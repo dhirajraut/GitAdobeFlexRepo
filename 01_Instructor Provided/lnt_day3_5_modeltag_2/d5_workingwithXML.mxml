@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+	initialize="myService.send()">
+
+	<mx:HTTPService id="myService"
+		url="data/newTitles.xml"/>
+		
+	<mx:DataGrid dataProvider="{myService.lastResult.titles.title}" width="350"/>
+	
+</mx:Application>

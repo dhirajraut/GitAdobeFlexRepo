@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+     <mx:Script>
+          <![CDATA[
+
+          import mx.collections.SortField;
+          import mx.collections.Sort;
+          import mx.collections.ArrayCollection;
+
+          public function sortCollection():void
+          {
+               var sort:Sort = new Sort();
+               sort.fields = [new SortField("label", true, true)];
+               myCollection.sort = sort;
+               myCollection.refresh();
+          }
+
+          public function filterCollection():void
+          {
+               myCollection.filterFunction = stateFilterFunc;
+               myCollection.refresh();
+          }
+
+          private function stateFilterFunc(item:Object):Boolean
+          {
+               return item.label >= "A" && item.label < "M";
+          }
+
+          public function resetCollection():void
+          {
+               myCollection.filterFunction = null;
+               myCollection.sort = null;
+               myCollection.refresh();
+          }
+
+          ]]>
+     </mx:Script>
+
+     <mx:ArrayCollection id="myCollection">
+          <mx:Array>
+               <mx:Object label="KAR" data="Bangalore"/>
+               <mx:Object label="MAH" data="Mumbai"/>
+               <mx:Object label="GOA" data="Vasco"/>
+               <mx:Object label="AP" data="Hyderabad"/>
+               <mx:Object label="TN" data="Chennai"/>
+               <mx:Object label="MP" data="Salem"/>
+               <mx:Object label="KL" data="Calicut"/>
+               <mx:Object label="JK" data="Srinagar"/>
+               <mx:Object label="GJ" data="Ahamadabad"/>
+          </mx:Array>
+     </mx:ArrayCollection>
+
+     <mx:List dataProvider="{myCollection}" width="200" />
+     <mx:Button label="Sort Collection" click="sortCollection()" />
+     <mx:Button label="Filter Collection" click="filterCollection()" />
+     <mx:Button label="Reset" click="resetCollection()" />
+
+</mx:Application>

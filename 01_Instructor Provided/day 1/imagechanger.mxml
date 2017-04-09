@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Image x="10" y="10" source="assets/fest1.jpg" width="198" height="347" maintainAspectRatio="false"/>
+	<mx:Button x="216" y="335" label="Button"/>
+	
+</mx:Application>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	creationComplete="bookHandler(bookStock)">
+
+<mx:Script>
+	<![CDATA[
+		private function bookHandler(theBook:Object):void{
+			trace(theBook.name);
+			trace(theBook.author);
+		}
+	]]>
+</mx:Script>	
+	
+	
+	
+<mx:Model id="bookStock" source="assets/testBooks.xml">
+
+</mx:Model>		
+
+</mx:Application>

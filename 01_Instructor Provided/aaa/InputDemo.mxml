@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Script>
+		<![CDATA[
+		import 
+		private	function getTot():void{
+				var tot:String = id001.text +  id002.text + id003.text ;
+				trace(tot);
+			}
+		]]>
+	</mx:Script>
+	
+</mx:Application>

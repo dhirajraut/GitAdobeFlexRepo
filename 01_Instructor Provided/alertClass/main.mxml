@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="vertical">
+
+	<mx:Script>
+		<![CDATA[
+		import mx.controls.Alert;
+			private function showDialogBox():void
+			{
+		Alert.show("This comes as a message", 
+		"This is displayed as title");
+		Alert.show("This comes as a message", 
+		"This is displayed as title");
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:Button label="Show Message Dialog" click="showDialogBox()"/>
+	
+</mx:Application>

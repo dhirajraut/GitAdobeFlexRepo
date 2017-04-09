@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionScriptProperties version="1" mainApplicationPath="_1_index_model_tag.mxml">
+  <compiler additionalCompilerArguments="-locale en_US" copyDependentFiles="true" generateAccessible="false" strict="true" warn="true" htmlGenerate="true" htmlPlayerVersionCheck="true" htmlPlayerVersion="9.0.0" htmlExpressInstall="true" htmlHistoryManagement="true" outputFolderPath="bin">
+    <compilerSourcePath/>
+    <libraryPath>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/playerglobal.swc" linkType="2"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/utilities.swc" linkType="1"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/flex.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/framework.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/rpc.swc" linkType="1"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/charts.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <libraryPathEntry kind="1" path="${FRAMEWORKS}/locale/{locale}" linkType="1"/>
+    </libraryPath>
+    <sourceAttachmentPath>
+      <sourceAttachmentPathEntry kind="3" path="${FRAMEWORKS}/libs/flex.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <sourceAttachmentPathEntry kind="3" path="${FRAMEWORKS}/libs/framework.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <sourceAttachmentPathEntry kind="3" path="${FRAMEWORKS}/libs/charts.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+    </sourceAttachmentPath>
+  </compiler>
+  <applications>
+    <application path="dispatchAdvanced.mxml"/>
+    <application path="d6_8_menu_with_events.mxml"/>
+    <application path="d6_7_menucomponent_basic.mxml"/>
+    <application path="finish.mxml"/>
+    <application path="d6_2_formValidation.mxml"/>
+    <application path="d6_1_formData.mxml"/>
+    <application path="d6_3a_infile_style.mxml"/>
+    <application path="_14_dispachingEvents.mxml"/>
+    <application path="_1_index_model_tag.mxml"/>
+    <application path="_11_editing_addGridColumn.mxml"/>
+    <application path="_8_adding_details_to_column.mxml"/>
+    <application path="_12_creating_Components.mxml"/>
+    <application path="_10_editing.mxml"/>
+    <application path="_9_adding_details_to_column_from_XML.mxml"/>
+    <application path="_13_components_parameters.mxml"/>
+  </applications>
+  <buildCSSFiles/>
+</actionScriptProperties>

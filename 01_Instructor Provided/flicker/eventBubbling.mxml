@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="vertical"	click="logEvent(event)">
+	
+	<mx:Script>	
+		<![CDATA[		
+// Notice that the click event is tracked at 3 levels
+// on the button where it is generated 
+// on the vBox where the button resides
+// finally the application where the vBox resides
+// now dont go ahead and click every where !!!	all the 3 components cast the click event...	
+// clicking on text area will cause error 
+	private function logEvent(event:MouseEvent):void
+			{
+				eventLog.text +=
+				"Event target is : " + event.target.id + ", & current target is: " +
+				event.currentTarget.id + "\n";
+			}
+		]]>
+	</mx:Script>
+
+	<mx:VBox id="myVBox" backgroundColor="#ff0000"	paddingTop="20"
+	paddingBottom="20"	paddingLeft="20" paddingRight="20" click="logEvent(event)">
+		<mx:Button id="myButton"
+			label="Click Me" click="logEvent(event)"/>
+	</mx:VBox>
+	
+	<mx:TextArea id="eventLog"	width="500" height="200" />
+
+</mx:Application>

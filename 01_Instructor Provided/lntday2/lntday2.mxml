@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+	<mx:Panel x="0" y="10" width="389" height="337" layout="absolute" title="mx:Panel">
+		<mx:Form x="10" y="10" width="100%">
+			<mx:FormItem label="Name" id="id01">
+				<mx:TextInput id="tin01"/>
+			</mx:FormItem>
+			<mx:FormItem label="Address">
+				<mx:TextInput id="tin02"/>
+			</mx:FormItem>
+			<mx:FormItem label="Phone">
+				<mx:TextInput id="tin03"/>
+			</mx:FormItem>
+			<mx:FormItem label="Email">
+				<mx:TextInput id="tin04"/>
+			</mx:FormItem>
+			<mx:FormItem label="Date">
+				<mx:DateField id="dt01"/>
+			</mx:FormItem>
+			<mx:RadioButtonGroup id="radiogroup1"/>
+			<mx:Script>
+	<![CDATA[
+		private function clearAll():void{
+			tin01.text="";
+			tin02.text="";
+			tin03.text="";
+			tin04.text="";
+			dt01.text="";
+		}
+	]]>
+</mx:Script>
+			
+		</mx:Form>
+		<mx:ControlBar>
+			<mx:Button label="Submit"/>
+			<mx:Button label="Reset" click="clearAll()"/>
+		</mx:ControlBar>			
+
+	</mx:Panel>
+	
+
+
+	
+	
+</mx:Application>

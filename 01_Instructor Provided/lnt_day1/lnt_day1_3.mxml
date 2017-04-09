@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal" viewSourceURL="srcview/index.html" >
+<mx:Script>
+	<![CDATA[
+		private function sayHello():void{
+		mx.controls.Alert.show('Hello Every One')	
+		}
+	]]>
+</mx:Script>
+<mx:Script source="sayhellofile.as"/>
+<mx:Button label="Click Me!" click="mx.controls.Alert.show('Hello Every One')"/>
+<mx:Button label="Anothe Button" click="sayHello()" />
+<mx:Button label="Button External" click="sayHelloExt()" />
+<mx:Button>
+<mx:label> i am nested</mx:label>
+<mx:click>
+<![CDATA[
+mx.controls.Alert.show("Hello i am nested");
+]]>
+</mx:click>
+</mx:Button>
+
+</mx:Application>

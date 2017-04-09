@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Button x="173" y="42" label="Click Me !!!" height="78" width="129" themeColor="{pickme.selectedColor}"/>
+	<mx:ColorPicker x="226" y="128" id="pickme"/>
+
+	
+</mx:Application>

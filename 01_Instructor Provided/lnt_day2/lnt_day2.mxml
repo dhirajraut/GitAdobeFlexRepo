@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Panel roundedBottomCorners="true" title="My feedback form" x="10" y="10">
+	<mx:Form >
+		<mx:FormItem label="Label">
+			<mx:TextInput/>
+		</mx:FormItem>
+		<mx:FormItem label="Label">
+			<mx:TextInput/>
+		</mx:FormItem>
+		<mx:FormItem>
+			<mx:HBox width="100%">
+				<mx:VBox width="100%" height="100%">
+					<mx:RadioButton groupName="radiogroup1" labelPlacement="left" label="male"/>
+					<mx:RadioButton label="female" groupName="radiogroup1"/>
+				</mx:VBox>
+			</mx:HBox>
+		</mx:FormItem>
+		<mx:RadioButtonGroup id="radiogroup1"/>
+	</mx:Form>
+	<mx:ControlBar>
+		
+
+	<mx:Button x="183" y="182" label="Button"/>
+	<mx:Button x="183" y="182" label="another button"/>
+	<mx:Button x="183" y="182" label="new Button"/>
+		</mx:ControlBar>
+	</mx:Panel>
+</mx:Application>

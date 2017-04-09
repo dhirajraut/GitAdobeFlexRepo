@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+<mx:HBox width="100%">
+<mx:VBox height="100%">
+<mx:Label text="Inbox"/>
+<mx:DataGrid dragEnabled="true" dragMoveEnabled="true">
+<mx:columns>
+<mx:DataGridColumn headerText="From" dataField="from"/>
+<mx:DataGridColumn headerText="To" dataField="to"/>
+<mx:DataGridColumn headerText="Subject" dataField="subject"/>
+<mx:DataGridColumn headerText="Date" dataField="date"/>
+</mx:columns>
+<mx:dataProvider>
+<mx:ArrayCollection>
+<mx:Object emailId="0" from="a@a.com" to="joey@person13.com"
+subject="Important New Message" date="10/1/2010" />
+<mx:Object emailId="1" from="b@b.com" to="joey@person13.com"
+subject="All Items On Sale" date="10/1/2010" />
+<mx:Object emailId="2" from="c@c.com" to="joey@person13.com"
+subject="Amazing New Stock" date="10/1/2010" />
+<mx:Object emailId="3" from="d@d.com" to="joey@person13.com"
+subject="Blatant Chain Letter" date="10/1/2010" />
+</mx:ArrayCollection>
+</mx:dataProvider>
+</mx:DataGrid>
+</mx:VBox>
+<mx:VBox height="100%">
+<mx:Label text="Trash"/>
+<mx:DataGrid dropEnabled="true">
+<mx:columns>
+<mx:DataGridColumn headerText="From" dataField="from"/>
+<mx:DataGridColumn headerText="To" dataField="to"/>
+<mx:DataGridColumn headerText="Subject" dataField="subject"/>
+<mx:DataGridColumn headerText="Date" dataField="date"/>
+</mx:columns>
+</mx:DataGrid>
+</mx:VBox>
+</mx:HBox>
+</mx:Application>

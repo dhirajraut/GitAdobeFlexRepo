@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<menu>
+	<type aname="From the Grill">
+		<category aname="Fish dishes">
+			<dish id="1" aname="Cajun Seafood Bouillabaisse" description="With crawfish, scallops, catfish, crab, and mussels. Served with Southern-style cornbread and honey butter." price="17.50" image="image2.jpg"/>
+			<dish id="2" aname="Grilled Rockfish Fillet" description="Lemon-Chive Risotto Cake, Balsamic Glaze" price="24.95" image="image2.jpg"/>
+		</category>
+		<category aname="Meat dishes">
+			<dish id="3" aname="Sage-rubbed Double-cut Pork Chop" description="Topped with a ragout of mushrooms and chunky pancetta. Served with griddle corn cakes." price="14.95" image="image4.jpg"/>
+			<dish id="4" aname="The Burger" description="Brioche Bun and your choice of Mushrooms, Bacon, Cheddar, Gruyere, Blue" price="18.75" image="image4.jpg"/>
+		</category>
+	</type>
+	<type aname="Healthy, Light and Vegetarian">
+		<category aname="Vegetarian dishes">
+			<dish id="5" aname="Cavatappi Pasta with Chickpea Sauce" description="Tossed with grilled eggplant, green olives, and sun dried tomatoes. Topped with Mediterranean feta." price="17.45" image="image0.jpg"/>
+			<dish id="6" aname="Roasted Tomato Soup" description="Served with goat cheese croutons and basil puree" price="9.95" image="image0.jpg"/>
+		</category>
+		<category aname="Light dishes">
+			<dish id="7" aname="Summer Salad" description="Gorgonzola, tossed with raspberry vinaigrette" price="13.25" image="image1.jpg"/>
+			<dish id="8" aname="Pancetta-wrapped Sea Scallops" description="Drizzled with tarragon puree. Served with baked cauliflower au gratin in a tangy Gruyere sauce" price="16.45" image="image1.jpg"/>
+		</category>
+	</type>
+</menu>

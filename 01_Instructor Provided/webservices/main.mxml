@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute">
+	<mx:WebService id="myWebService" 
+		wsdl="http://localhost:8500/flex2/MyService.cfc?wsdl"
+	 load="myWebService.getMe();"/>
+	 	 <mx:DataGrid dataProvider="{myWebService.getMe.lastResult}" 
+	 	 	width="392" horizontalCenter="0" verticalCenter="8.5"/>
+</mx:Application>

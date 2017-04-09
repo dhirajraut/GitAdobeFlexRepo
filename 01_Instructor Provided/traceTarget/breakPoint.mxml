@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="vertical">
+	<mx:Script>
+		<![CDATA[
+
+				private function runLoop():void 
+			{
+				var myNumber:Number = 0;
+				for (var i:int=1;i<=10;i++) 
+				{
+					myNumber++;
+					if (myNumber == 1) 
+					{
+						loopOutput.text="1";
+					}
+					else
+					{
+						loopOutput.text += "," + myNumber;
+					}
+				}
+			}
+			
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Button label="Looper" click="runLoop()"/>
+	<mx:Label id="loopOutput" fontSize="10"/>
+	
+</mx:Application>

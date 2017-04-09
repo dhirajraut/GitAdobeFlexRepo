@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+	backgroundColor="#eeeeee">	
+	<mx:Style>
+		Label {
+			fontSize:18;
+		}
+	</mx:Style>	
+	<mx:Script>
+		<![CDATA[
+			import mx.events.MenuEvent;
+			import mx.core.Container;
+			private function menuClickHandler(event:MenuEvent):void
+			{	var viewString:String = event.item.@view;
+				vStack.selectedChild=this[viewString];  }
+		]]>
+	</mx:Script>
+		
+	<mx:XMLList id="menuData">
+		<menu label="Products">
+			<menu label="Pastry" view="viewPastry"/>
+			<menu label="Bread" view="viewBread"/>
+			<menu label="Biscuits" view="viewBiscuits"/>
+		</menu>
+	</mx:XMLList>
+	
+		
+	<mx:MenuBar dataProvider="{menuData}"
+		labelField="@label"
+		itemClick="menuClickHandler(event)"/>
+
+		
+	<mx:ViewStack id="vStack"
+		height="300" width="400">
+		<mx:VBox id="viewPastry"
+			height="100%" width="100%"
+			backgroundColor="#eeeeee">
+			<mx:Label text="Our Pastry Department"/>
+		</mx:VBox>
+		<mx:VBox id="viewBread"
+			height="100%" width="100%"
+			backgroundColor="#dddddd">
+			<mx:Label text="Our Daily Bread Department"/>
+		</mx:VBox>
+		<mx:VBox id="viewBiscuits"
+			height="100%" width="100%"
+			backgroundColor="#cccccc">
+			<mx:Label text="Our Crunchy Biscuits Department"/>
+		</mx:VBox>
+	</mx:ViewStack>	
+</mx:Application>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+ creationComplete="initApp()" backgroundColor="#FFFFFF"
+   xmlns:ChartData="ChartData.as">
+    <mx:Script>
+    <![CDATA[
+
+    import mx.collections.ArrayCollection;
+
+    private var chartData:ChartData = new ChartData();
+
+    [Bindable]
+    private var productSales:ArrayCollection;
+
+    private function initApp():void{
+        productSales = chartData.getDataSet1();
+    }
+    ]]>
+    </mx:Script>
+
+  <mx:Panel title="ColumnChart Example" width="100%" height="100%"
+    paddingTop="10" paddingLeft="10" paddingRight="10" paddingBottom="10">
+
+    <mx:ColumnChart id="columnChart1" height="100%" width="100%"
+            paddingLeft="5" paddingRight="5"
+            showDataTips="true" dataProvider="{productSales}">
+      <mx:horizontalAxis>
+        <mx:CategoryAxis categoryField="Quarter"/>
+      </mx:horizontalAxis>
+      <mx:series>
+        <mx:ColumnSeries xField="Quarter" yField="Gizmos" displayName="Gizmos"/>
+        <mx:ColumnSeries xField="Quarter" yField="Widgets" displayName="Widgets"/>
+        <mx:ColumnSeries xField="Quarter" yField="Gadgets" displayName="Gadgets"/>
+      </mx:series>
+    </mx:ColumnChart>
+    <mx:Legend dataProvider="{columnChart1}" direction="horizontal"/>
+  </mx:Panel>
+</mx:Application>

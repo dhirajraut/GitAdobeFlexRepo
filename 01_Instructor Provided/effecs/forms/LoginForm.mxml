@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml"
+	title="Login Form">
+	<mx:Metadata>
+		[Event(name="login", type="events.LoginEvent")]
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import events.LoginEvent;
+			import dto.Login;
+			private function login():void
+			{
+				var loginDTO:Login = new Login(userNameInput.text, passwordInput.text);
+				var event:LoginEvent = new LoginEvent(loginDTO, "login");
+				dispatchEvent(event);
+			}
+		]]>
+	</mx:Script>
+	<mx:Form>
+		<mx:FormItem label="User Name:">
+			<mx:TextInput id="userNameInput"/>
+		</mx:FormItem>
+		<mx:FormItem label="Password:">
+			<mx:TextInput id="passwordInput" displayAsPassword="true"/>
+		</mx:FormItem>
+		<mx:FormItem>
+			<mx:Button label="Login" click="login()"/>
+		</mx:FormItem>
+	</mx:Form>
+</mx:Panel>

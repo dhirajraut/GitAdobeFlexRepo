@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<foodgroups>
+<fruits>
+<fruit color = "red"> Apple </fruit>
+<fruit color = "orange"> Orange </fruit>
+<fruit color = "green"> kiwi </fruit>
+<fruit color = "red"> Apple </fruit>
+<fruit color = "green"> pear </fruit>
+</fruits>
+<vegetables>
+<vegetables color = "red"> Tomato </vegetables>
+<vegetables color = "brown"> Potato </vegetables>
+<vegetables color = "green"> Gourd </vegetables>
+</vegetables>
+</foodgroups>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Panel x="22" y="10" width="345" height="300" layout="absolute">
+		<mx:TextInput x="57" y="65"/>
+		<mx:TextInput x="57" y="95"/>
+		<mx:ControlBar>
+		<mx:Button x="57" y="138" label="Button"/>
+		</mx:ControlBar>
+	</mx:Panel>
+	
+</mx:Application>

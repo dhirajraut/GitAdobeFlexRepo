@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+<mx:Script>
+	<![CDATA[
+	import mx.controls.Alert;
+	[Embed(source="assets/yankee.jpg")]
+	private var sampleIcon:Class;
+	private function showAlert(event:Event):void {
+	var alert:Alert = Alert.show("You have clicked a button to display an alert.", 
+	"Important Message", Alert.OK, this, null, sampleIcon);
+	}
+	]]>
+	</mx:Script>
+<mx:Button id="button" label="Show Alert" click="showAlert(event)" />
+</mx:Application>

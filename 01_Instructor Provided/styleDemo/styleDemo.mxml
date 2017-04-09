@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+<mx:Style>
+	Label {
+		font-size:28;
+	}
+	
+	Button {
+		fill-colors:#ff0000,#0000ff;
+		corner-radius:3;
+	}
+	
+	.redObjects {
+		color:#ff0000;
+	}
+	
+	global {
+		font-family:Arial;
+	}
+</mx:Style>
+	<mx:Label x="172" y="35" text="Some Text"/>
+	<mx:Label x="172" y="87" text="Some More Text"/>
+	<mx:Label x="172" y="130" text="And Yet some more Text" styleName="redObjects"/>
+	<mx:Button x="172" y="188" label="Button"/>
+	<mx:Button x="172" y="252" label="Button"/>
+
+
+	
+</mx:Application>

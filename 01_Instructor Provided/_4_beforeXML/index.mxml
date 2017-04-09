@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+<mx:Script>
+	<![CDATA[
+		import mx.collections.ArrayCollection;
+		private var statesArray:Array=["Karnataka","Andhra Pradesh","Kerala","Tamil Nadu"];
+		// bindable is the meta data which tels flash player to change the value every time this variable changes
+		[Bindable]
+		private var statesCollection:ArrayCollection = new ArrayCollection(statesArray);
+	]]>
+</mx:Script>
+	<mx:List id="myList"  x="50" y="50" width="250" height="150" dataProvider="{statesCollection}"/>
+	<mx:Label x="50" y="208" text="{myList.selectedIndex}" fontSize="14" color="#ffffff"/>
+	<mx:Label x="50" y="239" text="{myList.selectedItem}" fontSize="14" color="#ffffff"/>
+</mx:Application>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:states>
+		<mx:State name="newcol">
+			<mx:SetStyle target="{vbox1}" name="backgroundColor" value="#ff0080"/>
+			<mx:SetEventHandler target="{linkbutton1}" name="click" handler="this.currentState=''"/>
+		</mx:State>
+	</mx:states>
+	<mx:VBox x="172" y="10" width="250" height="100" backgroundColor="#c0c0c0" id="vbox1">
+	</mx:VBox>
+	<mx:LinkButton x="84" y="41" label="LinkButton" click="this.currentState='newcol'" id="linkbutton1"/>
+	
+</mx:Application>

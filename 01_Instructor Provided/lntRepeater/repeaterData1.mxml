@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="vertical">
+<mx:Model id="bookData">
+<books>
+<bookName>The Power Of Now</bookName>
+<bookName>Magic Of Thinking Big</bookName>
+<bookName>Art Of War</bookName>
+</books>
+</mx:Model>
+<mx:ArrayCollection id="bookArray" source="{bookData.bookName}" />
+<mx:Repeater id="bookRepeater" dataProvider="{bookArray}">
+<mx:Label 
+text="{bookRepeater.currentIndex} {bookRepeater.currentItem}" />
+<mx:Button label="Add to Cart" />
+</mx:Repeater>
+</mx:Application>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Label x="20" y="33" text=" {yourdt} is a Holiday" width="295" height="28"/>
+	<mx:HBox id="hbox">
+		
+
+	
+	</mx:HBox>
+	
+	<mx:Script>
+		<![CDATA[
+		[Bindable]
+			private var yourdt:String="(Today's Date)";
+			private function getDate():void{
+				yourdt= dt01.text;
+				hbox.visible= false; 
+			}
+		]]>
+	</mx:Script>
+	<mx:DateField x="100" y="92" id="dt01" change="getDate()"/>
+
+
+		
+</mx:Application>

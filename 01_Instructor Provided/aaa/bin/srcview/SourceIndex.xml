@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of aaa</title>
+	<nodes>
+		<node selected="true" label="aaa.mxml" icon="mxmlAppIcon" url="source/aaa.mxml.html"/>
+		<node label="ext.as" icon="actionScriptIcon" url="source/ext.as.html"/>
+	</nodes>
+	<zipfile label="Download source (ZIP, 1K)" url="aaa.zip"/>
+	<sdklink label="Download Flex 2 SDK" url="http://www.adobe.com/go/flex2_sdk"/>
+</index>

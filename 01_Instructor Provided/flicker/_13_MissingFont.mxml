@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+<mx:Script>
+	<![CDATA[
+		
+/* This is help ful if some fonts are not available on the users 
+machine or when you work in forign languages,
+
+<mx:Style>
+
+@font-face
+   {
+    src:url("c:\\Windows\\Fonts\\Verdana.ttf");
+    fontFamily: myFontFace;
+   }
+
+</mx:Style> 
+
+After you have embedded the font, 
+you can use the fontFamily name or alias 
+in a type or class selector. 
+below i am using myFontFace as a type selector 
+for all Button controls: 
+Button
+
+ {
+     fontFamily: myFontFace;
+}  
+*/ 		
+]]>
+</mx:Script>
+	
+</mx:Application>

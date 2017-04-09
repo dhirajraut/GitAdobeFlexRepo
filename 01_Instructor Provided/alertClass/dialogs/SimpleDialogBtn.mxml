@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+	title="My Dialog Box" 
+	showCloseButton= "true"
+	close="PopUpManager.removePopUp(this)">
+		<mx:Script>
+		<![CDATA[
+			import mx.managers.PopUpManager;
+		]]>
+	</mx:Script>
+	
+	
+	<mx:Label text="Hi there       " fontSize="15"/>
+<mx:Button label="closeme" click="PopUpManager.removePopUp(this)"/>
+	
+</mx:TitleWindow>

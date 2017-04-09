@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+     creationComplete="init()">
+
+<mx:XML id="usersXML" source="data/users.xml" />
+<mx:Script>e
+  <![CDATA[
+    private function init():void
+    {
+      // List Users using the dot operator
+      var userList:XMLList = usersXML.user;
+      trace( userList.toXMLString() );
+
+      // List Users using the XML children() method, same result
+//      userList = usersXML.children();
+//     trace( userList.toXMLString() );
+
+      // List Phone Numbers using the descendant operator
+//      var phoneList:XMLList = usersXML..phone;
+//      trace( phoneList.toXMLString() );
+
+      // List Phone Numbers using the XML descendants() method, same result
+//      phoneList = usersXML.descendants( "phone" );
+//     trace( phoneList.toXMLString() );
+
+      // List Users in IT using the attribute operator
+//      var phoneList:XMLList = usersXML.user.(@department == "IT" );
+//      trace( phoneList.toXMLString() );
+
+      // List Users in IT using the XML attribute() method, same result
+//      phoneList = usersXML.user.(attribute( "department" ) == "IT" );
+//      trace( phoneList.toXMLString() );
+         }
+  ]]>
+     </mx:Script>
+</mx:Application>

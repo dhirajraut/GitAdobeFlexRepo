@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+<!--
+dragEnter  	The dragEnter event dispatched when the drag item moves 
+			across the drop target. This allows you to alert the user 
+			that the item is over the target by programming a visual 
+			alert to the drop target. This could be a color change, 
+			a green border, and so on. 
+ 
+dragOver 	The dragOver event is dispatched while the drag item is over 
+			the target and occurs after the dragEnter event. 
+			This would be a good time to validate that the item is going 
+			to be accepted by the target before it is dropped. 
+ 
+dragDrop 	This is the dragDrop when the drag item is released over the target. 
+ 
+dragComplete The dragComplete event broadcasts when the user releases 
+			the drag item, whether or not it is on the drop target. 
+ 
+dragExit 	The dragExit event is broadcast when the drag item is dragged 
+			outside of the drop target, but is not dropped on the drop target.  
+			-->
+ 
+
+</mx:Application>

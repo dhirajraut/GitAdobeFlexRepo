@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" initialize="mybooks.send()">
+
+<mx:Script>
+	<![CDATA[
+		import mx.rpc.events.ResultEvent;
+		import mx.collections.ArrayCollection;
+		[Bindable]
+		private var wData:ArrayCollection;
+		private function onResult(event:ResultEvent):void
+		{
+		wData = event.result.books.stock;
+		}
+	]]>
+</mx:Script>
+
+<mx:HTTPService id="mybooks" url="data/books.xml" result="{onResult(event)}"/>
+	<mx:DataGrid dataProvider="{wData}" x="148" y="52" width="550"/>
+</mx:Application>

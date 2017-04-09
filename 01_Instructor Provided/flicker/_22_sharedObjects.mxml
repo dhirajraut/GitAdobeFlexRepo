@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+     backgroundColor="#FFFFFF" width="400" height="230">
+  <mx:Script>
+    <![CDATA[
+    import mx.controls.Alert;
+    [Bindable]
+    public var user:SharedObject = SharedObject.getLocal("user");
+    private function setSharedObject():void{
+          // if checkbox is selected, create shared object data
+      if(this.rememberMe.selected){
+        user.data.firstname = this.firstname.text;
+        user.data.lastname = this.lastname.text;
+        user.flush();
+        Alert.show("Your information has been saved, reload the application to see your saved information.", "Alert");
+      }
+    }
+    // clear all data from the shared object
+    private function clearSharedObject():void{
+      this.rememberMe.selected = false;
+      user.clear();
+      Alert.show("Your information has been cleared.", "Alert");
+    }
+    ]]>
+  </mx:Script>
+  <mx:Panel title="Shared Object Sample">
+    <mx:Form>
+      <mx:FormItem label="Firstname:">
+        <mx:TextInput id="firstname" text="{user.data.firstname}" />
+      </mx:FormItem>
+      <mx:FormItem label="Lastname:">
+        <mx:TextInput id="lastname" text="{user.data.lastname}" />
+      </mx:FormItem>
+      <mx:FormItem label="Remember Me" direction="horizontal">
+        <mx:CheckBox id="rememberMe" change="setSharedObject()" />
+      </mx:FormItem>
+      <mx:FormItem direction="horizontal">
+        <mx:Button label="Clear Shared Object" click="clearSharedObject()"/>
+      </mx:FormItem>
+    </mx:Form>
+  </mx:Panel>
+</mx:Application>

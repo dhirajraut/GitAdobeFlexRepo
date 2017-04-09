@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+
+creationComplete="bookStock.send()">
+<mx:Script>
+<![CDATA[
+import mx.collections.ArrayCollection;
+import mx.rpc.events.ResultEvent;
+[Bindable]
+private var books:ArrayCollection;
+private function bookHandler(event:ResultEvent):void
+{
+books=event.result.books.stock;
+}
+]]>
+</mx:Script>
+<mx:HTTPService url="data/books.xml" id="bookStock" 
+	result="bookHandler(event)"/>
+<mx:DataGrid x="158" y="62" dataProvider="{books}" 
+	id="dgInitiator" dragEnabled="true" dragMoveEnabled="true" dropEnabled="true">
+<mx:columns>
+<mx:DataGridColumn headerText="NAME" dataField="name"/>
+<mx:DataGridColumn headerText="AUTHOR" dataField="author"/>
+<mx:DataGridColumn headerText="CATEGORY" dataField="category"/>
+</mx:columns>
+</mx:DataGrid>
+
+<mx:DataGrid id="dgTarget" x="228" y="269" dropEnabled="true">
+<mx:columns>
+<mx:DataGridColumn dataField="name" headerText="NAME"/>
+<mx:DataGridColumn dataField="category" headerText="CATEGORY"/>
+</mx:columns>
+</mx:DataGrid>
+</mx:Application>

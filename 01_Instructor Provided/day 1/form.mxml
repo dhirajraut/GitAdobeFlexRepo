@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:HBox x="100" y="24">
+		<mx:Label text="First Name"/>
+		<mx:TextInput id="firstName"/>
+	</mx:HBox>
+		<mx:HBox x="100" y="52">
+		<mx:Label text="Last Name"/>
+		<mx:TextInput id="lastName"/>
+	</mx:HBox>
+		<mx:HBox x="127" y="82">
+				<mx:Label text="Roles"/>
+				<mx:VBox x="156" y="80">
+			<mx:RadioButtonGroup id="radioGrp"/>				
+				<mx:RadioButton label="Employee" groupName="radioGrp" />
+				<mx:RadioButton label="Customer" groupName="radioGrp" />
+				<mx:RadioButton label="Vendor" groupName="radioGrp" />
+		</mx:VBox>
+		</mx:HBox>
+		
+		<mx:HBox x="127" y="156">
+		<mx:CheckBox id = "okChkBox"  label="Ok to Contact ?"/>
+		</mx:HBox>
+		<mx:Button x="183" y="182" label="Button"/>
+</mx:Application>

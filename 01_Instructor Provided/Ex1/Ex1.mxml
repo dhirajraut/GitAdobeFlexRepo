@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"  >
+	<mx:ViewStack id="myvs">
+
+				<mx:Panel x="69" y="71" width="250" height="200" layout="absolute" title="Contact Us" id="panel2">
+					<mx:DateChooser x="28" y="0" height="150"/>
+				</mx:Panel>
+		
+				<mx:Panel x="82" y="66" width="250" height="200" layout="absolute" title="About Us">
+					<mx:TextInput x="22" y="10" text="We"/>
+					<mx:TextInput x="22" y="40" text="are"/>
+					<mx:TextInput x="22" y="70" text="here"/>
+				</mx:Panel>
+		
+	<mx:Panel x="55" y="59" width="312" height="219" layout="absolute" title="Home" id="panel1">
+		<mx:Form x="10" y="10" width="272" height="141">
+			<mx:FormItem label="name" id="formitem1">
+				<mx:TextInput/>
+			</mx:FormItem>
+			<mx:FormItem label="Add" id="formitem2">
+				<mx:TextInput/>
+			</mx:FormItem>
+		</mx:Form>
+	</mx:Panel>
+	</mx:ViewStack>
+	<mx:HBox x="66" y="19" width="100%">
+		<mx:Button label="Home" id="button1" click="myvs.selectedIndex=0"/>
+		<mx:Button label="Contact Us" id="button2"/>
+		<mx:Button label="About Us" id="button3"/>
+	</mx:HBox>
+
+	
+	
+	
+</mx:Application>

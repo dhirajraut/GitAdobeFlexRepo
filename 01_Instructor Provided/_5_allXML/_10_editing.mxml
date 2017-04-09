@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="vertical" initialize="mybooks.send()">
+<mx:Script>
+	<![CDATA[
+		import mx.controls.dataGridClasses.DataGridColumn;
+		import mx.rpc.events.ResultEvent;
+		import mx.collections.ArrayCollection;
+		[Bindable]
+		private var wData:ArrayCollection;
+		private function onResult(event:ResultEvent):void
+		{
+		wData = event.result.books.stock;
+		}	
+		private function rating(data:Object, 
+		category:DataGridColumn):String
+		{
+		return data.category + "*****";
+		}
+	]]>
+</mx:Script>
+<mx:HTTPService id="mybooks" url="data/books.xml" result="{onResult(event)}"/>
+<mx:DataGrid x="56" y="250" width="950" dataProvider="{wData}" editable="true">
+<mx:columns>
+<mx:DataGridColumn dataField="name" headerText="Book Title"  width="250" textAlign="right" editable="false"/>
+<mx:DataGridColumn dataField="author" headerText="Who Wrote it !"  width="150"/>
+<mx:DataGridColumn dataField="category" headerText="Shelf" 
+	width="200" labelFunction="{rating}" editable="false"/>
+</mx:columns>
+</mx:DataGrid>
+</mx:Application>

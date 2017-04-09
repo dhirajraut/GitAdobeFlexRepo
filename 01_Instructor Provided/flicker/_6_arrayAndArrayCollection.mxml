@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+ initialize="initTimer()">
+
+     <mx:Script>
+
+     import mx.utils.UIDUtil;
+     import flash.utils.Timer;
+     import flash.events.TimerEvent;
+     import mx.collections.ArrayCollection;
+
+     [Bindable]
+     public var myCollection:ArrayCollection = new ArrayCollection();
+
+     public function initTimer():void
+     {
+          var myTimer:Timer = new Timer(1000, 0);
+          myTimer.addEventListener("timer", timerHandler);
+          myTimer.start();
+     }
+
+     public function timerHandler(event:TimerEvent):void
+     {
+          var o:Object = new Object();
+          //o.uid = UIDUtil.createUID();
+          o.number = Math.random() * 400;
+          myCollection.addItem(o);
+     }
+
+     </mx:Script>
+     <mx:SeriesInterpolate id="interpolateIn" duration="500" />
+
+     <mx:ColumnChart id="column" height="100%" width="100%"
+          paddingLeft="5" paddingRight="5"
+          showDataTips="true" dataProvider="{myCollection}">
+
+          <mx:horizontalAxis>
+               <mx:CategoryAxis categoryField="number" />
+          </mx:horizontalAxis>
+
+          <mx:horizontalAxisRenderer>
+               <mx:AxisRenderer showLabels="false" />
+          </mx:horizontalAxisRenderer>
+
+         <mx:series>
+              <mx:ColumnSeries yField="number" showDataEffect="{interpolateIn}" />
+         </mx:series>
+     </mx:ColumnChart>
+
+</mx:Application>

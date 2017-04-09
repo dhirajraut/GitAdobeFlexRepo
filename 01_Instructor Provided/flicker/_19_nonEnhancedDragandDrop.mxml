@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="initApp()" layout="absolute">
+  <mx:Script>
+    <![CDATA[
+    import mx.collections.ArrayCollection;
+    import mx.events.DragEvent;
+    import mx.managers.DragManager;
+    import mx.core.DragSource;
+    [Bindable]
+    public var total:Number = 0;
+    [Bindable]
+    public var cartContents:ArrayCollection;
+    private function initApp():void{
+     this.cartContents = new ArrayCollection();
+    }
+    private function dragIt(event:MouseEvent, name:String, price:Number):void {
+      // The currentTarget specifies the component initiating the drag.
+      var dragInitiator:Image = event.currentTarget as Image;
+      // Create a new  DragSource object containing the data being dragged
+      var dragSource:DragSource = new DragSource();
+      // Add the data to the object.
+      dragSource.addData(name, 'name');
+      dragSource.addData(price, 'price');
+      // Create a copy of the image to use as a drag proxy.
+      var dragProxy:Image = new Image();
+      dragProxy.source = event.currentTarget.source;
+      // Call the DragManager doDrag() method to start the drag.
+      DragManager.doDrag(dragInitiator, dragSource, event, dragProxy);
+    }
+    // Called if the user drags a drag proxy onto the drop target.
+    private function dragEnterHandler(event:DragEvent):void {
+      // Get the drop target component from the event object.
+      var dropTarget:DataGrid=event.currentTarget as DataGrid;
+      // Accept the drag only if the object contains the correct data
+      if (event.dragSource.hasFormat('name') && event.dragSource.hasFormat('price')){
+        // Accept the drop.
+        DragManager.acceptDragDrop(dropTarget);
+      }
+    }
+    // Called if used drops the object over the target and the target accepts the object
+    private function dragDropHandler(event:DragEvent):void {
+      // Set the data from the dragSource to local vars.
+      var name:String  = String(event.dragSource.dataForFormat('name')) ;
+      var price:Number  = Number(event.dragSource.dataForFormat('price')) ;
+      this.cartContents.addItem({name:String(event.dragSource.dataForFormat('name')),
+price:Number(event.dragSource.dataForFormat('price'))});
+      // Add the price to the total
+      total += price;
+    }
+    ]]>
+  </mx:Script>
+  <mx:ArrayCollection id="products">
+    <mx:Object productName="Product 1" productPrice="1.99" productImage="book.gif" />
+    <mx:Object productName="Product 2" productPrice="2.99" productImage="book.gif" />
+    <mx:Object productName="Product 3" productPrice="3.99" productImage="book.gif" />
+  </mx:ArrayCollection>
+  <mx:Image source="assets/yankee.jpg" mouseMove="dragIt(event, 'Yankee Hat', 50.00);"
+x="23" y="35"/>
+  <mx:Label text="Rs. 50.00"  x="23" y="197"/>
+  <mx:Image source="assets/mets.jpg" mouseMove="dragIt(event, 'Met Hat', 60.00);" x="23"
+y="135"/>
+  <mx:Label text="Rs. 60.00"  x="23" y="98"/>
+  <mx:Label text="Shopping Cart"  x="226" y="28" fontWeight="bold"/>
+  <mx:DataGrid id="cart" dataProvider="{cartContents}" dragEnter=
+"dragEnterHandler(event);" dragDrop="dragDropHandler(event);" x="175" y="50"
+height="165">
+    <mx:columns>
+      <mx:DataGridColumn dataField="name" headerText="Name" />
+      <mx:DataGridColumn dataField="price" headerText="Price" />
+    </mx:columns>
+  </mx:DataGrid>
+  <mx:Label text="Total: Rs. {total}"  x="215" y="222"/>
+  <mx:Label x="93.5" y="2" text="Drag a product into the shopping cart"/>
+  <mx:HRule x="5" y="20" width="390"/>
+</mx:Application>

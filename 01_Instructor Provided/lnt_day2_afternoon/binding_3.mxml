@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+	<mx:Text id="texter" x="67" y="74" text="Good AfterNoon" fontSize="26" 
+		color="{colorme.selectedColor}" fontWeight="bold"/>
+	<mx:ColorPicker x="67" y="139" id="colorme"/>
+	
+	
+</mx:Application>

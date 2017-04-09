@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application layout="absolute"
+  xmlns:mx="http://www.adobe.com/2006/mxml"
+  creationComplete="initApp();">
+  <mx:Script>
+    <![CDATA[
+    // setup 3 dataProviders, 2 empty
+    private function initApp():void{
+      words.dataProvider = ['Water', 'Agua', 'Car', 'Coche', 'House', 'Casa',
+'Book', 'Libro', 'Music', 'Música', 'Sandwich', 'Bocadillo'];
+      english.dataProvider = [];
+      spanish.dataProvider = [];
+    }
+    ]]>
+  </mx:Script>
+  <mx:Panel title="Sort Words By Language" layout="absolute" x="0" y="0" width=
+"450" height="350">
+    <mx:Label text="Drag to the Correct Language" x="7" y="3"/>
+    <mx:List id="words" width="200" height="275"
+      allowMultipleSelection="true"
+      dragEnabled="true" y="25" x="7"/>
+    <mx:Label text="English" y="6" x="223"/>
+    <mx:List id="english" width="200" height="120"
+      dropEnabled="true" y="25" x="223"/>
+    <mx:Label text="Spanish" x="223" y="150"/>
+    <mx:List id="spanish" width="200" height="120"
+      dropEnabled="true" y="177" x="223"/>
+  </mx:Panel>
+</mx:Application>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+<mx:Script>
+<![CDATA[
+		import mx.collections.ArrayCollection;
+		import mx.core.*;
+		import mx.managers.DragManager;
+		import mx.events.DragEvent;
+	[Bindable]
+		private var targetData:ArrayCollection=new ArrayCollection();
+		private function dragTest(initiator:Label, myData:String, event:MouseEvent, format:String):void
+	{
+		var ds:DragSource = new DragSource();
+		ds.addData(myData,format);
+		DragManager.doDrag(initiator, ds, event);
+	}
+		private function testDragEnter(event:DragEvent, format:String):void
+	{
+	if(event.dragSource.hasFormat(format))
+	{
+	DragManager.acceptDragDrop(IUIComponent(event.target));
+	}
+	}
+		private function testDragDrop(event:DragEvent,format:String):void
+		{
+		var myData:Object = new Object();
+		myData = event.dragSource.dataForFormat(format);
+		liTarget.dataProvider.addItem(myData);
+		}
+		]]>
+		</mx:Script>
+		<mx:Label id="dragLabel" text="Drag this Label" mouseDown="dragTest(dragLabel,
+		'This is the data', event,'stringFormat')"/>
+	<mx:List id="liTarget" width="225" dataProvider="{targetData}" 
+		dragEnter="testDragEnter(event, 'stringFormat')" dragDrop="testDragDrop(event,'stringFormat')"/>
+	</mx:Application>

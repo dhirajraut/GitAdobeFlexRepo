@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" xmlns:view="view.*">
+<mx:Script>
+	<![CDATA[
+	import mx.events.ColorPickerEvent;
+		[Bindable]
+		private var sharedData:String="Init value";
+		[Bindable]
+		private var sharedColor:uint=0x00ffff ;
+		private function sharedDataHandler(event:TextEvent):void{
+			//sharedData="Data was shared from the Component";
+			sharedData=event.text;
+
+			
+		}
+		
+		private function sharedColorHandler(colevent:ColorPickerEvent):void{
+			//sharedData="Data was shared from the Component";
+			sharedColor=colevent.color;
+		}
+	]]>
+</mx:Script>
+
+	
+
+<view:Dispatcher borderStyle="solid" borderColor="cyan" width="355"
+  dataShared="sharedDataHandler(event)" 
+  colorShared="sharedColorHandler(colevent)"
+  x="50" y="50" />
+
+<view:Receiver myProperty="{sharedData}" colorShared="{sharedColor}"/>
+	
+
+  
+
+</mx:Application>

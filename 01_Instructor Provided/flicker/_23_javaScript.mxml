@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+     creationComplete="initApp()" backgroundColor="#FFFFFF"
+     width="400" height="250">
+  <mx:Script>
+  import flash.external.ExternalInterface;
+  import mx.controls.Alert;
+  public function initApp():void {
+    this.setupCallbacks();
+  }
+  // Called from JavaScript
+  public function callFromJavascript(s:String):void {
+    Alert.show(s,"Flex Alert");
+  }
+  // Call to JavaScript
+  private function sendToJavaScript():void {
+    ExternalInterface.call("getFromFlex",valueForJavascript.text);
+  }
+  // Set up callbacks
+  private function setupCallbacks():void{
+       ExternalInterface.addCallback("callFromJavascript",callFromJavascript);
+  }
+  </mx:Script>
+  <mx:Panel title="ExternalInterface Sample" width="350" height="200">
+    <mx:HBox>
+      <mx:TextInput id="valueForJavascript" text="Hello From Flex" />
+      <mx:Button click="this.sendToJavaScript()" label="Send to Javascript" />
+    </mx:HBox>
+  </mx:Panel>
+</mx:Application>
+

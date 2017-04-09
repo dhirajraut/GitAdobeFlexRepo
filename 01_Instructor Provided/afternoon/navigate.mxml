@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Accordion x="10" y="13"
+		historyManagementEnabled="false"> <!--this property is set to true by default -->
+	
+	<mx:VBox id="onlinetraining"
+			label="online"		
+            cornerRadius="20"
+            borderStyle="solid"
+            height="150" width="400"
+            backgroundColor="#ffffff"
+            paddingLeft="10"
+            paddingTop="10">
+            <mx:HBox width="100%">
+                <mx:Text text="Training" fontSize="19" width="75%"/>
+            </mx:HBox>
+        </mx:VBox>
+        <mx:VBox id="multiuser"
+        	label="multiuser"		
+            cornerRadius="20"
+            borderStyle="solid"
+            height="151" width="400"
+            backgroundColor="#ffffff"
+            paddingLeft="10"
+            paddingTop="10">
+            <mx:HBox width="100%">
+                <mx:Text width="75%" text="Solutions" fontSize="19"/>
+            </mx:HBox>
+        </mx:VBox>
+        <mx:VBox id="store"
+        	label="store"		
+            cornerRadius="20"
+            borderStyle="solid"
+            height="150" width="400"
+            backgroundColor="#ffffff"
+            paddingLeft="10"
+            paddingTop="10">
+            <mx:HBox width="100%">
+                <mx:Text width="75%" text="Our Online Store" fontSize="19"/>
+            </mx:HBox>
+        </mx:VBox>        		
+	</mx:Accordion>
+</mx:Application>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	backgroundGradientColors="[#eeeeee,#eeeeee]"
+	layout="vertical">
+		<mx:Script>
+		<![CDATA[
+			import mx.events.ValidationResultEvent;
+			import mx.controls.Alert;
+			
+			private function validateMe():void {
+				var validUserEvent:ValidationResultEvent =
+					userValidator.validate();
+				var validPasswordEvent:ValidationResultEvent =
+					passwordValidator.validate();
+					
+				if (validUserEvent.type == ValidationResultEvent.VALID &&
+					validPasswordEvent.type == ValidationResultEvent.VALID) {
+					Alert.show("the form is valid");	
+				} else {
+					Alert.show("the form is not valid");
+				}
+			}
+		]]>
+			</mx:Script>
+			<mx:StringValidator id="userValidator"
+			source="{userInput}" property="text"
+			triggerEvent="" />
+<!--///////////////////////////////////////// -->	
+<!--Default TriggerEvent is turned off by entering triggerEvent"" in line 29 and they are programatically done useing actionscript -->	
+<!--///////////////////////////////////////// -->
+	<mx:StringValidator id="passwordValidator"
+		source="{passwordInput}" property="text"
+		triggerEvent=""
+		minLength="8"
+		maxLength="15"
+		tooShortError="Your password is too short"
+		tooLongError="Your password is too long"/>
+	<mx:Panel title="My Form">
+	<mx:Form>
+		<mx:FormItem label="User Name:" required="true">
+			<mx:TextInput id="userInput"/>
+		</mx:FormItem>
+		<mx:FormItem label="Password:" required="true">
+			<mx:TextInput id="passwordInput" displayAsPassword="true"/>
+		</mx:FormItem>
+	</mx:Form>
+	<mx:ControlBar>
+		<mx:Button label="Click Me" click="validateMe()"/>
+<!--	<mx:Button label="Click Me" click = "mx.controls.Alert.show('You clicked')"/> -->
+	</mx:ControlBar>
+	</mx:Panel>
+</mx:Application>

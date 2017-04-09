@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+ creationComplete="initApp()" backgroundColor="#FFFFFF"
+  xmlns:ChartData="ChartData.as">
+
+  <mx:Script>
+    <![CDATA[
+
+    import mx.collections.ArrayCollection;
+
+    private var chartData:ChartData = new ChartData();
+
+    [Bindable]
+    private var productSales:ArrayCollection;
+
+    private function initApp():void{
+      productSales = chartData.getDataSet1();
+    }
+    ]]>
+  </mx:Script>
+
+  <mx:Panel title="LineChart Example" width="100%" height="100%"
+    paddingTop="10" paddingLeft="10" paddingRight="10" paddingBottom="10">
+
+    <mx:BubbleChart id="bubbleChart1" height="100%" width="100%"
+      paddingRight="5" paddingLeft="5" showDataTips="true" maxRadius="20"
+      dataProvider="{productSales}">
+      <mx:series>
+        <mx:BubbleSeries displayName="Gizmos/Widgets/Gadgets"
+          xField="Gizmos" yField="Widgets" radiusField="Gadgets"/>
+      </mx:series>
+      <mx:horizontalAxis>
+             <mx:LinearAxis title="Gizmos" />
+      </mx:horizontalAxis>
+      <mx:verticalAxis>
+             <mx:LinearAxis title="Widgets" />
+      </mx:verticalAxis>
+    </mx:BubbleChart>
+    <mx:Legend dataProvider="{bubbleChart1}" direction="horizontal"/>
+  </mx:Panel>
+</mx:Application>

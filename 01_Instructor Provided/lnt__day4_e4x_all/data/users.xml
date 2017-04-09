@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+ <user department="IT">
+          <userid>145</userid>
+          <firstname>Bob</firstname>
+          <lastname>Weston</lastname>
+          <phones>
+               <phone>(545) 234-4523</phone>
+               <phone>(400) 879-5116</phone>
+          </phones>
+     </user>
+     <user department="Sales">
+          <userid>3654</userid>
+          <firstname>Tim</firstname>
+          <lastname>Kimber</lastname>
+          <phones>
+               <phone>(774) 684-1616</phone>
+               <phone>(400) 999-5465</phone>
+          </phones>
+     </user>
+     <user department="HR">
+          <userid>823</userid>
+          <firstname>Susan</firstname>
+          <lastname>Johnson</lastname>
+          <phones>
+               <phone>(123) 456-7891</phone>
+          </phones>
+     </user>
+     <user department="IT">
+          <userid>6355</userid>
+          <firstname>Jerry</firstname>
+          <lastname>Yassou</lastname>
+          <phones>
+               <phone>(334) 774-1224</phone>
+               <phone>(423) 858-4244</phone>
+               <phone>(633) 223-8994</phone>
+          </phones>
+     </user>
+     <user department="Sales">
+          <userid>95</userid>
+          <firstname>Anna</firstname>
+          <lastname>Fairworth</lastname>
+          <phones>
+               <phone>(667) 552-4499</phone>
+               <phone>(871) 257-9080</phone>
+          </phones>
+     </user>
+</users>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of inclasse4x</title>
+	<nodes>
+		<node label="data">
+			<node label="books.xml" url="source/data/books.xml.txt"/>
+		</node>
+		<node selected="true" label="_1_e4x.mxml" icon="mxmlAppIcon" url="source/_1_e4x.mxml.html"/>
+		<node label="tryme.mxml" icon="mxmlIcon" url="source/tryme.mxml.html"/>
+	</nodes>
+	<zipfile label="Download source (ZIP, 2K)" url="inclasse4x.zip"/>
+	<sdklink label="Download Flex 2 SDK" url="http://www.adobe.com/go/flex2_sdk"/>
+</index>

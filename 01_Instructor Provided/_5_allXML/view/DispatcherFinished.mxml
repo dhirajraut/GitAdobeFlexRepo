@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml">
+
+	<mx:Metadata>
+		[Event(name="dataShared", type="flash.events.TextEvent")]
+	</mx:Metadata>
+
+	<mx:Script>
+		<![CDATA[
+			import flash.events.TextEvent;
+			
+			private function clickHandler():void {
+				var event:TextEvent = new TextEvent("dataShared");
+				event.text=myInput.text;
+				dispatchEvent(event);
+			}
+		]]>
+	</mx:Script>
+
+	<mx:Label text="Dispatching Component" fontSize="18"/>
+	<mx:HBox>
+		<mx:Label text="Enter a value:"/>
+		<mx:TextInput id="myInput"/>
+		<mx:Button label="Click Me" click="clickHandler()"/>
+	</mx:HBox>
+</mx:VBox>

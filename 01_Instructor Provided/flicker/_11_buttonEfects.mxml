@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+     <mx:Script>
+          <![CDATA[
+               import mx.effects.easing.Exponential;
+          ]]>
+     </mx:Script>
+
+     <mx:Parallel id="parallelEffect" target="{myPanel}">
+          <mx:Resize widthBy="150" heightBy="150" easingFunction=
+"{Exponential.easeOut}" />
+          <mx:Blur blurXTo="5" blurYTo="5" />
+     </mx:Parallel>
+
+     <mx:Sequence id="sequenceEffect" target="{myPanel}">
+          <mx:Resize widthBy="-150" heightBy="-150" easingFunction=
+"{Exponential.easeInOut}" />
+          <mx:Blur blurXTo="0" blurYTo="0" />
+     </mx:Sequence>
+
+     <mx:Panel title="Panel" id="myPanel" width="100" height="100" />
+
+     <mx:Button label="Parallel Effect" click="parallelEffect.play()" />
+     <mx:Button label="Sequence Effect" click="sequenceEffect.play()" />
+
+</mx:Application>

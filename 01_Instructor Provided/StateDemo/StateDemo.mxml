@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+
+	<mx:states>
+
+		<mx:State name="regn">
+			<mx:AddChild relativeTo="{button0}" position="before">
+				<mx:FormItem label="Confirm Password" id="formitem2">
+					<mx:TextInput/>
+				</mx:FormItem>
+			</mx:AddChild>
+			<mx:SetEventHandler target="{button0}" name="click" handler="this.currentState=''"/>
+			<mx:RemoveChild target="{button1}"/>
+		</mx:State>
+		<mx:State name="entertext" basedOn="regn">
+			<mx:RemoveChild target="{formitem1}"/>
+			<mx:RemoveChild target="{formitem2}"/>
+			<mx:RemoveChild target="{formitem3}"/>
+			<mx:RemoveChild target="{button0}"/>
+			<mx:AddChild relativeTo="{form1}" position="lastChild">
+				<mx:FormItem label="Rich Text" id="formitem4">
+					<mx:RadioButton label="Radio"/>
+				</mx:FormItem>
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{formitem4}" position="before">
+				<mx:FormItem label="Plain Text">
+					<mx:RadioButton label="Radio"/>
+				</mx:FormItem>
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{form1}" position="lastChild">
+				<mx:FormItem label="Plain Text" id="ptextarea" height="173">
+					<mx:RichTextEditor height="175" id="rtextarea" enabled="false">
+					</mx:RichTextEditor>
+					<mx:TextArea height="119"/>
+				</mx:FormItem>
+			</mx:AddChild>
+			<mx:SetProperty target="{form1}" name="width" value="348"/>
+			<mx:SetProperty target="{form1}" name="height" value="279"/>
+			<mx:SetProperty target="{form1}" name="x" value="31"/>
+		</mx:State>
+		<mx:State name="richtext" basedOn="entertext"/>
+	</mx:states>
+	<mx:Form x="56" y="55" width="323" height="207" id="form1">
+		<mx:FormItem label="Enter User Id" id="formitem1">
+			<mx:TextInput/>
+		</mx:FormItem>
+		<mx:FormItem label="Password" id="formitem3">
+			<mx:TextInput/>
+		</mx:FormItem>
+		<mx:Script>
+	<![CDATA[
+		private function puttext():void{
+			this.currentState='entertext';
+		}
+	]]>
+</mx:Script>
+		<mx:Button label="Login" id="button1" click="puttext()"/>
+
+		<mx:Button label="Signup" id="button0" click="this.currentState='regn'"/>
+
+	</mx:Form>
+	
+</mx:Application>

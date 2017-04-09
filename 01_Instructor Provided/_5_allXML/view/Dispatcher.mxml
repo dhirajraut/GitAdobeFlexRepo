@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:Metadata>
+		[Event(name="dataShared")]
+	</mx:Metadata>
+<!--we are makeing the dataShared event a member of this component -->
+	<mx:Script>
+		<![CDATA[
+			private function clickHandler():void {
+			var event:Event = new Event ("dataShared");
+			dispatchEvent(event);
+			}
+		]]>
+	</mx:Script>
+<mx:Label text="Dispatching Components" fontSize="18"/>
+	<mx:HBox>
+		<mx:Button label="Click Me" click="clickHandler()"/>
+	</mx:HBox>
+</mx:VBox>

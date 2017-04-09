@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	initialize="mybooks.send()">
+
+<mx:HTTPService id="mybooks" url="data/books.xml"/>
+	
+
+	
+	<mx:DataGrid dataProvider="{mybooks.lastResult.books.stock}" x="148" y="52" width="550" />
+	
+		
+
+	
+
+</mx:Application>

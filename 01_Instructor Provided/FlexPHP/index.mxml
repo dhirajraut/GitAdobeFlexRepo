@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" 
+	layout="absolute" creationComplete="userRequest.send()">
+<mx:HTTPService id="userRequest" url="users.php" useProxy="false" 
+	method="POST">
+<mx:request xmlns="">
+<username>{username.text}</username><emailaddress>{emailaddress.text}
+</emailaddress>
+</mx:request>
+</mx:HTTPService>
+  
+   <mx:Form x="22" y="10" width="493">
+      <mx:HBox>
+         <mx:Label text="Username"/>
+         <mx:TextInput id="username"/>
+      </mx:HBox>
+      <mx:HBox>
+         <mx:Label text="Email Address"/>
+         <mx:TextInput id="emailaddress"/>
+      </mx:HBox>
+      <mx:Button label="Submit" click="userRequest.send()"/>
+   </mx:Form>
+   
+   <mx:DataGrid id="dgUserRequest" x="22" y="128" 
+   	dataProvider="{userRequest.lastResult.users.user}">
+      <mx:columns>
+         <mx:DataGridColumn headerText="User ID" dataField="userid"/>
+         <mx:DataGridColumn headerText="User Name" dataField="username"/>
+      </mx:columns>
+   </mx:DataGrid>
+   
+   <mx:TextInput x="22" y="292" id="selectedemailaddress" text="{dgUserRequest.selectedItem.emailaddress}"/>
+</mx:Application>

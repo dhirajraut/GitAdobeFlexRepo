@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" >
+<mx:Script>
+	<![CDATA[
+		import mx.controls.TextInput;
+		private function createComponent():void{
+			var ting:TextInput = new TextInput();
+			ting.text = "This component is created first time at runtime";
+			this.addChild(ting);
+		}
+	]]>
+</mx:Script>
+
+
+	<mx:Button x="136" y="144" label="Add Component" click="createComponent()"/>
+	
+</mx:Application>

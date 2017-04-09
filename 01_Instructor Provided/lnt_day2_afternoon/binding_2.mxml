@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Label id="lbTop" text="Welcome to {yourName} Website" fontWeight="bold" color="#ffffff" fontSize="21"/>
+	<mx:HBox id="hBox">
+	<mx:Label text="Please Enter Your Name"/>
+	<mx:TextInput id="tiName" width="96"/>
+	<mx:Button label="OK" click="setName()"/>
+</mx:HBox>
+	<mx:Script>
+	<![CDATA[		
+		[Bindable]
+		public var yourName:String = "(Your Name)";
+		
+		private function setName():void
+		{
+		yourName = tiName.text + "'s";
+		hBox.visible = false;
+		}
+	]]>
+</mx:Script>
+	
+</mx:Application>

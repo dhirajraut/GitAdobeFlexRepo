@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="vertical" backgroundGradientColors="[#eeeeee, #eeeeee]">
+    <mx:Label text="Example 1" fontSize="12"/>
+	<mx:Label text="{myInput.text}"/>
+    <mx:TextInput id="myInput"/>
+    <mx:Spacer height="50"/>
+    <mx:Label text="Example 2" fontSize="12"/>
+    <mx:HBox
+        paddingBottom="10"
+        paddingLeft="10"
+        paddingRight="10"
+        paddingTop="10"
+        borderStyle="solid">
+        <mx:VBox id="onebox" backgroundColor="#cccccc">
+        <mx:Label text="Box 1"/>
+        <mx:TextInput/>
+        </mx:VBox>
+        <mx:VBox backgroundColor="#cccccc" width="{onebox.width}" height="{onebox.height}">
+        <mx:Label text="Box 2"/>
+        </mx:VBox>  
+    </mx:HBox>
+    </mx:Application>

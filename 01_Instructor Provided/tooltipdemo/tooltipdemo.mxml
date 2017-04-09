@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="initApp()" >
+
+<mx:Script>
+	<![CDATA[
+		import mx.managers.ToolTipManager;
+		import mx.effects.Parallel;
+		import mx.effects.Blur;
+		import mx.effects.Dissolve;
+		public function initApp():void{
+			var b:Blur = new Blur();
+			var f:Dissolve = new Dissolve();
+			var p:Parallel = new Parallel();
+			p.addChild(b);
+			p.addChild(f);
+			ToolTipManager.showEffect = p;
+		}
+	]]>
+</mx:Script>
+
+
+	<mx:Button x="162" y="53" label="A" toolTip="This is the tip at Button A"/>
+	<mx:Button x="162" y="106" label="B" toolTip="Another Tip at Button B" effectEnd=""/>
+	
+</mx:Application>

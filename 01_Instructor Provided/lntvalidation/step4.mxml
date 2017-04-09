@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+
+<!--///////  here i have given min length and tooShortError for the email field ////////// -->
+	
+	<mx:StringValidator source="{tiName}" property="text" requiredFieldError="You should give your name"/>
+	<mx:StringValidator source="{tiEmail}" property="text" requiredFieldError="Check your email ID" 
+		minLength="8" tooShortError="email Id is too short"/>
+	<mx:StringValidator source="{tiComments}" property="text" requiredFieldError="You GOTTA fill this out!!!"/>
+	<mx:Panel layout="vertical" title="Send Us Some Feedback">
+		<mx:Form width="100%" height="100%">
+			<mx:FormItem label="Name" required="true">
+				<mx:TextInput id="tiName"/>
+			</mx:FormItem>
+			<mx:Label text="Must be at least 8 characters long" textAlign="right"/>
+			<mx:FormItem label="Email" required="true">
+				<mx:TextInput id="tiEmail"/>
+			</mx:FormItem>
+			<mx:FormItem label="Comments" required="true">
+				<mx:TextArea id="tiComments"/>
+			</mx:FormItem>
+			<mx:RadioButtonGroup id="gender"/>
+			<mx:RadioButton label="Male" groupName="gender"/>
+			<mx:RadioButton label="Female" groupName="gender"/>
+		</mx:Form>
+		<mx:ControlBar>
+			<mx:Button label="Send"/>
+		</mx:ControlBar>
+	</mx:Panel>
+</mx:Application>
+

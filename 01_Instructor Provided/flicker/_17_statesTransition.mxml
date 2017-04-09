@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+     width="400" height="400" layout="absolute"
+     verticalScrollPolicy="off" horizontalScrollPolicy="off"
+     backgroundColor="#FFFFFF">
+     <mx:transitions>
+    <mx:Transition fromState="*" toState="*">
+      <mx:Sequence targets="{[panel1,panel2,panel3]}">
+      <mx:Move duration="400"/>
+<mx:Rotate angleFrom="0" angleTo="360" />
+      <mx:Resize duration="400"/>
+      </mx:Sequence>
+    </mx:Transition>
+  </mx:transitions>
+  <mx:states>
+    <mx:State name="s1">
+      <mx:SetProperty target="{panel1}" name="x" value="5"/>
+      <mx:SetProperty target="{panel1}" name="y" value="60"/>
+      <mx:SetProperty target="{panel1}" name="height" value="300"/>
+      <mx:SetProperty target="{panel1}" name="width" value="390"/>
+      <mx:SetProperty target="{panel2}" name="x" value="135"/>
+      <mx:SetProperty target="{panel2}" name="y" value="10"/>
+      <mx:SetProperty target="{panel2}" name="height" value="30"/>
+      <mx:SetProperty target="{panel2}" name="width" value="125"/>
+      <mx:SetProperty target="{panel3}" name="x" value="270"/>
+      <mx:SetProperty target="{panel3}" name="y" value="10"/>
+      <mx:SetProperty target="{panel3}" name="height" value="30"/>
+      <mx:SetProperty target="{panel3}" name="width" value="125"/>
+    </mx:State>
+    <mx:State name="s2">
+      <mx:SetProperty target="{panel1}" name="x" value="5"/>
+      <mx:SetProperty target="{panel1}" name="y" value="10"/>
+      <mx:SetProperty target="{panel1}" name="height" value="30"/>
+      <mx:SetProperty target="{panel1}" name="width" value="125"/>
+      <mx:SetProperty target="{panel2}" name="width" value="390"/>
+      <mx:SetProperty target="{panel2}" name="height" value="300"/>
+      <mx:SetProperty target="{panel2}" name="x" value="5"/>
+      <mx:SetProperty target="{panel2}" name="y" value="60"/>
+      <mx:SetProperty target="{panel3}" name="x" value="270"/>
+      <mx:SetProperty target="{panel3}" name="y" value="10"/>
+      <mx:SetProperty target="{panel3}" name="height" value="30"/>
+      <mx:SetProperty target="{panel3}" name="width" value="125"/>
+    </mx:State>
+    <mx:State name="s3">
+      <mx:SetProperty target="{panel1}" name="x" value="5"/>
+      <mx:SetProperty target="{panel1}" name="y" value="10"/>
+      <mx:SetProperty target="{panel1}" name="height" value="30"/>
+      <mx:SetProperty target="{panel1}" name="width" value="125"/>
+      <mx:SetProperty target="{panel2}" name="x" value="135"/>
+      <mx:SetProperty target="{panel2}" name="y" value="10"/>
+      <mx:SetProperty target="{panel2}" name="height" value="30"/>
+      <mx:SetProperty target="{panel2}" name="width" value="125"/>
+      <mx:SetProperty target="{panel3}" name="width" value="390"/>
+      <mx:SetProperty target="{panel3}" name="height" value="300"/>
+      <mx:SetProperty target="{panel3}" name="x" value="5"/>
+      <mx:SetProperty target="{panel3}" name="y" value="60"/>
+    </mx:State>
+  </mx:states>
+<mx:Panel x="5" y="10" width="125" height="30" layout="absolute" 
+title="Panel 1" id="panel1" click="this.currentState='s1'"/>
+<mx:Panel x="135" y="10" width="125" height="30" layout="absolute" 
+title="Panel2" id="panel2" click="this.currentState='s2'"/>
+<mx:Panel x="270" y="10" width="125" height="30" layout="absolute" 
+id="panel3" title="Panel 3" click="this.currentState='s3'"/>
+<mx:Button x="167" y="368" label="Reset" click="this.currentState=''"/>
+</mx:Application>

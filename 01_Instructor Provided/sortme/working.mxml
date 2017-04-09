@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+layout="vertical" creationComplete="menuData.send()">
+<mx:Script>
+<![CDATA[
+import mx.rpc.events.*;
+
+[Bindable]
+private var dishList:XMLList;
+private function dishHandler(evt:ResultEvent):void
+{
+ dishList= evt.result..@aname;
+}
+
+]]>
+</mx:Script>
+<mx:HTTPService id="menuData" url="assets/xml/dishes.xml" 
+	result="dishHandler(event)" resultFormat="e4x"/>
+<mx:Panel height="40%" title="Dishes">
+<mx:List height="100%" dataProvider="{dishList}" />
+</mx:Panel>
+
+</mx:Application>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:HBox x="119" y="39" width="250" height="39">
+		<mx:DateField id="dt01" change="setname()"/>
+		<mx:Button label="Button"/>
+	</mx:HBox>
+	<mx:Panel x="94" y="106" width="250" height="200" layout="absolute" title="Announcement" id="ann">
+	
+	
+	<mx:ControlBar>
+		
+
+	<mx:Button label="++" click="sizeup()"/>
+	<mx:Button label="--" click="sizedown()"/>
+	</mx:ControlBar>	
+	</mx:Panel>
+	<mx:Text x="130" y="10" text="Today is {dttoday}"/>
+<mx:Script>
+	<![CDATA[
+		[Bindable]
+		private var dttoday:String="Today Date";
+		
+		private function setname():void{
+			
+			dttoday = {dt01.text} ;
+			
+		}
+		
+	]]>
+</mx:Script>
+	
+
+
+</mx:Application>

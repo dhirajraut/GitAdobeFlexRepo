@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Image id="imgholder" source="assets/rose.png" width="200" height="200" 
+		enterFrame="changeme(event)" horizontalCenter="6" verticalCenter="6.5"/>
+	<mx:Script>
+		<![CDATA[
+		private function changeme(event:Event):void{
+	imgholder.rotation +=1;
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

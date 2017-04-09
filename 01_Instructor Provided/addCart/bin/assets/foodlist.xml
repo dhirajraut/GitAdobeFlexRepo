@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<list>
+             <food>
+
+                      <food_id>1</food_id>
+                      <category_name>Korean</category_name>
+                      <product_name>Kim Chi</product_name>
+                      <product_price>59</product_price>
+                      <quantity>0</quantity>
+
+             </food>
+             
+             <food>
+
+                      <food_id>11</food_id>
+                      <category_name>Indian</category_name>
+                      <product_name>Daal</product_name>
+                      <product_price>50</product_price>
+                      <quantity>0</quantity>
+
+             </food>
+             
+             <food>
+
+                      <food_id>2</food_id>
+                      <category_name>Indian</category_name>
+                      <product_name>Aloo Gobi</product_name>
+                      <product_price>90</product_price>
+                      <quantity>0</quantity>
+
+             </food>
+             
+             <food>
+
+                      <food_id>3</food_id>
+                      <category_name>Thai</category_name>
+                      <product_name>Pad Thai</product_name>
+                      <product_price>49</product_price>
+                      <quantity>0</quantity>
+
+             </food>
+             
+             <food>
+
+                      <food_id>4</food_id>
+                      <category_name>Japanese</category_name>
+                      <product_name>Tempura</product_name>
+                      <product_price>99</product_price>
+                      <quantity>0</quantity>
+
+             </food>
+             
+             <food>
+
+                      <food_id>5</food_id>
+                      <category_name>Ethiopian</category_name>
+                      <product_name>Flat Bread</product_name>
+                      <product_price>89</product_price>
+                      <quantity>0</quantity>
+
+             </food>
+ 
+             
+              <food>
+             
+                      <food_id>7</food_id>
+                      <category_name>Japanese</category_name>
+                      <product_name>Sashimi</product_name>
+                      <product_price>25</product_price>
+                      <quantity>0</quantity>
+            
+             </food>
+      
+             
+</list>
+

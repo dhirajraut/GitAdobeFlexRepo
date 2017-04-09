@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+     verticalAlign="middle"
+     horizontalAlign="center">
+
+     <mx:Script>
+          <![CDATA[
+
+               import mx.controls.Alert;
+               import mx.controls.TextInput;
+               public function getText():String
+               {
+                    var name:String = TextInput(getChildAt(0)).name;
+                    var text:String = TextInput(getChildByName(name)).text;
+                    return text;
+               }
+          ]]>
+     </mx:Script>
+     
+<!--This e.g. casts the getChildAt(0) to type TextInput to access the name property 
+and assigns the value to the variable name. 
+The variable name is passed into the childChildByName(name) method and 
+cast to type TextInput to allow access to the text property, 
+which is assigned to variable text. -->
+
+
+
+ <mx:TextInput text="Hello World!" />	
+
+
+ <mx:Button label="Get Text" click="Alert.show(getText())" />
+</mx:Application>

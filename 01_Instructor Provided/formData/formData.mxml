@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+<mx:Script>
+	<![CDATA[
+		import mx.events.ValidationResultEvent;
+		
+		private function validateMe():void{
+			var validNameEvent:ValidationResultEvent = userValidator.validate();
+		}
+		
+	]]>
+</mx:Script>
+
+
+
+
+<mx:StringValidator id="userValidator" source="{tiname}" property="text" requiredFieldError="You should provide your Name"
+	triggerEvent=""/>
+<mx:StringValidator source="{tiemail}" property="text" requiredFieldError="You should provide your Email"
+	minLength="8" tooShortError="email Id is too Short"/>
+<mx:EmailValidator source="{tiemail}"	property="text" invalidPeriodsInDomainError="Invalid Email Domain" 
+	missingPeriodInDomainError="Missing Period in Domain"/>
+
+	<mx:Panel x="5" y="10" width="352" height="293" layout="absolute" title="My Form">
+		<mx:Form x="39" y="10" width="262" height="171">
+			<mx:FormItem label="First Name" required="true">
+				<mx:TextInput id="tiname"/>
+			</mx:FormItem>
+			<mx:FormItem label="Email" required="true">
+				<mx:TextInput id="tiemail"/>
+			</mx:FormItem>
+			<mx:FormItem label="Password" required="true">
+				<mx:TextInput/>
+			</mx:FormItem>
+			<mx:RadioButton label="Male"/>
+			<mx:RadioButton label="Female"/>
+		</mx:Form>
+<mx:ControlBar >
+	<mx:Button label="Click Me" click="validateMe()"/>
+	
+</mx:ControlBar>		
+	</mx:Panel>
+</mx:Application>

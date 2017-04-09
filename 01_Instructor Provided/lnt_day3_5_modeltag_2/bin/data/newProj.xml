@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<titles>
+	<title>
+		<projectName>ICICI Bank Online</projectName>
+		<duration>2 years </duration>
+	</title>
+	<title>
+		<projectName>Citi Bank Online</projectName>
+		<duration>1 year </duration>
+	</title>
+	<title>
+		<projectName>State Bank Of India</projectName>
+		<duration>6 months</duration>
+	</title>
+	<title>
+		<projectName>Bank Of America</projectName>
+		<duration>10 months </duration>
+	</title>
+	<title>
+		<projectName>Kotak Mahindra</projectName>
+		<duration>7 months</duration>
+	</title>
+	<title>
+		<projectName>Sundaram Finance</projectName>
+		<duration>2 years</duration>
+	</title>
+</titles>

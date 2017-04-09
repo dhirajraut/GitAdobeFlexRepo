@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	creationComplete="addToTextArea('Application Creation Complete')"
+	initialize="addToTextArea('Application initialize')"
+	applicationComplete="addToTextArea('Application Complete')">
+	
+	<mx:Script>
+		<![CDATA[
+			private function addToTextArea(eventText:String):void
+			{
+				var existingText:String=reportEvents.text;
+				reportEvents.text=existingText+eventText+"\n";
+			}
+		]]>
+	</mx:Script>
+
+	<mx:Label text="Events"/>
+	<mx:TextArea editable="false" 
+		height="200" 
+		width="200" 
+		borderStyle="solid" 
+		id="reportEvents" />
+	
+	<mx:Button label="Clear Events" click="reportEvents.text=''"/>
+	
+	<mx:Button  id="myButton" label="Test" 
+		preinitialize="addToTextArea('Button Preinitialized')"
+		initialize="addToTextArea('Button Initialized')"
+		creationComplete="addToTextArea('Button Creation Complete')"
+		click="addToTextArea('Button Clicked')"
+		buttonDown="addToTextArea('Button Down')"
+		mouseDown="addToTextArea('Mouse Down')"
+		mouseOver="addToTextArea('Mouse Over')"
+		mouseOut="addToTextArea('Mouse Out')" />
+		
+</mx:Application>

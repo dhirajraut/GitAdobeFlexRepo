@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	xmlns:view="view.*">
+	<mx:Script>
+		<![CDATA[
+			[Bindable]
+			private var sharedData:String="Initial Value";
+//  6  // lets now declare the function sharedDataHandler and pass event object to it
+//  6 contd  // since there is no value passed we will give this string "Data ... from comp"			
+			private function sharedDataHandler(event:Event):void{
+				sharedData="Data was Shared from Component";
+			}
+		]]> 
+	</mx:Script>	
+	
+	<view:Dispatcher borderStyle="solid" 
+		borderColor="cyan" width="350" 
+		dataShared="sharedDataHandler(event)" 
+		x="50" y="50"/>
+	
+		
+<!-- //  5  // notice that the custom event "dataShared" is now available for use -->
+		
+	<view:Receiver 
+		x="50" 	y="116" 
+		width="350" 
+		borderStyle="solid" 
+		borderColor="#000000"
+		myProperty="{sharedData}"/>
+</mx:Application>
+

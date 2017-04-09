@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+<mx:Script>
+<![CDATA[
+function mySum(number1:Number, number2:Number):void
+{
+var sum:int = number1 + number2;
+myLabel.text = "The sum of the numbers is:" + " " + sum;
+}
+]]>
+</mx:Script>
+<mx:VBox x="213" y="110" height="112" width="218">
+<mx:TextInput id="inputNumber1" width="50" />
+<mx:TextInput id="inputNumber2" width="50" />
+<mx:Label id="myLabel" />
+<mx:Button label="Add the numbers" click="mySum(Number(inputNumber1.text), Number(inputNumber2.text))" /> 
+
+</mx:VBox>
+</mx:Application>

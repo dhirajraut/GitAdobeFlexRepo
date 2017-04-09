@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+     verticalAlign="middle"
+     horizontalAlign="center"
+     xmlns="*">
+
+     <mx:Script>
+          <![CDATA[
+
+       [Bindable]
+       public var flicrkURL:String = "http://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=8709b73b4ed150ca12cf33a8d4c0e2a4";
+
+          ]]>
+     </mx:Script>
+ <mx:HTTPService id="srv"
+          url="{flicrkURL}"
+          useProxy="false" />
+
+     <mx:Button label="Get Recent" click="srv.send()" />
+
+     <mx:TileList id="myList" dataProvider="{srv.lastResult.rsp.photos.photo}"
+width="450" height="300">
+          <mx:itemRenderer>
+               <mx:Component>
+                    <mx:VBox width="80" height="80">
+                         <mx:Image source="http://static.flickr.com/{data.server}/{data.id}_{data.secret}_s.jpg" />
+                    </mx:VBox>
+               </mx:Component>
+          </mx:itemRenderer>
+     </mx:TileList>
+
+</mx:Application>

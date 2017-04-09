@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:Script>
+	<![CDATA[
+	import mx.controls.Alert;
+	import mx.events.CloseEvent;
+	private function showAlert(event:Event):void {
+	var alert:Alert = Alert.show("You have clicked a button to display an alert.",
+	"Important Message",
+	Alert.OK | Alert.CANCEL,this,alertClickHandler);
+	}
+	private function alertClickHandler(event:CloseEvent):void {
+	var buttonType:String;
+	if(event.detail == Alert.OK) {
+	buttonType = "OK";
+	}
+	else {
+	buttonType = "Cancel";
+	}
+	textInput.text = buttonType;
+	}
+	]]>
+	</mx:Script>
+	<mx:VBox>
+	<mx:Button id="button" label="Show Alert" click="showAlert(event)" />
+	<mx:TextInput id="textInput" />
+	</mx:VBox>
+	</mx:Application>

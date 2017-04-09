@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="bookData.send()" viewSourceURL="srcview/index.html">
+<mx:Script>
+	<![CDATA[
+		import mx.rpc.events.*;
+		import mx.collections.*;
+		import mx.controls.*;
+		[Bindable]
+		private var bookStock:XMLList;
+		
+		private function bookHandler(evt:ResultEvent):void
+		{
+			trace(evt.result);
+		}
+	]]>
+</mx:Script>
+	<mx:HTTPService id="bookData" url="data/books.xml" result="bookHandler(event)" resultFormat="e4x"/>
+</mx:Application>
+

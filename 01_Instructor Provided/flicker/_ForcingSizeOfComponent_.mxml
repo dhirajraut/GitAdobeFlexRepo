@@ -1,0 +1,20 @@
+<!--Forcing Layout Manually
+In rare instances, you may need to programmatically force Flex 
+to lay out components again. Usually, 
+Flex will delay processing of properties that require 
+substantial computation until the scripts that caused them to be 
+set finish executing. 
+
+For example, if you set the width property of a component or container,
+it will be delayed because Flex prevents it from happening 
+multiple times.
+
+Sometimes you may want to force the layout before the script has 
+completed. 
+To force the layout, you need to call the validateNow() method 
+of the component. 
+This will cause Flex to validate the properties, sizes, 
+and layout of the object and all of its children. 
+This method is processor-intensive and should be used cautiously 
+if it is needed.
+ -->

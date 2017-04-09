@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:forms="forms.*"
+	layout="absolute" 
+	backgroundColor="#eeeeee">
+	<mx:Parallel id="mySequenceOn"
+		duration="2000">
+		<mx:Zoom/>
+		<mx:Move xFrom="0" yFrom="0"/>
+	</mx:Parallel>
+	<mx:Parallel id="mySequenceOff"
+		duration="2000">
+		<mx:Zoom/>
+		<mx:Move xTo="0" yTo="0"/>
+	</mx:Parallel>
+	<forms:LoginForm id="myForm"
+		height="155"
+		showEffect="{mySequenceOn}"
+		hideEffect="{mySequenceOff}" horizontalCenter="0" top="43"/>
+	<mx:Button label="Show Panel" horizontalCenter="0" top="206"
+		click="myForm.visible=true"/>
+	<mx:Button label="Hide Panel" horizontalCenter="0" top="236"
+		click="myForm.visible=false"/>
+</mx:Application>

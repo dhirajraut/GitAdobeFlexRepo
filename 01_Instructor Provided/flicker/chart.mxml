@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute">
+<mx:Script>
+<![CDATA[
+import mx.collections.ArrayCollection;
+[Bindable]
+private var bookSales:ArrayCollection = new ArrayCollection( [
+{bookType: "Fiction", Sales: 143},
+{bookType: "Nonfiction", Sales: 189},
+{bookType: "Information-Tech", Sales: 178},
+{bookType: "Self-help", Sales: 224} ]);
+]]>
+</mx:Script>
+<mx:PieChart width="50%" height="50%" dataProvider="{bookSales}">
+	<mx:series>
+	<mx:PieSeries field="Sales" labelPosition="inside"/>	
+	</mx:series>
+
+</mx:PieChart>
+
+</mx:Application> 

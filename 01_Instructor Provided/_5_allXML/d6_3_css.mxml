@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+	backgroundGradientColors="[#eeeeee,#eeeeee]">
+
+	<mx:Style source="myStylesFinished.css"/>
+
+	<mx:Label text="Some Text"/>
+	<mx:Label text="Some More Text" styleName="redObjects"/>
+	<mx:Label text="And Yet Some More Text" styleName="redObjects"/>
+	
+	<mx:Button label="Click Me"/>
+	<mx:Button label="No, Click Me!"/>
+	
+</mx:Application>

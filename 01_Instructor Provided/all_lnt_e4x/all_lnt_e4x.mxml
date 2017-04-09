@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns="*" 
+	layout="vertical"
+	creationComplete="initApp()">
+	
+	<mx:Script>
+		<![CDATA[
+			private var mealsXML:XML = new XML();
+
+			[Bindable]
+			private var theXMLasString:String;
+			
+			[Bindable]
+			private var theOutput:String;
+			
+			private function doFill():void
+			{
+				switch(theList.selectedItem.data)
+				{
+					case 1:
+						theOutput = mealsXML.serving[1];
+						break;
+					case 2:
+						theOutput= mealsXML.serving[2].hearty.meat;
+						break;
+					case 3:
+						theOutput= mealsXML.serving.lite.(meat=='turkey');
+						break;
+					case 4:
+						theOutput= mealsXML.serving.hearty.(@cost == 9.95);
+						break;
+					case 5:
+						theOutput= mealsXML.serving.(@cost == 9.95);
+						break;
+					case 6:
+						theOutput= mealsXML.serving.hearty.(@cost == 9.95).(meat=='pastrami');
+						break;
+					case 7:
+						theOutput= mealsXML..lite;
+						break;
+					case 8:
+						theOutput= mealsXML..lite.(@cost > 6);
+						break;
+					case 9:
+						mealsXML.serving[0].lite.@cost='100';
+						theOutput= mealsXML.serving[0].lite.(@cost=='100');
+						break;
+					case 10:
+						mealsXML.serving[0].lite.meat='turkey bacon'
+						theOutput= mealsXML.serving[0].lite.(meat=='turkey bacon');						
+						break;
+				}
+			}
+			
+			
+			private function initApp():void
+			{
+				mealsXML=
+				<meals>
+					<serving time="breakfast">
+						<lite cost="5.95">
+							<meat>turkey</meat>
+							<waffle>plain</waffle>
+						</lite>
+						<hearty cost="9.95">
+							<meat>bacon and sausage</meat>
+							<waffle>blueberry</waffle>
+						</hearty>
+					</serving>
+					<serving time="lunch">
+						<lite cost="7.95">
+							<meat>turkey</meat>
+							<sandwich>mustard only</sandwich>
+						</lite>
+						<hearty cost="9.95">
+							<meat>pastrami</meat>
+							<sandwich>triple-decker</sandwich>
+						</hearty>
+					</serving>
+					<serving time="dinner">
+						<lite cost="12.95">
+							<meat>chicken breast</meat>
+							<side>steamed veggies</side>
+						</lite>
+						<hearty cost="14.95">
+							<meat>t-bone</meat>
+							<side>garlic mashed potatos</side>
+						</hearty>
+					</serving>
+				</meals>;
+				
+				theXMLasString=mealsXML.toString();
+			}
+			
+		]]>
+	</mx:Script>
+	
+
+		
+	<mx:ComboBox id="theList" change="doFill()">
+		<mx:dataProvider>
+			<mx:Array>
+				<mx:Object label="--------" />
+				<mx:Object label="mealsXML.serving[1]" data="1" />
+				<mx:Object label="mealsXML.serving[2].hearty.meat" data="2"/>
+				<mx:Object label="mealsXML.serving.lite.(meat=='turkey')" data="3"/>
+				<mx:Object label="mealsXML.serving.hearty.(@cost == 9.95)" data="4"/>
+				<mx:Object label="mealsXML.serving.@cost == 9.95)" data="5"/>
+				<mx:Object label="mealsXML.serving.hearty.(@cost == 9.95).(meat=='pastrami')" data="6"/>
+				<mx:Object label="mealsXML..lite" data="7"/>
+				<mx:Object label="mealsXML..lite.(@cost > 6)" data="8"/>
+				<mx:Object label="mealsXML.serving[0].lite.@cost='100'" data="9"/>
+				<mx:Object label="mealsXML.serving[0].lite.meat='turkey bacon'" data="10"/>
+			</mx:Array>
+		</mx:dataProvider>
+	</mx:ComboBox>
+	
+	<mx:HBox height="95%" width="100%">
+		<mx:TextArea height="95%" width="50%" text="{theXMLasString}" />
+		<mx:TextArea height="95%" width="50%" text="{theOutput}" />		
+	</mx:HBox>
+	
+</mx:Application>

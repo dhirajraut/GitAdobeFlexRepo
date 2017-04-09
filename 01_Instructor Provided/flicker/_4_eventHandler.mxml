@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+    <mx:Script>
+    <![CDATA[
+         import mx.controls.List;
+
+         import mx.controls.Alert;
+
+         private function handleChangeEvent(event:Event):void
+         {
+              Alert.show("You selected the name: " + List(event.currentTarget)
+.selectedItem.label);
+         }
+
+    ]]>
+    </mx:Script>
+
+    <mx:List change="handleChangeEvent(event)">
+         <mx:dataProvider>
+              <mx:Array>
+                   <mx:Object label="Amar" />
+                   <mx:Object label="Akbar" />
+                   <mx:Object label="Antony" />
+              </mx:Array>
+         </mx:dataProvider>
+    </mx:List>
+
+</mx:Application>

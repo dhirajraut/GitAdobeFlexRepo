@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+<mx:TabBar dataProvider="vstack"/>
+<mx:ViewStack id="vstack">
+	
+		<mx:VBox label="Banking"
+			cornerRadius="20"
+			borderStyle="solid"
+			height="150" width="200"
+			backgroundColor="#8000ff"
+			paddingLeft="10"
+			paddingTop="10" x="10" y="10">
+			<mx:HBox width="100%">
+				<mx:Text text="Banking" fontSize="19" width="75%"/>
+			</mx:HBox>
+		</mx:VBox>
+		
+		<mx:VBox label="Derivatives"
+			cornerRadius="20"
+			borderStyle="solid"
+			height="150" width="200"
+			backgroundColor="#ff0080"
+			paddingLeft="10"
+			paddingTop="10" x="218" y="177">
+			<mx:HBox width="100%">
+				<mx:Text width="75%" text="Derivatives" fontSize="19"/>
+			</mx:HBox>
+		</mx:VBox>
+		
+		<mx:VBox label="Equity"
+			cornerRadius="20"
+			borderStyle="solid"
+			height="150" width="200"
+			backgroundColor="#00ffff"
+			paddingLeft="10"
+			paddingTop="10" x="218" y="10">
+			<mx:HBox width="100%">
+				<mx:Text width="75%" text="Equity" fontSize="19"/>
+			</mx:HBox>
+		</mx:VBox>
+		
+		<mx:VBox label="Fixed"
+			cornerRadius="20"
+			borderStyle="solid"
+			height="150" width="200"
+			backgroundColor="#ffffff"
+			paddingLeft="10"
+			paddingTop="10" x="10" y="177">
+			<mx:HBox width="100%">
+				<mx:Text width="75%" text="Fixed" fontSize="19"/>
+			</mx:HBox>
+		</mx:VBox>
+	
+</mx:ViewStack>
+
+</mx:Application>

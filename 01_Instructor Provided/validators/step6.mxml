@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+
+<mx:StringValidator id="svUser" source="{tiUser}" property="text" 
+	triggerEvent="" requiredFieldError="You should give your name"/>
+<mx:StringValidator id="svPass" source="{tiPassword}" 
+	property="text" triggerEvent="" minLength="8" maxLength="15" 
+	tooLongError="calm down!!! make your password shorter" 
+	tooShortError="Your password is short"/>
+	
+	<mx:Panel layout="vertical" title="Log In">
+	
+		<mx:Form label="My Form" color="#000000" width="100%">
+			<mx:FormItem label="User Name:" required="true">
+				<mx:TextInput id="tiUser" width="106"/>
+			</mx:FormItem>
+			<mx:FormItem label="password:" required="true">
+				<mx:TextInput id="tiPassword" width="105" displayAsPassword="true"/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:ControlBar>
+			<mx:Button label="Log In" click="{validateMe()}"/>
+		</mx:ControlBar>
+	</mx:Panel>
+	<mx:Script>
+	<![CDATA[
+	import mx.events.ValidationResultEvent;
+	import mx.controls.Alert;
+	private function validateMe():void
+	{
+	// i have created a variable by name validUserEvent of type ValidationResuldEvent
+	// so that the variable will now hold the result of the validation result event
+	// validate() will get the result which will then be assigned to vaildUserEvent variable
+	
+	// then i am checking if both the values are true or not.... inside a if condition
+	
+	var validUserEvent:ValidationResultEvent = svUser.validate();
+	var validPasswordEvent:ValidationResultEvent = svPass.validate();
+	if(validUserEvent.type == ValidationResultEvent.VALID 
+	&& validPasswordEvent.type == ValidationResultEvent.VALID)
+	{
+		Alert.show("Form is Valid");
+		// you can also add some thing to make it more personal
+		// Alert.show("Thank you" + tiUser.text)
+	}
+	else
+	{
+		Alert.show("Form is NOT Valid");
+	}
+	}
+		]]>
+	</mx:Script>
+</mx:Application>

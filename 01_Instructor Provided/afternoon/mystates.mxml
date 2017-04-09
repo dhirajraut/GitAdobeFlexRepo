@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:states>
+		<mx:State name="plain">
+			<mx:SetProperty target="{panel1}" name="height" value="209"/>
+			<mx:SetProperty target="{vbox1}" name="height" value="149"/>
+			<mx:AddChild relativeTo="{vbox1}" position="lastChild">
+				<mx:TextArea width="208" height="119"/>
+			</mx:AddChild>
+		</mx:State>
+		<mx:State name="rich">
+			<mx:AddChild relativeTo="{vbox1}" position="lastChild">
+				<mx:RichTextEditor width="274" height="234">
+				</mx:RichTextEditor>
+			</mx:AddChild>
+			<mx:SetProperty target="{vbox1}" name="width" value="277"/>
+			<mx:SetProperty target="{vbox1}" name="height" value="263"/>
+			<mx:SetProperty target="{panel1}" name="height" value="323"/>
+			<mx:SetStyle target="{panel1}" name="verticalCenter" value="0.5"/>
+		</mx:State>
+	</mx:states>
+	<mx:Panel width="317" height="219" layout="absolute" id="panel1" horizontalCenter="36" verticalCenter="0">
+		<mx:VBox x="10" y="10" width="210" height="48" id="vbox1">
+			<mx:RadioButtonGroup id="seletor"/>
+			<mx:HBox width="100%">
+				<mx:RadioButton label="Text" groupName="seletor" click="this.currentState='plain'"/>
+				<mx:RadioButton label="Rich text" groupName="seletor" click="this.currentState='rich'"/>
+			</mx:HBox>
+		</mx:VBox>
+	</mx:Panel>
+	
+</mx:Application>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+	<mx:Script>
+    	<![CDATA[
+    		[Bindable]
+    		private var xml:XML = 
+	   		<root label="Departments">
+	         <dept label="Marketing" isBranch="true"/>
+	         <dept label="Development">
+	            <person label="Ravindhar Reddy" />
+	            <person label="Rajashekar Rao" />
+	            <person label="Vyshak VenuGopal" />
+	            <person label="Amit Kumar" />
+	         </dept>
+	        </root>
+    	]]>
+    </mx:Script>
+        <mx:Tree id="myTree"
+    	dataProvider="{xml}"
+    	width="200"
+    	labelField="@label"/>
+</mx:Application>

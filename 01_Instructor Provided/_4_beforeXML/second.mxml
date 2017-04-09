@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+
+	<mx:Script>
+		<![CDATA[
+		import mx.collections.ArrayCollection;
+		private var statesArray:Array=["Karnataka","Andhra Pradesh","Kerala","Tamil Nadu","Punjab"];
+		[Bindable]
+		private var statesCollection:ArrayCollection =  new ArrayCollection(statesArray);
+		]]>
+	</mx:Script>
+		
+	<mx:ComboBox id="myList" dataProvider="{statesCollection}" labelField="className"/>
+
+	<mx:Label x="50" y="300" text="{myList.selectedIndex}" fontSize="14" color="#ffffff"/>
+	<mx:Label x="50" y="350" text="{myList.selectedItem}" fontSize="14" color="#ffffff"/>
+	
+</mx:Application>

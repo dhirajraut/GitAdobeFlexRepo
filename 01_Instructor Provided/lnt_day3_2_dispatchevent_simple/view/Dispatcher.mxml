@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml">
+	
+	<mx:Metadata>
+<!-- //  1  //  The purpose of metadata is to create members or object of a component
+members can be a property, method, style or event as in this case-->	
+
+<!-- //  2  //  We need to give it a name any name is ok i have named it dataShared-->
+	
+		[Event(name="dataShared")]
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			private function clickHandler():void {
+// //  3  // here i have created a event object and passed the name i just gave for member 
+// that is a requirement...				
+			var event:Event = new Event ("dataShared");
+// //  4  // dispatchEvent is a member of every visual component			
+			dispatchEvent(event);
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:Label text="Dispatching Components" fontSize="18"/>	
+
+	<mx:Button label="Click Me" click="clickHandler()"/>
+
+	
+</mx:VBox>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	
+	<mx:Script>
+		<![CDATA[
+			import dialogs.SimpleDialog;
+			import mx.managers.PopUpManager;
+			import mx.containers.TitleWindow;
+			private var myPopUp:TitleWindow;
+			private function showPopUp():void
+			{
+	myPopUp = PopUpManager.createPopUp
+	(this, dialogs.SimpleDialog,true)
+	as TitleWindow;
+	PopUpManager.centerPopUp(myPopUp);
+			}	
+		 ]]>
+	</mx:Script>
+	
+	<mx:Button label="Show Popup Dialog"
+		click="showPopUp()"/>
+	
+</mx:Application>

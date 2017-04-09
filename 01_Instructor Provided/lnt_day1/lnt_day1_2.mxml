@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	fontFamily="Arial" fontSize="23" color="#ffffff" 
+	backgroundGradientColors="[#ff0080, #ffff00]" width="400" height="400" backgroundGradientAlphas="[0.62, 0.62]">
+	<mx:VBox width="100" height="100" backgroundColor="red"/>
+	<mx:VBox width="100" height="100" backgroundColor="0x00ff00"/>
+	<mx:VBox width="100" height="100" backgroundColor="#0000ff"/>
+<!--	%%%% Notice Different ways to indicate colors %%%% -->
+
+<mx:Label text="Hi there" />
+	<mx:Label text="Label" fontFamily="Georgia" fontSize="13" color="#400040"/>
+<!--	%%%% Notice how the font is cascading from application   %%%% -->
+
+</mx:Application>

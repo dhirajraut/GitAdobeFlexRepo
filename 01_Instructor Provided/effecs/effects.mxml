@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:forms="forms.*"
+	layout="absolute" 
+	backgroundColor="#eeeeee">
+
+<mx:Iris id="myIris" duration="4000"/>
+
+	<forms:LoginForm id="myForm"
+		top="39" horizontalCenter="0" showEffect="myIris" hideEffect="myIris"/>
+	<mx:Button label="Show Panel" horizontalCenter="0" top="206"
+		click="myForm.visible=true"/>
+	<mx:Button label="Hide Panel" horizontalCenter="0" top="236"
+		click="myForm.visible=false"/>
+	
+</mx:Application>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:HDividedBox x="28" y="10" width="381">
+		<mx:RichTextEditor width="197" height="249">
+		</mx:RichTextEditor>
+		<mx:DateChooser width="171" height="154"/>
+	</mx:HDividedBox>
+</mx:Application>

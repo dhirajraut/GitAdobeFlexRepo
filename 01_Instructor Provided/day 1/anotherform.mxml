@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" height="253">
+		<mx:HBox>
+		<mx:Label text="First Name" color="#ffffff"/>
+		<mx:TextInput id="firstName" condenseWhite="true"/>
+	</mx:HBox>
+	<mx:HBox>
+		<mx:Label text="Last Name" color="#ffffff"/>
+		<mx:TextInput id="lastName"/>
+	</mx:HBox>
+	<mx:VBox>
+		<mx:Label text="Role" color="#ffffff"/>
+	</mx:VBox>
+	<mx:RadioButtonGroup id="grp"/>
+		<mx:RadioButton label="Employee" color="#ffffff" groupName="grp"/>
+	<mx:RadioButton label="Customer" color="#ffffff" groupName="grp"/>
+	<mx:RadioButton label="Vendor" color="#ffffff" groupName="grp"/>
+<mx:CheckBox>
+<mx:label> do you want me to contact me </mx:label>
+</mx:CheckBox>
+	
+	<mx:Button label="Register"/>
+</mx:Application>

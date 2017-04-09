@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+layout="vertical" creationComplete="bookData.send()">
+<mx:Script>
+<![CDATA[
+import mx.rpc.events.*;
+import mx.collections.*;
+import mx.controls.*;
+[Bindable]
+private var bookStock:XMLList;
+[Bindable]
+private var listings:XMLList;
+private function bookHandler(evt:ResultEvent):void
+{
+//bookStock= evt.result.stock.author;
+ bookStock= evt.result..name;
+listings=evt.result.stock.(category=='Fiction')
+trace()
+}
+
+]]>
+</mx:Script>
+<mx:HTTPService id="bookData" url="data/books.xml" 
+	result="bookHandler(event)" resultFormat="e4x"/>
+<mx:Panel height="40%" title="Book Names">
+<mx:List height="100%" dataProvider="{bookStock}" 
+	labelField="fruit"/>
+</mx:Panel>
+<mx:List dataProvider="{listings}"/> 
+
+</mx:Application>

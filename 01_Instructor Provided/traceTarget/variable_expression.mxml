@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:TraceTarget/>
+	<mx:Script>
+	<![CDATA[
+		import mx.rpc.events.ResultEvent;
+		import mx.collections.ArrayCollection;
+		[Bindable]
+		private var wData:ArrayCollection;
+		[Bindable]
+		private var myName:String;
+		private function onResult(event:ResultEvent):void
+		{
+		wData = event.result as ArrayCollection;
+		}
+	
+		private function setSimpleValue():void
+			{
+				myName="Vijay";
+			}
+	]]>
+</mx:Script>
+	<mx:WebService id="myWebService" 
+	wsdl="http://localhost:8500/flex2/MyService.cfc?wsdl"
+	 result="onResult(event)"/>
+
+	  	 <mx:DataGrid dataProvider="{wData}" width="400"/>
+ 	 <mx:Button label="Fetch Web Services" 
+ 	 	click="myWebService.getMe();"/>
+ 	 	
+ 	 <mx:Button label="Show My Name" click="setSimpleValue()"/>
+	<mx:Label text="My name is {myName}"/>
+ 	 	
+</mx:Application>

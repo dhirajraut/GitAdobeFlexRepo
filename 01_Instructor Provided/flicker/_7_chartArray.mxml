@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+
+     <mx:Script>
+          <![CDATA[
+
+               import mx.collections.ArrayCollection;
+
+               [Bindable]
+   public var myArray:Array = ["Karnataka", "Tamil Nadu", "Maharastra"];
+
+               [Bindable]
+               public var myCollection:ArrayCollection = new ArrayCollection
+(["Karnataka", "Tamil Nadu", "Maharastra"]);
+
+               public function addCountryToArray(country:String):void
+               {
+                    myArray.push(country);
+               }
+
+               public function addCountryToCollection(country:String):void
+               {
+                    myCollection.addItem(country);
+               }
+
+          ]]>
+     </mx:Script>
+
+     <mx:TextInput id="countryTextInput" text="Goa" />
+     <mx:Label text="Bound to Array (raw object)" />
+     <mx:Button click="addCountryToArray(countryTextInput.text)" label="Add Country
+to Array" />
+     <mx:List dataProvider="{myArray}" width="200" />
+
+     <mx:Label text="Bound to Collection" />
+     <mx:Button click="addCountryToCollection(countryTextInput.text)" label="Add
+Country to Collection" />
+     <mx:List dataProvider="{myCollection}" width="200" />
+
+</mx:Application>

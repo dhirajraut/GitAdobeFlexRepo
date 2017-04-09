@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+<mx:Canvas x="0" y="0" width="200" height="2000" />
+<mx:ApplicationControlBar dock="true">
+<mx:Label text="Jump To Section:"/>
+<mx:ComboBox>
+<mx:dataProvider>
+<mx:ArrayCollection>
+<mx:Array>
+<mx:String>A</mx:String>
+<mx:String>B</mx:String>
+<mx:String>C</mx:String>
+<mx:String>D</mx:String>
+</mx:Array>
+</mx:ArrayCollection>
+</mx:dataProvider>
+</mx:ComboBox>
+<mx:VRule width="20" height="28"/>
+<mx:TextInput/>
+<mx:Button label="Search"/>
+</mx:ApplicationControlBar>
+</mx:Application>
