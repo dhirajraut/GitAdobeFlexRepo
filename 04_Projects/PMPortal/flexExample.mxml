@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:mx1="com.lehman.framework.foundation.components.datagrid.*" layout="absolute">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Button;
+			import mx.charts.chartClasses.RenderData;
+			import com.lehman.framework.foundation.components.datagrid.LDataGridColumn;
+			import mx.collections.ArrayCollection;
+			import com.lehman.framework.foundation.components.datagrid.LDataGridConfig;
+			[Bindable]
+			public var sampleConfig:LDataGridConfig=new LDataGridConfig();
+			
+			public var columnCollection:ArrayCollection=new ArrayCollection();
+			
+			private var arrBooks:ArrayCollection=new ArrayCollection([{Name:"The Picasso Code",Author:"Dan Blue",Category:"Fiction",Link:"http://www.google.com",Date:"10/9/2001",Price:"$20"},
+																	  {Name:"Here With the Wind",Author:"Margaret Middle",Category:"Fiction",Link:"http://www.google.com",Date:"11/02/2004",Price:"$35"},
+																	  {Name:"Harry Potluck and the Chamber of Money",Author:"J.K. Roughly",Category:"Adventure",Link:"http://www.google.com",Date:"11/12/2006",Price:"$34"},
+																	  {Name:"No Expectations",Author:"Chuck Dickens",Category:"Fiction",Link:"http://www.google.com",Date:"05/02/2002",Price:"$25"},
+																	  {Name:"Atlas Stretched",Author:"Ann Rind",Category:"Non Fiction",Link:"http://www.google.com",Date:"11/11/2000",Price:"$45"},
+																	  {Name:"Recycling Software",Author:"Big Gates",Category:"Non Fiction",Link:"http://www.google.com",Date:"05/12/2004",Price:"$50"},
+																	  {Name:"Make Tons of Money",Author:"Donald Rump",Category:"Non Fiction",Link:"http://www.google.com",Date:"08/01/2004",Price:"$45"},
+																	  {Name:"How to Win Enemies and Lose Friends",Author:"Dale Crochety",Category:"Non Fiction",Link:"http://www.google.com",Date:"01/10/2003",Price:"$45"},
+																	  {Name:"My Lies",Author:"Swill Clinton",Category:"Non Fiction",Link:"http://www.google.com",Date:"02/05/2002",Price:"$40"},
+																	  {Name:"The Complete History of the World",Author:"David McClutz",Category:"Non Fiction",Link:"http://www.google.com",Date:"08/10/2005",Price:"$35"}]);	
+		
+		private function initGrid():void{
+			
+				var gridColumn1:LDataGridColumn=new LDataGridColumn();
+				gridColumn1.columnHeader="Name";
+				gridColumn1.columnWidth=100;
+				gridColumn1.columnDataField="Name";
+				columnCollection.addItem(gridColumn1);
+				
+				var gridColumn2:LDataGridColumn=new LDataGridColumn();
+				gridColumn2.columnHeader="Author";
+				gridColumn2.columnWidth=100;
+				gridColumn2.columnDataField="Author";
+				columnCollection.addItem(gridColumn2);
+				
+				var gridColumn3:LDataGridColumn=new LDataGridColumn();
+				gridColumn3.columnHeader="Category";
+				gridColumn3.columnWidth=100;
+				gridColumn3.columnDataField="Category";
+				columnCollection.addItem(gridColumn3);
+				
+				var gridColumn4:LDataGridColumn=new LDataGridColumn();
+				gridColumn4.columnHeader="Link";
+				gridColumn4.columnWidth=100;
+				gridColumn4.columnDataField="Link";
+				columnCollection.addItem(gridColumn4);
+				
+				var gridColumn5:LDataGridColumn=new LDataGridColumn();
+				gridColumn5.columnHeader="Date";
+				gridColumn5.columnWidth=100;
+				gridColumn5.columnDataField="Date";
+				columnCollection.addItem(gridColumn5);
+				
+				var gridColumn6:LDataGridColumn=new LDataGridColumn();
+				gridColumn6.columnHeader="Price";
+				gridColumn6.columnWidth=100;
+				gridColumn6.columnDataField="Price";
+				columnCollection.addItem(gridColumn6);
+				
+			
+			sampleConfig.columnCollection=columnCollection;
+			sampleConfig.dataCollection=arrBooks;
+		
+		}
+			
+		]]>
+	</mx:Script>
+	<mx1:LDataGrid configData="{sampleConfig}" initialize="initGrid()" x="100" y="50" />
+</mx:Application>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	creationComplete="bookHandler(xmlModel)">
+
+	<mx:Script>
+		<![CDATA[
+			public function bookHandler(bookObj:Object):void
+			{
+				trace(bookObj.name);
+				trace(bookObj.author);
+				trace(bookObj.description);
+			}
+		]]>
+	</mx:Script>
+	
+
+	<mx:Model id="xmlModel" source="assets/externalXML.xml"/>
+
+</mx:Application>

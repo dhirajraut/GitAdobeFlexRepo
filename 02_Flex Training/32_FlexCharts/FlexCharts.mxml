@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Script>
+		<![CDATA[
+			import mx.charts.chartClasses.NumericAxis;
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			private var bookSales:ArrayCollection = new ArrayCollection(
+				[
+				{bookType: "Fiction", Sales: 143},
+				{bookType: "NonFiction", Sales: 100},
+				{bookType: "Scince", Sales: 183},
+				{bookType: "Story", Sales: 10}
+				]);
+			private function chartLabel(dataItem:Object, field:String, index:int, 
+					dataPercent:Number):String {
+				return dataItem.Sales  + " - " + dataItem.bookType + " - " 
+					+ dataPercent.toPrecision(2) + "%";	
+			}
+				
+		]]>
+	</mx:Script>
+	<mx:PieChart x="10" y="51" id="piechart1"  width="644" height="575" dataProvider="{bookSales}">
+		<mx:series>
+			<mx:PieSeries displayName="Sales" field="Sales" labelPosition="callout" labelFunction="{chartLabel}"/>
+		</mx:series>
+	</mx:PieChart>
+	<mx:Legend dataProvider="{piechart1}" x="10" y="10"/>
+</mx:Application>

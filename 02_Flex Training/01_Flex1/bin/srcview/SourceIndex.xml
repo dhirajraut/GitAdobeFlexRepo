@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Flex1</title>
+	<nodes>
+		<node label="generated" icon="packageIcon" expanded="true">
+			<node label="_activeButtonStyleStyle.as" icon="actionScriptIcon" url="source/generated/_activeButtonStyleStyle.as.html"/>
+			<node label="_activeTabStyleStyle.as" icon="actionScriptIcon" url="source/generated/_activeTabStyleStyle.as.html"/>
+			<node label="_alertButtonStyleStyle.as" icon="actionScriptIcon" url="source/generated/_alertButtonStyleStyle.as.html"/>
+			<node label="_AlertStyle.as" icon="actionScriptIcon" url="source/generated/_AlertStyle.as.html"/>
+			<node label="_ApplicationStyle.as" icon="actionScriptIcon" url="source/generated/_ApplicationStyle.as.html"/>
+			<node label="_ButtonStyle.as" icon="actionScriptIcon" url="source/generated/_ButtonStyle.as.html"/>
+			<node label="_comboDropDownStyle.as" icon="actionScriptIcon" url="source/generated/_comboDropDownStyle.as.html"/>
+			<node label="_ContainerStyle.as" icon="actionScriptIcon" url="source/generated/_ContainerStyle.as.html"/>
+			<node label="_ControlBarStyle.as" icon="actionScriptIcon" url="source/generated/_ControlBarStyle.as.html"/>
+			<node label="_dataGridStylesStyle.as" icon="actionScriptIcon" url="source/generated/_dataGridStylesStyle.as.html"/>
+			<node label="_dateFieldPopupStyle.as" icon="actionScriptIcon" url="source/generated/_dateFieldPopupStyle.as.html"/>
+			<node label="_errorTipStyle.as" icon="actionScriptIcon" url="source/generated/_errorTipStyle.as.html"/>
+			<node label="_Flex1_FlexInit-generated.as" icon="actionScriptIcon" url="source/generated/_Flex1_FlexInit-generated.as.html"/>
+			<node label="_Flex1_mx_managers_SystemManager-generated.as" icon="actionScriptIcon" url="source/generated/_Flex1_mx_managers_SystemManager-generated.as.html"/>
+			<node label="_globalStyle.as" icon="actionScriptIcon" url="source/generated/_globalStyle.as.html"/>
+			<node label="_headerDateTextStyle.as" icon="actionScriptIcon" url="source/generated/_headerDateTextStyle.as.html"/>
+			<node label="_headerDragProxyStyleStyle.as" icon="actionScriptIcon" url="source/generated/_headerDragProxyStyleStyle.as.html"/>
+			<node label="_opaquePanelStyle.as" icon="actionScriptIcon" url="source/generated/_opaquePanelStyle.as.html"/>
+			<node label="_PanelStyle.as" icon="actionScriptIcon" url="source/generated/_PanelStyle.as.html"/>
+			<node label="_plainStyle.as" icon="actionScriptIcon" url="source/generated/_plainStyle.as.html"/>
+			<node label="_richTextEditorTextAreaStyleStyle.as" icon="actionScriptIcon" url="source/generated/_richTextEditorTextAreaStyleStyle.as.html"/>
+			<node label="_ScrollBarStyle.as" icon="actionScriptIcon" url="source/generated/_ScrollBarStyle.as.html"/>
+			<node label="_textAreaHScrollBarStyleStyle.as" icon="actionScriptIcon" url="source/generated/_textAreaHScrollBarStyleStyle.as.html"/>
+			<node label="_textAreaVScrollBarStyleStyle.as" icon="actionScriptIcon" url="source/generated/_textAreaVScrollBarStyleStyle.as.html"/>
+			<node label="_todayStyleStyle.as" icon="actionScriptIcon" url="source/generated/_todayStyleStyle.as.html"/>
+			<node label="_ToolTipStyle.as" icon="actionScriptIcon" url="source/generated/_ToolTipStyle.as.html"/>
+			<node label="_weekDayStyleStyle.as" icon="actionScriptIcon" url="source/generated/_weekDayStyleStyle.as.html"/>
+			<node label="_windowStatusStyle.as" icon="actionScriptIcon" url="source/generated/_windowStatusStyle.as.html"/>
+			<node label="_windowStylesStyle.as" icon="actionScriptIcon" url="source/generated/_windowStylesStyle.as.html"/>
+			<node label="Flex1-generated.as" icon="actionScriptIcon" url="source/generated/Flex1-generated.as.html"/>
+			<node label="Flex1-interface.as" icon="actionScriptIcon" url="source/generated/Flex1-interface.as.html"/>
+		</node>
+		<node label="generated.mx.generated" icon="packageIcon" expanded="true">
+			<node label="GeneratedLocale.as" icon="actionScriptIcon" url="source/generated/mx/generated/GeneratedLocale.as.html"/>
+		</node>
+		<node label="ActionScript.as" icon="actionScriptIcon" url="source/ActionScript.as.html"/>
+		<node selected="true" label="Flex1.mxml" icon="mxmlAppIcon" url="source/Flex1.mxml.html"/>
+	</nodes>
+	<zipfile label="Download source (ZIP, 20K)" url="Flex1.zip"/>
+	<sdklink label="Download Flex 2 SDK" url="http://www.adobe.com/go/flex2_sdk"/>
+</index>

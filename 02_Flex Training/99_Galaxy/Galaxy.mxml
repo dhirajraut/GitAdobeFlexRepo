@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Form x="26" y="166" width="416" height="131">
+		<mx:LinkButton label="Netscape"/>
+		<mx:LinkButton label="Orkut"/>
+		<mx:LinkButton label="Moneycontrol Portfolio"/>
+		<mx:LinkButton label="Moneycontrol Watchlist"/>
+	</mx:Form>
+	<mx:Tile
+    direction="vertical"
+    tileHeight="NaN"
+    tileWidth="NaN" borderThickness="2"
+ 
+    horizontalAlign="left|center|right"
+    horizontalGap="8"
+    paddingBottom="0"
+    paddingTop="0"
+    verticalAlign="top|middle|bottom"
+    verticalGap="6"
+    >
+  </mx:Tile>
+
+</mx:Application>

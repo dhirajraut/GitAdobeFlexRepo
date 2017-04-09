@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<columns>
+<NoofColumns>8</NoofColumns>
+<gridtitle>Book Details</gridtitle>
+<vscroll>on</vscroll>
+<hscroll>on</hscroll>
+<url>./resources/books.xml</url>
+<headercolor>[#ffffcc, #ffff99]</headercolor>
+</columns>
+<column>
+<coldetails>
+<colname name="Date" coldata="date" dataType="Date"/>
+<colname name="Name" coldata="name" indexColumn="true" coledit="false"/>
+<colname name="Author" colwidth="200" coldata="author" coledit="false"/>
+<colname name="Category" coldata="category" coledit="true"/>
+<colname name="Link" coldata="link" hide="true" coledit="true"/>
+<colname name="Description" coldata="description" coledit="true"/>
+<colname name="Price" coldata="price" coledit="true"/>
+<colname name="Selling Pct" coldata="sellingpct" coledit="true"/>
+</coldetails>
+</column>

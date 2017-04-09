@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Label x="85" y="76" text="Enter Your Name and Press Ok" width="277" height="20"/>
+	<mx:TextInput id="inputName" x="85" y="95"/>
+	<mx:Button x="253" y="95" label="Ok" click="clickOk()"/>
+	<mx:Label id="welcomeMsg" color="{color.selectedColor}" x="85" y="146" width="210" text="Hi {userName}" fontSize="{fontSize}" visible="false"/>
+	<mx:Button x="318" y="95" label="Big" click="clickBig()"/>
+	<mx:Button x="370" y="95" label="Small" click="clickSmall()"/>
+	
+	<mx:Script>
+		<![CDATA[
+			[Bindable]
+			private var userName:String = "";
+			[Bindable]
+			private var fontSize:int = 0;
+			public function clickOk():void
+			{
+				userName = inputName.text;
+				userName = userName + " Raut";
+				welcomeMsg.visible = true;
+			}
+			public function clickBig():void
+			{
+				fontSize++;
+			}
+			public function clickSmall():void
+			{
+				fontSize--;
+			}
+		]]>
+	</mx:Script>
+	<mx:ColorPicker id="color" x="318" y="125"/>
+</mx:Application>

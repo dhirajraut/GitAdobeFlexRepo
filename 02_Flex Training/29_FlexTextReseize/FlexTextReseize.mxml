@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Script>
+		<![CDATA[
+			public function resizeButton():void {
+				myButton.width += 50;
+				myButton.height += 50;
+				myButton.label = "Big " + myButton.label;
+			}
+		]]>
+	</mx:Script>
+	<mx:Button id="myButton" x="199.5" y="158" label="Button" click="resizeButton()"/>
+	
+</mx:Application>

@@ -1,0 +1,52 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>_Flex1_mx_managers_SystemManager-generated.as</title>
+<link rel="stylesheet" type="text/css" href="../../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="asPackage">package</span> <span class="asBracket">{</span>
+<span class="asReserved">import</span> mx.managers.SystemManager;
+<span class="asReserved">import</span> flash.utils.<span class="asOperator">*</span>;
+<span class="asReserved">import</span> flash.system.ApplicationDomain;
+<span class="asReserved">import</span> mx.core.IFlexModuleFactory;
+<span class="asReserved">import</span> mx.core.IFlexModule;
+<span class="asReserved">public</span> <span class="asClass">class</span> _Flex1_mx_managers_SystemManager <span class="asReserved">extends</span> mx.managers.SystemManager <span class="asReserved">implements</span> IFlexModuleFactory <span class="asBracket">{</span>
+  <span class="asReserved">public</span> <span class="asFunction">function</span> _Flex1_mx_managers_SystemManager<span class="asBracket">()</span> <span class="asBracket">{</span>
+      <span class="asReserved">super</span><span class="asBracket">()</span>;
+<span class="asBracket">}</span>
+<span class="asReserved">override</span> <span class="asReserved">public</span> <span class="asFunction">function</span> create<span class="asBracket">(</span>... params<span class="asBracket">)</span><span class="asOperator">:</span>Object
+<span class="asBracket">{</span>
+  <span class="asReserved">if</span> <span class="asBracket">((</span>params.length <span class="asOperator">==</span> 0<span class="asBracket">)</span> <span class="asOperator">||</span> <span class="asBracket">(</span>params<span class="asBracket">[</span>0<span class="asBracket">]</span> <span class="asReserved">is</span> String<span class="asBracket">))</span>
+  <span class="asBracket">{</span>
+    <span class="asVar">var</span> mainClassName<span class="asOperator">:</span>String <span class="asOperator">=</span> <span class="asReserved">null</span>;
+    <span class="asReserved">if</span> <span class="asBracket">(</span>params.length <span class="asOperator">==</span> 0<span class="asBracket">)</span> mainClassName <span class="asOperator">=</span> <span class="asString">&apos;Flex1&apos;</span>;
+    <span class="asReserved">else</span> mainClassName <span class="asOperator">=</span> String<span class="asBracket">(</span>params<span class="asBracket">[</span>0<span class="asBracket">])</span>;
+    <span class="asVar">var</span> clazz<span class="asOperator">:</span>Class <span class="asOperator">=</span> Class<span class="asBracket">(</span>getDefinitionByName<span class="asBracket">(</span>mainClassName<span class="asBracket">))</span>;
+    <span class="asReserved">if</span> <span class="asBracket">(</span>clazz <span class="asOperator">!=</span> <span class="asReserved">null</span><span class="asBracket">)</span>
+    <span class="asBracket">{</span>
+      <span class="asVar">var</span> inst<span class="asOperator">:</span>Object <span class="asOperator">=</span> <span class="asReserved">new</span> clazz<span class="asBracket">()</span>;
+      <span class="asReserved">if</span> <span class="asBracket">(</span>inst <span class="asReserved">is</span> IFlexModule<span class="asBracket">)</span>
+      <span class="asBracket">{</span>
+         <span class="asBracket">(</span>IFlexModule<span class="asBracket">(</span>inst<span class="asBracket">))</span>.moduleFactory <span class="asOperator">=</span> <span class="asReserved">this</span>;
+      <span class="asBracket">}</span>
+      <span class="asReserved">return</span> inst;
+    <span class="asBracket">}</span>
+    <span class="asReserved">else</span> <span class="asReserved">return</span> <span class="asReserved">null</span>;
+  <span class="asBracket">}</span>
+  <span class="asReserved">else</span> <span class="asReserved">return</span> <span class="asReserved">super</span>.create.apply<span class="asBracket">(</span><span class="asReserved">this</span>, params<span class="asBracket">)</span>;
+<span class="asBracket">}</span>
+  <span class="asReserved">override</span> <span class="asReserved">public</span> <span class="asFunction">function</span> info<span class="asBracket">()</span><span class="asOperator">:</span>Object <span class="asBracket">{</span> <span class="asReserved">return</span> <span class="asBracket">{</span>
+<span class="asString">&quot;currentDomain&quot;</span><span class="asOperator">:</span> ApplicationDomain.currentDomain,
+<span class="asString">&quot;backgroundGradientColors&quot;</span> <span class="asOperator">:</span> <span class="asString">&quot;[#0080ff, #ff8080]&quot;</span>,
+<span class="asString">&quot;height&quot;</span> <span class="asOperator">:</span> <span class="asString">&quot;365&quot;</span>,
+<span class="asString">&quot;layout&quot;</span> <span class="asOperator">:</span> <span class="asString">&quot;absolute&quot;</span>,
+<span class="asString">&quot;mainClassName&quot;</span> <span class="asOperator">:</span> <span class="asString">&quot;Flex1&quot;</span>,
+<span class="asString">&quot;mixins&quot;</span> <span class="asOperator">:</span> <span class="asBracket">[</span><span class="asString">&quot;_Flex1_FlexInit&quot;</span>, <span class="asString">&quot;_alertButtonStyleStyle&quot;</span>, <span class="asString">&quot;_ControlBarStyle&quot;</span>, <span class="asString">&quot;_ScrollBarStyle&quot;</span>, <span class="asString">&quot;_activeTabStyleStyle&quot;</span>, <span class="asString">&quot;_textAreaHScrollBarStyleStyle&quot;</span>, <span class="asString">&quot;_ToolTipStyle&quot;</span>, <span class="asString">&quot;_comboDropDownStyle&quot;</span>, <span class="asString">&quot;_ContainerStyle&quot;</span>, <span class="asString">&quot;_textAreaVScrollBarStyleStyle&quot;</span>, <span class="asString">&quot;_globalStyle&quot;</span>, <span class="asString">&quot;_windowStatusStyle&quot;</span>, <span class="asString">&quot;_windowStylesStyle&quot;</span>, <span class="asString">&quot;_PanelStyle&quot;</span>, <span class="asString">&quot;_activeButtonStyleStyle&quot;</span>, <span class="asString">&quot;_errorTipStyle&quot;</span>, <span class="asString">&quot;_richTextEditorTextAreaStyleStyle&quot;</span>, <span class="asString">&quot;_todayStyleStyle&quot;</span>, <span class="asString">&quot;_dateFieldPopupStyle&quot;</span>, <span class="asString">&quot;_plainStyle&quot;</span>, <span class="asString">&quot;_dataGridStylesStyle&quot;</span>, <span class="asString">&quot;_ApplicationStyle&quot;</span>, <span class="asString">&quot;_headerDateTextStyle&quot;</span>, <span class="asString">&quot;_ButtonStyle&quot;</span>, <span class="asString">&quot;_AlertStyle&quot;</span>, <span class="asString">&quot;_opaquePanelStyle&quot;</span>, <span class="asString">&quot;_weekDayStyleStyle&quot;</span>, <span class="asString">&quot;_headerDragProxyStyleStyle&quot;</span><span class="asBracket">]</span>
+,
+<span class="asString">&quot;width&quot;</span> <span class="asOperator">:</span> <span class="asString">&quot;441&quot;</span><span class="asBracket">}</span>; <span class="asBracket">}</span>
+<span class="asBracket">}}</span>
+</pre></body>
+</html>

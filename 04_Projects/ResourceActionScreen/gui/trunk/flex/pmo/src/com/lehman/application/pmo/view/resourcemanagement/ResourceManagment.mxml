@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" label="Resource Management" width="100%" height="100%" preinitialize="init();"
+	xmlns:list="com.lehman.framework.foundation.components.list.*"
+	xmlns:TGrid="com.lehman.framework.foundation.components.datagrid.*">
+	<mx:Script source="../../actionscripts/views/resourcemanagement/LResourceScreen.as"/>
+	<mx:VDividedBox width="100%" height="100%" paddingLeft="5" paddingRight="7" paddingBottom="5">
+		<mx:HDividedBox width="100%" height="50%">
+			<mx:Canvas width="45%" height="100%" borderStyle="solid">
+				<mx:VBox paddingLeft="5" paddingTop="5" width="95%"  backgroundColor="#ffffff">
+					<mx:HBox width="100%" backgroundColor="#ffffff">
+						<mx:ComboBox id="resourceCBox" width="30%" creationComplete="initializeCBox()"/>
+						<mx:Button id="btnAdd" width="15%" label="Add" />
+						<mx:Text paddingTop="5" height="20" y="50" width="30%" htmlText="&lt;b&gt;Allocation&lt;/b&gt;" textAlign="center" />
+						<mx:Text paddingTop="5" height="20" htmlText="&lt;b&gt;Actuals&lt;/b&gt;" textAlign="left" />							
+					</mx:HBox>
+					<list:LList id="People" listRowHeight="85" y="25" BackGrounColorList="0xf7f7f7" width="100%" configData="{configObjPerson}" />
+				</mx:VBox>
+			</mx:Canvas>
+			<mx:Canvas borderStyle="solid" width="45%" height="100%">
+				<mx:VBox paddingLeft="5" paddingTop="5" width="95%"  backgroundColor="#ffffff">	
+					<mx:HBox width="100%"  backgroundColor="#ffffff">
+						<mx:Button toolTip="my button"  label="Add"/>
+						<mx:Spacer width="30%"/>
+						<mx:Text paddingTop="5" height="20" width="25%" htmlText="&lt;b&gt;Allocation&lt;/b&gt;" textAlign="center" />
+						<mx:Text paddingTop="5" height="20" htmlText="&lt;b&gt;Actuals&lt;/b&gt;" textAlign="left" />
+					</mx:HBox>
+					<list:LList id="Project" listRowHeight="85" BackGrounColorList="0xf7f7f7" y="25" x="5" width="100%" configData="{configObjProject}" />
+				</mx:VBox>
+			</mx:Canvas>				
+		</mx:HDividedBox>
+		<TGrid:LDataGrid id="datagrid" configData="{configObjTGrid}" height="50%" width="100%" />
+	</mx:VDividedBox>
+</mx:Canvas>
+		
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+	<!-- These are the input controls to get the data from user. -->
+	<mx:Label x="74" y="63" text="User Id:"/>
+	<mx:TextInput id="userId" x="153" y="35"/>
+	<mx:Label x="74" y="37" text="User Name:"/>
+	<mx:TextInput id="userName" x="153" y="65"/>
+
+	<!-- This is actual service which hits the JSP URL. 
+	This URL can be a Servlet also. 172.25.26.45 is my IP address-->
+	<mx:HTTPService id="JSPRequest" 
+		url="http://172.25.26.45:8080/FlexJavaAccess/flexJSP.jsp"
+		useProxy="false"
+		method="POST">
+		
+		<!-- These are the request parameters. I.e. Whatever is written in the 
+		text field 'userId', will be sent in the request with parameter name as
+		'userIdTag'. For understanding simplicity, I've kept the variable names &
+		tag names different. -->
+		<mx:request xmlns="">
+				<userIdParam>{userId.text}</userIdParam>
+				<userNameParam>{userName.text}</userNameParam>
+		</mx:request>
+	</mx:HTTPService>
+	
+	<!-- On Click of this button, the request will be sent to the server. -->	
+	<mx:Button x="172" y="108" label="Submit To Server" click="JSPRequest.send()"/>
+
+	<!-- This datagrid is used to show the results from JSP. -->
+	<mx:DataGrid id="UserData" x="82.5" y="157" 
+   		dataProvider="{JSPRequest.lastResult.html.body.user}" verticalScrollPolicy="on">
+    	<mx:columns>
+	        <mx:DataGridColumn headerText="User ID" dataField="userId"/>
+	        <mx:DataGridColumn headerText="User Name" dataField="userName"/>
+	        <mx:DataGridColumn headerText="Organization" dataField="orgName"/>
+	   </mx:columns>
+   </mx:DataGrid>
+</mx:Application>

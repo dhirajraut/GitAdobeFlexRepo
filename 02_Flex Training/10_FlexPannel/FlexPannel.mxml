@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" height="558">
+	<mx:Panel x="10" y="10" width="290" height="288" layout="absolute" title="Enter any crap here...">
+		<mx:Form x="10" y="10" width="250" height="192">
+			<mx:FormItem label="Name">
+				<mx:TextInput width="150"/>
+			</mx:FormItem>
+			<mx:FormItem label="Address" height="24">
+				<mx:TextArea height="24" width="149"/>
+			</mx:FormItem>
+			<mx:FormItem label="Gender" width="213">
+				<mx:RadioButton label="Male"/>
+				<mx:RadioButton label="Female"/>
+			</mx:FormItem>
+			<mx:FormItem label="Income">
+				<mx:RadioButton label="Salary"/>
+				<mx:RadioButton label="Business"/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:ControlBar>
+			<mx:Button x="10" y="151" label="Submit"/>
+			<mx:Button label="Clear"/>
+		</mx:ControlBar>
+	</mx:Panel>
+	<mx:Form x="10" y="306" width="290" height="211">
+		<mx:FormItem label="Name" height="22" width="254">
+			<mx:TextArea height="22" width="193"/>
+		</mx:FormItem>
+		<mx:FormItem label="Address" width="253">
+			<mx:TextInput width="199"/>
+		</mx:FormItem>
+		<mx:FormItem label="Gender" width="252">
+			<mx:RadioButton label="Male"/>
+			<mx:RadioButton label="Female"/>
+		</mx:FormItem>
+		<mx:FormItem label="Income">
+			<mx:RadioButton label="Salary"/>
+			<mx:RadioButton label="Business"/>
+		</mx:FormItem>
+		<mx:Canvas width="100%">
+			<mx:Button label="Submit" x="0"/>
+			<mx:Button label="Clear" x="74" y="0"/>
+		</mx:Canvas>
+	</mx:Form>
+	
+</mx:Application>

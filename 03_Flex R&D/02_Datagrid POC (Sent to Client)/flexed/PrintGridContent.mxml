@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="#FFFFFF" paddingTop="50" paddingBottom="50" paddingLeft="50" paddingRight="50" xmlns:grid="flexed.*">
+    <mx:Script>
+        <![CDATA[
+            import mx.core.*
+
+            [Bindable]
+            public var pageNumber:Number = 1;
+            [Bindable]
+            public var totRecs:Number = 0;
+            
+            public static var getInstance:PrintGridContent = new PrintGridContent();
+
+
+            public function showPage(pageType:String):void {
+                if(pageType == "first" || pageType == "single") {
+                    rptTitle.includeInLayout = true;
+                    rptTitle.visible = true;
+                } else {
+                    rptTitle.includeInLayout = false;
+                    rptTitle.visible = false;                    
+                }
+                validateNow();
+            }
+            
+            public function setReportTitle(rtitle:String):void{
+                rptHeading.text = rtitle;
+            }
+                    
+        ]]>
+    </mx:Script>
+    <mx:HBox id="rptTitle">
+        <mx:Label id="rptHeading" text="REPORT TITLE" fontSize="18"/>
+    </mx:HBox>
+    <grid:PrintGridHeader id="header" pNo="{pageNumber}"/>
+        <mx:PrintDataGrid id="myDataGrid" width="100%" height="100%"/>
+    <grid:PrintGridFooter id="footer" rTotal="{totRecs}"/>
+</mx:VBox>

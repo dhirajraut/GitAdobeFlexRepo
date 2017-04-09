@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" verticalScrollPolicy="off" horizontalScrollPolicy="off">
+    <mx:Script>
+        <![CDATA[
+            
+            private function goToURL(urlStr:String):void{
+                var webPageURL:URLRequest = new URLRequest( urlStr );
+                navigateToURL(webPageURL, "_blank");
+            }
+        ]]>
+    </mx:Script>
+    <mx:LinkButton label="{data.link}" click="goToURL(data.link)"/>
+</mx:Canvas>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" initialize="init(event)">
+	<mx:Script>
+		<![CDATA[
+			import mx.rpc.events.ResultEvent;
+			// Import Declaration
+			import mx.controls.Alert;
+
+			// Global Variable Declaration
+			private var showBorders:String = "solid";
+
+			// Method Declaration
+			private function init(event:Event):void {
+			}
+
+			private function validate():void {
+				mx.controls.Alert.show ("Hi");
+				validLoginsDatabase.send();
+			}
+			
+			private function onResult(event:ResultEvent):void {
+				mx.controls.Alert.show("Hiii");
+				mx.controls.Alert.show (event.result.logins.login);
+/* 				if (userName.text == event.result.login.username &&
+						password.text == validLoginsDatabase.login.password) {
+					mx.controls.Alert.show("Welcome " + 
+								validLoginsDatabase.login.username);
+				}
+				else {
+					mx.controls.Alert.show("Access Denied");
+				}
+ */
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Form name="loginForm" borderStyle="{showBorders}">
+		<mx:VBox borderStyle="{showBorders}">
+			<mx:HBox borderStyle="{showBorders}" horizontalAlign="right">
+				<mx:Label text="UserName: " />
+				<mx:TextInput id="userName" text="Enter UserName Here" click="userName.text=''" />
+			</mx:HBox>
+			<mx:HBox borderStyle="{showBorders}" width="239" horizontalAlign="right">
+				<mx:Label text="Password: " />
+				<mx:TextInput id="password" text="Enter Password Here" click="password.text=''" />
+			</mx:HBox>
+			<mx:HBox borderStyle="{showBorders}" width="239" horizontalAlign="center">
+				<mx:Button label="Submit" click="validate()"/>
+			</mx:HBox>
+		</mx:VBox>
+	</mx:Form>
+	<mx:HTTPService id="validLoginsDatabase" url="datamodel/validlogins.xml" result="onResult(event)" />
+</mx:Application>

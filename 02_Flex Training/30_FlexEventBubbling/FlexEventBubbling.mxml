@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" click="logEvent(event)">
+	
+	<mx:Script>
+		<![CDATA[
+			public function logEvent(event:MouseEvent):void {
+				eventLog.text = "Event Target = " + event.target 
+				+ " & Current Target = " + event.currentTarget;
+			}
+		]]>
+	</mx:Script>
+	<mx:Panel width="250" height="200" layout="absolute" click="logEvent(event)">
+		<mx:Form x="0" y="0" width="230" height="160" click="logEvent(event)">
+			<mx:Button label="Button" click="logEvent(event)"/>
+		</mx:Form>
+	</mx:Panel>
+	<mx:TextArea height="86" width="378" id="eventLog" click="logEvent(event)"/>
+</mx:Application>

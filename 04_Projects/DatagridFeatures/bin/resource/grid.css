@@ -1,0 +1,56 @@
+/* hline below extended grid search panel */
+
+/* grid search text field */
+.searchText{
+    border-style: none;
+    backgroundColor:#ffffff;
+    focus-alpha:0;
+    text-align:left;
+    vertical-align:middle;
+    padding-top:4;
+}
+/* grid search panel */
+.searchPanel{
+    borderStyle: solid;
+    borderColor:#989898;
+    cornerRadius: 4;
+    borderThickness:1;
+    padding-left: 3;
+}
+
+/* grid print button */
+.gridButton{
+    borderStyle: none;
+    backgroundAlpha: 0;
+}
+
+/* grid general style */
+DataGrid {
+   headerColors: #efefef, #ffffff;
+}
+
+/* status bar text */
+.statusMessage{
+    font-family: verdana;
+    font-size: 9;
+    color: #000000;
+}
+
+/* grid column list */
+.columnList{
+    
+    backgroundAlpha: 1;
+    borderStyle: solid;
+    borderColor:#989898;
+    cornerRadius: 3;
+    borderThickness:1;
+    padding-left: 1;
+    padding-right: 1;
+    padding-top: 0;
+    padding-bottom: 0;
+    modalTransparency: 0;
+    modalTransparencyBlur: 2;
+    modalTransparencyColor: #000000;
+    modalTransparencyDuration: 100;
+    backgroundImage: "a.gif";
+}

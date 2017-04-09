@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="327" height="42">
+	<mx:TextInput id="textId" x="10" y="10"/>
+	<mx:Button id="buttonId" label="{buttonLabel}" x="178" y="10"/>
+	
+	<mx:Script>
+		<![CDATA[
+		
+		[Bindable]
+		public var buttonLabel:String = "";
+		]]>
+	</mx:Script>
+</mx:Canvas>

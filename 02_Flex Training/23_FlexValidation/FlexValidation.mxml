@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+	<mx:StringValidator id="firstNameValidator" source="{firstNameInput}" property="text"
+			minLength="3" tooShortError="Initials not allowed"
+			maxLength="8" tooLongError="Out of memory error."/>
+	<mx:StringValidator id="lastNameValidator" source="{lastNameInput}" property="text" triggerEvent=""/>
+	<mx:EmailValidator id="emailValidator" source="{passwordInput}" property="text" 
+		requiredFieldError="Running away with the security???"/>
+	
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ValidationResultEvent;
+			public function validateMe():void {
+				var validLastNameEvent:ValidationResultEvent = lastNameValidator.validate();
+				if (validLastNameEvent.type == ValidationResultEvent.VALID) {
+					mx.controls.Alert.show("Welcome");
+				}
+				else {
+					mx.controls.Alert.show("Fill in last name");
+				}
+			}
+		]]>
+	</mx:Script>
+	
+	
+	<mx:Panel title="My Form" x="320" y="113" height="200">
+		<mx:Form x="58" y="44" width="279" height="124">
+			<mx:FormItem label="First Name" required="true">
+				<mx:TextInput id="firstNameInput"/>
+			</mx:FormItem>
+			<mx:FormItem label="Last Name" required="true">
+				<mx:TextInput id="lastNameInput"/>
+			</mx:FormItem>
+			<mx:FormItem label="Password" required="true">
+				<mx:TextInput id="passwordInput" displayAsPassword="true"/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:ControlBar>
+			<mx:Button label="Button" click="validateMe()"/>
+		</mx:ControlBar>
+	</mx:Panel>
+</mx:Application>

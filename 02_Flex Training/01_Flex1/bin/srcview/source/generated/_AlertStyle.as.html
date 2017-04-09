@@ -1,0 +1,56 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>_AlertStyle.as</title>
+<link rel="stylesheet" type="text/css" href="../../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="asPackage">package</span> 
+<span class="asBracket">{</span>
+
+<span class="asReserved">import</span> flash.display.Sprite;
+<span class="asReserved">import</span> mx.core.IFlexModuleFactory;
+<span class="asReserved">import</span> mx.core.mx_internal;
+<span class="asReserved">import</span> mx.styles.CSSStyleDeclaration;
+<span class="asReserved">import</span> mx.styles.StyleManager;
+
+<span class="asBracket">[</span><span class="asMetadata">ExcludeClass</span><span class="asBracket">]</span>
+
+<span class="asReserved">public</span> <span class="asClass">class</span> _AlertStyle
+<span class="asBracket">{</span>
+
+    <span class="asReserved">public</span> <span class="asReserved">static</span> <span class="asFunction">function</span> init<span class="asBracket">(</span>fbs<span class="asOperator">:</span>IFlexModuleFactory<span class="asBracket">)</span><span class="asOperator">:</span><span class="asReserved">void</span>
+    <span class="asBracket">{</span>
+        <span class="asVar">var</span> style<span class="asOperator">:</span>CSSStyleDeclaration <span class="asOperator">=</span> StyleManager.getStyleDeclaration<span class="asBracket">(</span><span class="asString">&quot;Alert&quot;</span><span class="asBracket">)</span>;
+    
+        <span class="asReserved">if</span> <span class="asBracket">(</span><span class="asOperator">!</span>style<span class="asBracket">)</span>
+        <span class="asBracket">{</span>
+            style <span class="asOperator">=</span> <span class="asReserved">new</span> CSSStyleDeclaration<span class="asBracket">()</span>;
+            StyleManager.setStyleDeclaration<span class="asBracket">(</span><span class="asString">&quot;Alert&quot;</span>, style, <span class="asReserved">false</span><span class="asBracket">)</span>;
+        <span class="asBracket">}</span>
+    
+        <span class="asReserved">if</span> <span class="asBracket">(</span>style.defaultFactory <span class="asOperator">==</span> <span class="asReserved">null</span><span class="asBracket">)</span>
+        <span class="asBracket">{</span>
+            style.defaultFactory <span class="asOperator">=</span> <span class="asFunction">function</span><span class="asBracket">()</span><span class="asOperator">:</span><span class="asReserved">void</span>
+            <span class="asBracket">{</span>
+                <span class="asReserved">this</span>.paddingTop <span class="asOperator">=</span> 2;
+                <span class="asReserved">this</span>.borderColor <span class="asOperator">=</span> 0x869ca7;
+                <span class="asReserved">this</span>.paddingLeft <span class="asOperator">=</span> 10;
+                <span class="asReserved">this</span>.color <span class="asOperator">=</span> 0xffffff;
+                <span class="asReserved">this</span>.roundedBottomCorners <span class="asOperator">=</span> <span class="asReserved">true</span>;
+                <span class="asReserved">this</span>.paddingRight <span class="asOperator">=</span> 10;
+                <span class="asReserved">this</span>.backgroundAlpha <span class="asOperator">=</span> 0.9;
+                <span class="asReserved">this</span>.paddingBottom <span class="asOperator">=</span> 2;
+                <span class="asReserved">this</span>.borderAlpha <span class="asOperator">=</span> 0.9;
+                <span class="asReserved">this</span>.buttonStyleName <span class="asOperator">=</span> <span class="asString">&quot;alertButtonStyle&quot;</span>;
+                <span class="asReserved">this</span>.backgroundColor <span class="asOperator">=</span> 0x869ca7;
+            <span class="asBracket">}</span>;
+        <span class="asBracket">}</span>
+    <span class="asBracket">}</span>
+<span class="asBracket">}</span>
+
+<span class="asBracket">}</span>
+</pre></body>
+</html>

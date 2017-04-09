@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="214" height="80">
+
+	<mx:Metadata>
+		[Event (name="DispatcherEvent")]
+		[Event (name="TextDispatcher", type="flash.events.TextEvent")]
+	</mx:Metadata>
+
+	<mx:Script>
+		<![CDATA[
+			private function buttonClicked():void
+			{
+				var event:Event = new Event("DispatcherEvent");
+				dispatchEvent(event);
+			}
+			private function assignProject():void
+			{
+				var event:TextEvent = new TextEvent("TextDispatcher");
+				event.text = inputPrj.text;
+				dispatchEvent(event);
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:Button x="6" y="10" label="Event Dispatcher" click="buttonClicked()" width="198"/>
+	<mx:TextInput id="inputPrj" x="10" y="40" width="81"/>
+	<mx:Button x="99" y="40" label="Assign Project" click="assignProject()" />
+</mx:Canvas>

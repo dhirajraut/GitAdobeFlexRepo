@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" backgroundGradientColors="[#ffffff, #c0c0c0]" xmlns:flexed="*" horizontalAlign="center" verticalAlign="middle" viewSourceURL="srcview/index.html" width="100%" height="100%" >
+  <mx:Style source="Cssfiles/grid.css"/> 
+    <mx:Style>
+        Alert{
+            color : #0f3177;
+            title-style-name : "alertTitle";
+            header-height:19;
+            border-thickness: 1;
+            drop-shadow-enabled: true;
+            drop-shadow-color :#d1ddf7;
+            background-color: #ffffff;
+            corner-radius :6;
+            border-style :solid;
+            header-colors : #90a4d1, #5970a0;
+            footer-colors : #9db6d9, #ffffff;
+            border-color : #5970a0;
+        }
+        
+        .alertTitle{
+            font-family :Verdana;
+            font-size :10;
+            font-weight :bold;
+            text-align :left;
+            color :#ffffff;
+        }        
+    </mx:Style>
+    <mx:VBox verticalGap="3" width="805" height="444">
+        <!-- Using the Tab Navigator to hold my components. -->
+        <flexed:UseCustomGrid width="802" height="442" />
+   </mx:VBox>
+</mx:Application>

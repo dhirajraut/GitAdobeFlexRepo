@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lb:LApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	xmlns:mx1="com.lehman.framework.foundation.components.datagrid.*"
+	xmlns:lb="com.lehman.framework.foundation.components.application.*"
+	xmlns:bubble="com.lehman.framework.foundation.components.bubble.*"
+	appTheme="default"
+	title="DataGrid Features"		
+	initialize="myService.send()" 
+	width="100%"
+	height="100%"	 >
+	
+	<mx:Style source="resource/style.css"/>
+	<mx:Script>
+		<![CDATA[
+		    import com.lehman.framework.foundation.components.queryfilter.LQueryFilter;
+
+        	import com.lehman.framework.foundation.components.datagrid.LDataGridControl;
+            import com.lehman.framework.foundation.components.datagrid.LDataGridColumn;            
+            import com.lehman.framework.foundation.components.datagrid.LDataGridConfig;   
+            import com.lehman.framework.foundation.components.datagrid.LIFrame;
+            import com.lehman.framework.foundation.components.datagrid.LDataGridMenu;                 	
+        	import com.lehman.framework.foundation.components.filter.LFilterConfig;
+        	import com.lehman.framework.foundation.components.filter.LFilter;            
+            import com.lehman.framework.foundation.components.renders.LLinkRenderer;
+            import com.lehman.framework.foundation.components.renders.LImgRenderer;
+            import com.lehman.framework.foundation.components.renders.LAddRowRenderer;
+            import com.lehman.framework.foundation.components.renders.GridCellColor;
+        	import mx.collections.ArrayCollection;
+        	import mx.rpc.events.ResultEvent;   
+        	import mx.controls.Alert;    
+
+			/********************* Common Datagrid Features ********************/
+            [Bindable]
+            public var sampleConfig:LDataGridConfig=new LDataGridConfig();
+            public var columnCollection:ArrayCollection=new ArrayCollection();
+              
+            private var myFilter:LFilter;  
+            private var myFilterCol:LFilter;              
+            private var cellColorFilter:LFilter;
+            [Bindable]
+            private var customLContextMenuItems:ArrayCollection;
+            private var customMenuItem1:LDataGridMenu;
+            private var customMenuItem2:LDataGridMenu;
+            
+            /* Variable declaration for controls to be displayed on top of dataGrid*/
+            [Bindable]
+            private var customControlItem:ArrayCollection;
+            private var customControl1:LDataGridControl;
+            private var customControl2:LDataGridControl;
+            private var customControl3:LDataGridControl;
+            
+            private var ctrlPressed:Boolean = new Boolean();
+            private var shiftPressed:Boolean = new Boolean();
+            private var ctrlShiftPressed:Boolean = new Boolean();
+
+            [Bindable]
+            private var dataCollection:ArrayCollection=new ArrayCollection([{Name:"The Picasso Code",Author:"Dan Blue",Category:"Fiction",Publisher:"O'reily",Link:"www.google.com",Date:new Date(1,8,2001),Price:"20",Image:"./resource/book.jpg"},
+                                                                  {Name:"Here With the Wind",Author:"Margaret Middle",Category:"Fiction",Publisher:"Tata McGrawHill",Link:"http://www.dict.org",Date:new Date(11,1,2004),Price:"35",Image:"./resource/book.jpg"},
+                                                                  {Name:"Harry Potluck and the Chamber of Money",Author:"Ann Rind",Category:"Adventure",Publisher:"Wrox",Link:"http://www.google.com",Date:new Date(11,11,2006),Price:"34",Image:"./resource/book.jpg"},
+                                                                  {Name:"No Expectations",Author:"Chuck Dickens",Category:"Fiction",Publisher:"Tata McGrawHill",Link:"http://www.google.com",Date:new Date(05,01,2001),Price:"25",Image:"./resource/book.jpg"},
+                                                                  {Name:"Atlas Stretched",Author:"Ann Rind",Category:"Non Fiction",Publisher:"O'reily",Link:"http://www.google.com",Date:new Date(11,10,2000),Price:"45",Image:"./resource/book.jpg"},
+                                                                  {Name:"Recycling Software",Author:"Big Gates",Category:"Non Fiction",Publisher:"Wrox",Link:"http://www.google.com",Date:new Date(05,11,2004),Price:"50",Image:"./resource/book.jpg"},
+                                                                  {Name:"Make Tons of Money",Author:"Donald Rump",Category:"Non Fiction",Publisher:"Wrox",Link:"http://www.google.com",Date:new Date(08,0,2004),Price:"45",Image:"./resource/book.jpg"},
+                                                                  {Name:"How to Win Enemies and Lose Friends",Author:"Dale Crochety",Category:"Non Fiction",Publisher:"Tata McGrawHill",Link:"http://www.google.com",Date:new Date(01,09,2003),Price:"45",Image:"./resource/book.jpg"},
+                                                                  {Name:"My Lies",Author:"Swill Clinton",Category:"Non Fiction",Publisher:"Tata McGrawHill",Link:"http://www.google.com",Date:new Date(02,04,2002),Price:"40",Image:"./resource/book.jpg"},
+                                                                  {Name:"The Complete History of the World",Author:"David McClutz",Category:"Non Fiction",Publisher:"Wrox",Link:"http://www.google.com",Date:new Date(08,10,2005),Price:"35",Image:"./resource/book.jpg"},    
+                                                                  {Name:"The Complete History of the World",Author:"aDavid McClutz",Category:"Non Fiction",Publisher:"Wrox",Link:"http://www.google.com",Date:new Date(08,09,2005),Price:"35",Image:"./resource/book.jpg"}]);    
+
+            /**
+            * This method prepares the configuration object to be set in the datagrid.
+            */
+            private function initGrid():void
+            {            
+                var gridColumn1:LDataGridColumn=new LDataGridColumn();
+                /* Ability render columns by passing column collection */
+                gridColumn1.columnHeader="Book Name"; // This is the column header, which will be displayed in the DataGrid.
+                gridColumn1.columnWidth=300; // Width of the column.
+                gridColumn1.columnDataField="Name"; // Mapping with datacollection.
+                /* Ability to sort a particular column programmatically */
+                gridColumn1.columnSortable=true; // To set whether the column is sortable.
+                gridColumn1.columnSortDecending=false; // true: for descending. false: for ascending
+                gridColumn1.columnSortPreference=1; // Sorting sequence. The value can be 1 or 2 or 3 etc.
+                gridColumn1.columnSortCaseInSensitive=true;//true: Case Insensitive, false; case sensitive.
+                gridColumn1.columnWordWrap=true//Set this true for wrapping the text for this column.
+                gridColumn1.columnRenderer=LAddRowRenderer;
+                gridColumn1.FilterType="TEXT";
+
+                columnCollection.addItem(gridColumn1);
+                
+                var gridColumn2:LDataGridColumn=new LDataGridColumn();
+                gridColumn2.columnHeader="Author Name";
+                gridColumn2.columnWidth=100;
+                gridColumn2.columnDataField="Author";               
+                gridColumn2.columnSortable=true;
+                gridColumn2.columnSortDecending=false;
+                gridColumn2.columnSortPreference=2;
+                gridColumn2.columnSortCaseInSensitive=false;
+                gridColumn2.columnWordWrap=false;
+                gridColumn2.FilterType="RADIOBUTTON";
+                gridColumn2.columnRenderer=LAddRowRenderer;
+                columnCollection.addItem(gridColumn2);
+                
+                var gridColumn3:LDataGridColumn=new LDataGridColumn();
+                gridColumn3.columnHeader="Book Category";               
+                gridColumn2.columnSortable=false;
+                gridColumn3.columnWidth=100;
+                gridColumn3.columnDataField="Category";
+                gridColumn3.FilterType="DROPDOWN";
+                gridColumn3.columnRenderer=LAddRowRenderer;
+                columnCollection.addItem(gridColumn3);
+                
+                var gridColumn4:LDataGridColumn=new LDataGridColumn();
+                gridColumn4.columnHeader="Publisher Name";
+                gridColumn4.columnWidth=100;
+                gridColumn4.columnDataField="Publisher";
+                gridColumn4.columnRenderer=LLinkRenderer;
+                gridColumn4.columnLink="Link";                
+                columnCollection.addItem(gridColumn4);
+                
+                var gridColumn5:LDataGridColumn=new LDataGridColumn();
+                gridColumn5.columnHeader="Publish Date";
+                gridColumn5.columnWidth=100;
+                gridColumn5.columnDataField="Date";
+                gridColumn5.columnDataType="Date";
+//                gridColumn5.FilterType="DATESLIDER"
+                gridColumn5.columnRenderer=LAddRowRenderer;
+                gridColumn5.dateFormat="dd-MMM-YYYY";
+                columnCollection.addItem(gridColumn5);
+                
+                var gridColumn6:LDataGridColumn=new LDataGridColumn();
+                gridColumn6.columnHeader="MRP";
+                gridColumn6.columnWidth=100;
+                gridColumn6.columnDataField="Price";
+                gridColumn6.columnRenderer=LAddRowRenderer;                
+                gridColumn6.FilterType="CHECKBOX";                
+                columnCollection.addItem(gridColumn6);
+
+                var gridColumn7:LDataGridColumn=new LDataGridColumn();
+                gridColumn7.columnHeader="Read Online";
+                gridColumn7.columnWidth=50;
+                gridColumn7.columnDataField="Image";
+                gridColumn7.columnRenderer=LImgRenderer;
+                gridColumn7.columnLink="Link";
+                columnCollection.addItem(gridColumn7);
+                
+                sampleConfig.columnCollection=columnCollection;
+                sampleConfig.dataCollection=dataCollection;
+                sampleConfig.gridTitle="Book Details";     
+                sampleConfig.gridTitleFontFamily="Arial";   
+                sampleConfig.gridTitleFontSize="12";
+                sampleConfig.gridTitleFontStyle="italic";
+                sampleConfig.gridTitleFontWeight="bold";
+                
+                sampleConfig.isPreviewEnabled=false;
+                sampleConfig.previewMethod=callPreview;
+                sampleConfig.enableMultipleSelection=true;
+               
+               /* user specified controls to be displayed on top of datagrid*/
+                customControlItem=new ArrayCollection();
+                customControl1=new LDataGridControl();
+                customControl1.controlClass=mx.controls.Button;//specifying the control to be displayed
+                customControl1.controlLabel="my Button";//specifying the label to be displayed on the control
+                customControl1.controlHandler=myButtonHandler;//specifying the handler for the control.
+                customControl1.controlToolTip=customControl1.controlLabel + " Tooltip";//specifying the tooltip to be displayed on the control.
+                customControlItem.addItem(customControl1);
+                
+                customControl3=new LDataGridControl();
+                customControl3.controlClass=mx.controls.LinkButton;
+                customControl3.controlLabel="my Link";
+                customControl3.imageSource="./resource/iExplloreIcon.jpg"
+                customControl3.controlHandler=myLinkButtonHandler;
+                customControl3.controlToolTip="Link Tooltip";
+                customControlItem.addItem(customControl3);
+                
+                customControl2=new LDataGridControl();
+                customControl2.controlClass=mx.controls.Image;
+                customControl2.controlHandler=myImageHandler;
+                customControl2.controlToolTip="Image";
+                customControl2.imageSource="./resource/note.png"
+                customControlItem.addItem(customControl2);
+                
+				//custom context menu items
+                customLContextMenuItems = new ArrayCollection();
+                customMenuItem1 = new LDataGridMenu();
+                customMenuItem1.menuLabel = "Hide/Show"+ gridColumn1.columnHeader;
+                customMenuItem1.menuHandler = myMenuItemHandler;
+                customLContextMenuItems.addItem(customMenuItem1);                                
+                
+                sampleConfig.enableContextMenu = true;
+                sampleConfig.menuCollection=customLContextMenuItems;
+                sampleConfig.controlArray=customControlItem;
+                sampleConfig.headerControlAlign="right";                               
+                
+                /*setting the url of the image for show/hide popup*/
+                sampleConfig.showHideColumnPopupImgUrl="./resource/box.gif";
+                sampleConfig.showHideColumnEnable = true;      
+                
+                /*Enable Freeze Column Functionality*/
+                sampleConfig.enableFreezeColumn=true;
+                
+                /*Enable Freeze Row Functionality*/
+                sampleConfig.enableFreezeRow=true;                   
+               
+                /*Enable Add/Delete Row Functionality*/
+                sampleConfig.enableAddRecord = true;
+                sampleConfig.enableDeleteRecord = true;                       
+             }
+            
+           /**
+            * This function calls the displayIFrame function for preview
+            * 
+            * @param event takes an event of type MouseEvent
+            */
+            private function callPreview(event:MouseEvent):void
+            {                	
+	            if(datagrid.selectedIndex>=0)
+	            {
+	                datagrid.preview(dataCollection[datagrid.selectedIndex].Link,200);
+	            }
+            }
+            
+            /** 
+            * This function is for handling the click event of the user specified button control
+            *
+            *@param event it takes the mouse event
+            */
+            public function myButtonHandler(event:MouseEvent):void
+            {
+                Alert.show("Button click handler");
+            }
+            
+            /** 
+            * This function is for handling the click event of the user specified Image control
+            *
+            *@param event it takes the mouse event
+            */
+            public function myImageHandler(event:MouseEvent):void
+            {
+                Alert.show("Image click handler");
+            }
+            
+            /** 
+            * This function is for handling the click event of the user specified LinkButton control
+            *
+            *@param event it takes the mouse event
+            */
+            public function myLinkButtonHandler(event:MouseEvent):void
+            {
+                Alert.show("LinkButton click handler");
+            }
+            
+            /**
+            * This function is a Menu Item Handler.
+            * 
+            * @param event takes an event of type ContextMenuEvent
+            */
+            private function myMenuItemHandler(event:ContextMenuEvent):void
+            {
+                if(datagrid.isColumnVisible("Book Name"))
+                {
+                	datagrid.showColumn("Book Name" , false)
+                }
+                else
+                {
+                	datagrid.showColumn("Book Name" , true)
+                }
+            }			                                                    
+            
+            public function initcomplete():void
+            {
+                var queryFilter:LQueryFilter = new LQueryFilter();
+                queryFilter.sourceGrid = datagrid;
+                queryFilter.renderComponent();
+                queryFilter.x = tabNavigator.width + 15;
+				queryFilter.y = tabNavigator.y + 20;	
+				queryFilter.percentHeight = 99;		
+				queryFilter.width=200;	
+				CommonFeaturesHBox.addChild(queryFilter);
+                
+              	/* myFilter = new LFilter();
+                var lFCnf:LFilterConfig = new LFilterConfig();
+                var colCollection:ArrayCollection = datagrid.columnCollection ;                
+				lFCnf.columnCollection = colCollection.toArray();//datagrid.columnCollection ;
+				lFCnf.dataCollection = datagrid.dataCollection as ArrayCollection;
+				lFCnf.sourceGrid = datagrid;
+				myFilter.configData = lFCnf;
+				myFilter.createComponent();						
+				
+				myFilter.x = tabNavigator.width + 15;
+				myFilter.y = tabNavigator.y + 20;	
+				myFilter.percentHeight = 99;			
+				CommonFeaturesHBox.addChild(myFilter); */  				
+            }                                               
+            /********************* Common Datagrid Features END ********************/					
+			
+			/********************* Cell Coloring Feature ******************/						                           
+            [Bindable]
+            public var sampleConfigCellColor:LDataGridConfig=new LDataGridConfig();
+            public var columnCollectionCellColor:ArrayCollection=new ArrayCollection();
+                       
+            [Bindable]
+            public var dataCollectionXml:ArrayCollection;                                
+                                                                    
+            private function result(event:ResultEvent):void
+            {
+	 			dataCollectionXml=event.result.books.stock;	 				 			
+                initGridCellColor();                                
+	 		}
+	 		
+	 		private function initGridCellColor():void
+	 		{                           
+				var gridColumn1:LDataGridColumn=new LDataGridColumn();
+             
+                //Ability render columns by passing column collection 
+                gridColumn1.columnHeader="Book Name"; // This is the column header, which will be displayed in the DataGrid.
+                gridColumn1.columnWidth=300; // Width of the column.
+                gridColumn1.columnDataField="Name"; // Mapping with datacollection.
+                // Ability to sort a particular column programmatically */
+                gridColumn1.columnSortable=true; // To set whether the column is sortable.
+                gridColumn1.columnSortDecending=false; // true: for descending. false: for ascending
+                gridColumn1.columnSortPreference=1; // Sorting sequence. The value can be 1 or 2 or 3 etc.
+                gridColumn1.columnSortCaseInSensitive=true;//true: Case sensitive, false; non case sensitive.
+                gridColumn1.columnWordWrap=true//Set this true for wrapping the text for this column.
+                gridColumn1.FilterType="CHECKBOX";
+                columnCollectionCellColor.addItem(gridColumn1);              
+                
+                var gridColumn2:LDataGridColumn=new LDataGridColumn();
+                gridColumn2.columnHeader="Author Name";
+                gridColumn2.columnWidth=100;
+                gridColumn2.columnDataField="Author";
+                gridColumn2.columnSortable=true;
+                gridColumn2.columnSortDecending=false;
+                gridColumn2.columnSortPreference=2;
+                gridColumn2.columnSortCaseInSensitive=false;
+                gridColumn2.columnWordWrap=false;
+                gridColumn2.FilterType="CHECKBOX";
+                columnCollectionCellColor.addItem(gridColumn2);               
+                
+                var gridColumn3:LDataGridColumn=new LDataGridColumn();
+                gridColumn3.columnHeader="Book Category";
+                gridColumn3.columnWidth=100;
+                gridColumn3.columnDataField="Category";
+                gridColumn3.FilterType="CHECKBOX";                
+                columnCollectionCellColor.addItem(gridColumn3);               
+                
+                var gridColumn4:LDataGridColumn=new LDataGridColumn();
+                gridColumn4.columnHeader="Publisher Name";
+                gridColumn4.columnWidth=100;
+                gridColumn4.columnDataField="Publisher";
+                gridColumn4.columnRenderer=LLinkRenderer;
+                gridColumn4.columnLink="Link";
+                gridColumn4.FilterType="CHECKBOX";                
+                columnCollectionCellColor.addItem(gridColumn4);
+                              
+                var gridColumn5:LDataGridColumn=new LDataGridColumn();
+                gridColumn5.columnHeader="MRP";
+                gridColumn5.columnWidth=100;
+                gridColumn5.columnDataField="Price";
+                gridColumn5.FilterType="CHECKBOX";                
+                columnCollectionCellColor.addItem(gridColumn5);
+                
+                var gridColumn6:LDataGridColumn=new LDataGridColumn();
+                gridColumn6.columnHeader="Read Online";
+                gridColumn6.columnWidth=50;
+                gridColumn6.columnDataField="Image";
+                gridColumn6.columnRenderer=LImgRenderer;
+                gridColumn6.columnLink="Link";                
+                columnCollectionCellColor.addItem(gridColumn6);
+                              
+                sampleConfigCellColor.columnCollection=columnCollectionCellColor;
+                sampleConfigCellColor.dataCollection=dataCollectionXml;
+                sampleConfigCellColor.gridTitle="Book Details";     
+                sampleConfigCellColor.gridTitleFontFamily="Arial";   
+                sampleConfigCellColor.gridTitleFontSize="12";
+                sampleConfigCellColor.gridTitleFontStyle="italic";
+                sampleConfigCellColor.gridTitleFontWeight="bold";
+                sampleConfigCellColor.destination="resource/books.xml";		
+                                
+                /* user specified controls to be displayed on top of datagrid*/
+                customControlItem=new ArrayCollection();
+                customControl1=new LDataGridControl();
+                customControl1.controlClass=mx.controls.Button;//specifying the control to be displayed
+                customControl1.controlLabel="my Button";//specifying the label to be displayed on the control
+                customControl1.controlHandler=myButtonHandler;//specifying the handler for the control.
+                customControl1.controlToolTip=customControl1.controlLabel + " Tooltip";//specifying the tooltip to be displayed on the control.
+                customControlItem.addItem(customControl1);
+                
+                customControl3=new LDataGridControl();
+                customControl3.controlClass=mx.controls.LinkButton;
+                customControl3.controlLabel="my Link";
+                customControl3.imageSource="./resource/iExplloreIcon.jpg"
+                customControl3.controlHandler=myLinkButtonHandler;
+                customControl3.controlToolTip="Link Tooltip";
+                customControlItem.addItem(customControl3);
+                
+                customControl2=new LDataGridControl();
+                customControl2.controlClass=mx.controls.Image;
+                customControl2.controlHandler=myImageHandler;
+                customControl2.controlToolTip="Image";
+                customControl2.imageSource="./resource/note.png"
+                customControlItem.addItem(customControl2);		
+                
+                sampleConfigCellColor.controlArray = customControlItem;                				        				       
+                sampleConfigCellColor.enableFreezeColumn=true;                
+                sampleConfigCellColor.enableContextMenu = true;                                               
+                
+                /*setting the url of the image for show/hide popup*/
+                sampleConfigCellColor.showHideColumnPopupImgUrl="./resource/box.gif";
+                sampleConfigCellColor.showHideColumnEnable = true;                		               
+            }
+            
+            public function initcompleteCol():void
+            {
+				/* myFilterCol = new LFilter();
+                var lFCnf:LFilterConfig = new LFilterConfig();
+                var colCollection:ArrayCollection = dataGridCellColor.columnCollection ;                
+				lFCnf.columnCollection = columnCollectionCellColor.toArray();//datagrid.columnCollection ;
+				lFCnf.dataCollection = dataGridCellColor.dataCollection as ArrayCollection;
+				lFCnf.sourceGrid = dataGridCellColor;
+				myFilterCol.configData = lFCnf;
+				myFilterCol.createComponent();						
+				myFilterCol.x = tabNavigator.width + 15;
+				myFilterCol.y = tabNavigator.y + 20;				
+				myFilterCol.percentHeight = 99;
+				CellColorHBox.addChild(myFilterCol);   */				
+            }
+            /**************** Cell Coloring Feature END **********************/			
+			
+            /********************* Collapsible Column Feature ******************/						 
+			[Bindable]
+            public var sampleConfigColumn:LDataGridConfig=new LDataGridConfig();
+            public var columnCollectionColumn:ArrayCollection=new ArrayCollection();
+			private function initGridColumn():void
+	 		{                           
+                var gridColumn1:LDataGridColumn=new LDataGridColumn();
+             
+                //Ability render columns by passing column collection 
+                gridColumn1.columnHeader="Book Name"; // This is the column header, which will be displayed in the DataGrid.
+                gridColumn1.columnWidth=300; // Width of the column.
+                gridColumn1.columnDataField="Name"; // Mapping with datacollection.
+                // Ability to sort a particular column programmatically */
+                gridColumn1.columnSortable=true; // To set whether the column is sortable.
+                gridColumn1.columnSortDecending=false; // true: for descending. false: for ascending
+                gridColumn1.columnSortPreference=1; // Sorting sequence. The value can be 1 or 2 or 3 etc.
+                gridColumn1.columnSortCaseInSensitive=true;//true: Case sensitive, false; non case sensitive.
+                gridColumn1.columnWordWrap=true//Set this true for wrapping the text for this column.
+                columnCollectionColumn.addItem(gridColumn1);
+                              
+                var gridColumn2:LDataGridColumn=new LDataGridColumn();
+                gridColumn2.columnHeader="Author Name";
+                gridColumn2.columnGroupId = "1";
+                gridColumn2.columnWidth=100;
+                gridColumn2.columnDataField="Author";
+                gridColumn2.columnSortable=true;
+                gridColumn2.columnSortDecending=false;
+                gridColumn2.columnSortPreference=2;
+                gridColumn2.columnSortCaseInSensitive=false;
+                gridColumn2.columnWordWrap=false;
+                columnCollectionColumn.addItem(gridColumn2);
+                               
+                var gridColumn3:LDataGridColumn=new LDataGridColumn();
+                gridColumn3.columnHeader="Book Category";
+                gridColumn3.columnGroupId = "1";
+                gridColumn3.columnWidth=100;
+                gridColumn3.columnDataField="Category";
+                columnCollectionColumn.addItem(gridColumn3);
+                               
+                var gridColumn4:LDataGridColumn=new LDataGridColumn();
+                gridColumn4.columnHeader="Publisher Name";
+                gridColumn4.columnGroupHeaderId = "1";
+                gridColumn4.columnWidth=100;
+                gridColumn4.columnDataField="Publisher";
+                gridColumn4.columnRenderer=LLinkRenderer;
+                gridColumn4.columnLink="Link";
+                columnCollectionColumn.addItem(gridColumn4);
+                              
+                var gridColumn5:LDataGridColumn=new LDataGridColumn();
+                gridColumn5.columnHeader="MRP";
+                gridColumn5.columnWidth=100;
+                gridColumn5.columnDataField="Price";
+                columnCollectionColumn.addItem(gridColumn5);
+                
+                var gridColumn6:LDataGridColumn=new LDataGridColumn();
+                gridColumn6.columnHeader="Read Online";
+                gridColumn6.columnWidth=50;
+                gridColumn6.columnDataField="Image";
+                gridColumn6.columnRenderer=LImgRenderer;
+                gridColumn6.columnLink="Link";
+                columnCollectionColumn.addItem(gridColumn6);
+                              
+                sampleConfigColumn.columnCollection=columnCollectionColumn;
+                sampleConfigColumn.dataCollection=dataCollection;
+                sampleConfigColumn.gridTitle="Book Details";     
+                sampleConfigColumn.gridTitleFontFamily="Arial";   
+                sampleConfigColumn.gridTitleFontSize="12";
+                sampleConfigColumn.gridTitleFontStyle="italic";
+                sampleConfigColumn.gridTitleFontWeight="bold";
+                sampleConfigColumn.destination="resource/books.xml";	
+                
+                /* user specified controls to be displayed on top of datagrid*/
+                customControlItem=new ArrayCollection();
+                customControl1=new LDataGridControl();
+                customControl1.controlClass=mx.controls.Button;//specifying the control to be displayed
+                customControl1.controlLabel="my Button";//specifying the label to be displayed on the control
+                customControl1.controlHandler=myButtonHandler;//specifying the handler for the control.
+                customControl1.controlToolTip=customControl1.controlLabel + " Tooltip";//specifying the tooltip to be displayed on the control.
+                customControlItem.addItem(customControl1);
+                
+                customControl3=new LDataGridControl();
+                customControl3.controlClass=mx.controls.LinkButton;
+                customControl3.controlLabel="my Link";
+                customControl3.imageSource="./resource/iExplloreIcon.jpg"
+                customControl3.controlHandler=myLinkButtonHandler;
+                customControl3.controlToolTip="Link Tooltip";
+                customControlItem.addItem(customControl3);
+                
+                customControl2=new LDataGridControl();
+                customControl2.controlClass=mx.controls.Image;
+                customControl2.controlHandler=myImageHandler;
+                customControl2.controlToolTip="Image";
+                customControl2.imageSource="./resource/note.png"
+                customControlItem.addItem(customControl2);		
+                
+                //custom context menu items
+                customLContextMenuItems = new ArrayCollection();
+                customMenuItem1 = new LDataGridMenu();
+                customMenuItem1.menuLabel = "Hide/Show"+ gridColumn1.columnHeader;
+                customMenuItem1.menuHandler = myMenuItemHandler;
+                customLContextMenuItems.addItem(customMenuItem1);                                
+                
+                sampleConfigColumn.enableContextMenu = true;
+                sampleConfigColumn.menuCollection=customLContextMenuItems;
+                sampleConfigColumn.controlArray=customControlItem;
+                sampleConfigColumn.headerControlAlign="right";	                                      
+                
+                /*setting the url of the image for show/hide popup*/
+                sampleConfigColumn.showHideColumnPopupImgUrl="./resource/box.gif";
+                sampleConfigColumn.showHideColumnEnable = true;      
+                
+                /*Enable Freeze Column Functionality*/
+                sampleConfigColumn.enableFreezeColumn=true;
+                
+                /*Enable Freeze Row Functionality*/
+                sampleConfigColumn.enableFreezeRow=true;                                             
+            }
+			/********************* Collapsible Column Feature END ******************/	
+			
+			/********************* Collapsible Row Feature ******************/				
+			[Bindable]
+			private var dataProviderObject : TreeGridSampleVO;			
+			private var dataProviderArrayCollection : ArrayCollection = new ArrayCollection;
+			
+            [Bindable]
+            public var sampleConfigTree:LDataGridConfig=new LDataGridConfig();
+            public var columnCollectionTree:ArrayCollection=new ArrayCollection();
+            
+            /**
+            * This method prepares the configuration object to be set in the datagrid.
+            */
+            private function initTreeGrid():void
+            {            
+                var gridColumn1:LDataGridColumn=new LDataGridColumn();
+                /* Ability render columns by passing column collection */
+                gridColumn1.columnHeader="Project Name"; // This is the column header, which will be displayed in the DataGrid.
+                gridColumn1.columnWidth=300; // Width of the column.
+                gridColumn1.columnDataField="name"; // Mapping with datacollection.
+                /* Ability to sort a particular column programmatically */
+                gridColumn1.columnSortable=true; // To set whether the column is sortable.
+                gridColumn1.columnSortDecending=false; // true: for descending. false: for ascending
+                gridColumn1.columnSortPreference=1; // Sorting sequence. The value can be 1 or 2 or 3 etc.
+                gridColumn1.columnSortCaseInSensitive=true;//true: Case Insensitive, false; case sensitive.
+                gridColumn1.columnWordWrap=true//Set this true for wrapping the text for this column.
+                //gridColumn1.columnRenderer=TreeGridItemRenderer;                
+                columnCollectionTree.addItem(gridColumn1);
+                
+                var gridColumn2:LDataGridColumn=new LDataGridColumn();
+                gridColumn2.columnHeader="Janurary";
+                gridColumn2.columnWidth=100;
+                gridColumn2.columnDataField="jan";
+                gridColumn2.columnSortable=true;
+                gridColumn2.columnSortDecending=false;
+                gridColumn2.columnSortPreference=2;
+                gridColumn2.columnSortCaseInSensitive=false;
+                gridColumn2.columnWordWrap=false;
+                gridColumn2.columnRenderer=LAddRowRenderer;
+                columnCollectionTree.addItem(gridColumn2);
+                
+                var gridColumn3:LDataGridColumn=new LDataGridColumn();
+                gridColumn3.columnHeader="Feburary";
+                gridColumn2.columnSortable=false;
+                gridColumn3.columnWidth=100;
+                gridColumn3.columnDataField="feb";
+                gridColumn3.columnRenderer=LAddRowRenderer;
+                columnCollectionTree.addItem(gridColumn3);
+                
+                var gridColumn4:LDataGridColumn=new LDataGridColumn();
+                gridColumn4.columnHeader="mar";
+                gridColumn4.columnWidth=100;
+                gridColumn4.columnDataField="Publisher";
+                gridColumn4.columnRenderer=LLinkRenderer;
+                gridColumn4.columnLink="Link";
+                columnCollectionTree.addItem(gridColumn4);
+                
+                var gridColumn5:LDataGridColumn=new LDataGridColumn();
+                gridColumn5.columnHeader="april";
+                gridColumn5.columnWidth=100;
+                gridColumn5.columnDataField="apr";
+                gridColumn5.columnRenderer=LAddRowRenderer;
+                gridColumn5.dateFormat="dd-MMM-YYYY";
+                columnCollectionTree.addItem(gridColumn5);
+                
+                var gridColumn6:LDataGridColumn=new LDataGridColumn();
+                gridColumn6.columnHeader="may";
+                gridColumn6.columnWidth=100;
+                gridColumn6.columnDataField="may";
+                gridColumn6.columnRenderer=LAddRowRenderer;
+                columnCollectionTree.addItem(gridColumn6);               
+                
+                sampleConfigTree.columnCollection=columnCollectionTree;
+                sampleConfigTree.dataCollection=handleCreationComplete();
+                sampleConfigTree.gridTitle="Book Details";     
+                sampleConfigTree.gridTitleFontFamily="Arial";   
+                sampleConfigTree.gridTitleFontSize="12";
+                sampleConfigTree.gridTitleFontStyle="italic";
+                sampleConfigTree.gridTitleFontWeight="bold";
+                sampleConfigTree.gridType="TREE";
+                sampleConfigTree.isPreviewEnabled=false;
+                sampleConfigTree.previewMethod=callPreview;
+                                
+                /* user specified controls to be displayed on top of datagrid*/
+                customControlItem=new ArrayCollection();
+                customControl1=new LDataGridControl();
+                customControl1.controlClass=mx.controls.Button;//specifying the control to be displayed
+                customControl1.controlLabel="my Button";//specifying the label to be displayed on the control
+                customControl1.controlHandler=myButtonHandler;//specifying the handler for the control.
+                customControl1.controlToolTip=customControl1.controlLabel + " Tooltip";//specifying the tooltip to be displayed on the control.
+                customControlItem.addItem(customControl1);
+                
+                customControl3=new LDataGridControl();
+                customControl3.controlClass=mx.controls.LinkButton;
+                customControl3.controlLabel="my Link";
+                customControl3.imageSource="./resource/iExplloreIcon.jpg"
+                customControl3.controlHandler=myLinkButtonHandler;
+                customControl3.controlToolTip="Link Tooltip";
+                customControlItem.addItem(customControl3);
+                
+                customControl2=new LDataGridControl();
+                customControl2.controlClass=mx.controls.Image;
+                customControl2.controlHandler=myImageHandler;
+                customControl2.controlToolTip="Image";
+                customControl2.imageSource="./resource/note.png"
+                customControlItem.addItem(customControl2);		
+                
+                sampleConfigTree.controlArray = customControlItem;                				        				       
+                sampleConfigTree.enableFreezeColumn=true;                
+                sampleConfigTree.enableContextMenu = true;                                               
+                
+                /*setting the url of the image for show/hide popup*/
+                sampleConfigTree.showHideColumnPopupImgUrl="./resource/box.gif";
+                sampleConfigTree.showHideColumnEnable = true;
+             }
+			
+			public function handleCreationComplete() : ArrayCollection
+			{
+            	dataProviderObject = new TreeGridSampleVO();
+				
+				var sampleVo1 : TreeGridSampleVO = new TreeGridSampleVO();
+				sampleVo1.id = 1;
+				sampleVo1.name = "Project";
+				sampleVo1.type = "Main";
+				sampleVo1.desc = "All Project";
+				sampleVo1.statusIcon = "statusIcon";
+				sampleVo1.children = new ArrayCollection();
+				
+				var sampleVo1_1 : TreeGridSampleVO	= new TreeGridSampleVO();
+				sampleVo1_1.id = 2;
+				sampleVo1_1.name = "Budget A";
+				sampleVo1_1.type = "Budget";
+				sampleVo1_1.jan = "2.1";
+				sampleVo1_1.feb = "2.1";
+				sampleVo1_1.mar = "2.1";
+				sampleVo1_1.apr = "2.1";
+				sampleVo1_1.may = "2.1";
+				sampleVo1_1.jun = "2.1";
+				sampleVo1_1.jul = "2.1";
+				sampleVo1_1.aug = "2.1";
+				sampleVo1_1.statusIcon = "statusIcon";
+				sampleVo1_1.children = new ArrayCollection();
+
+				var sampleVo1_2 : TreeGridSampleVO = new TreeGridSampleVO();
+				sampleVo1_2.id = 3;
+				sampleVo1_2.name = "Budget B";
+				sampleVo1_2.type = "Budget";
+				sampleVo1_2.jan = "3.1";
+				sampleVo1_2.feb = "3.1";
+				sampleVo1_2.mar = "3.1";
+				sampleVo1_2.apr = "3.1";
+				sampleVo1_2.may = "3.1";
+				sampleVo1_2.jun = "3.1";
+				sampleVo1_2.jul = "3.1";
+				sampleVo1_2.aug = "3.1";
+				sampleVo1_2.statusIcon = "statusIcon";
+				sampleVo1_2.children = null;
+				
+				var sampleVo1_3 : TreeGridSampleVO = new TreeGridSampleVO();
+				sampleVo1_3.id = 4;
+				sampleVo1_3.name = "Budget C";
+				sampleVo1_3.type = "Budget";
+				sampleVo1_3.jan = "";
+				sampleVo1_3.feb = "";
+				sampleVo1_3.mar = "";
+				sampleVo1_3.apr = "";
+				sampleVo1_3.may = "";
+				sampleVo1_3.jun = "";
+				sampleVo1_3.jul = "";
+				sampleVo1_3.aug = "";
+				sampleVo1_3.statusIcon = "statusIcon";
+				sampleVo1_3.children = new ArrayCollection();
+								
+				sampleVo1.children.addItem(sampleVo1_1);
+				sampleVo1.children.addItem(sampleVo1_2);
+				sampleVo1.children.addItem(sampleVo1_3);
+		
+				var sampleVo2_1 : TreeGridSampleVO = new TreeGridSampleVO();
+				sampleVo2_1.id = 5;
+				sampleVo2_1.name = null;
+				sampleVo2_1.type = "child1";
+				sampleVo2_1.jan = "Rob / 50%";
+				sampleVo2_1.feb = "Rob / 50%";
+				sampleVo2_1.mar = "Rob / 50%";
+				sampleVo2_1.apr = "Rob / 50%";
+				sampleVo2_1.may = "Rob / 50%";
+				sampleVo2_1.jun = "Rob / 50%";
+				sampleVo2_1.jul = "Rob / 50%";
+				sampleVo2_1.aug = "Rob / 50%";
+				sampleVo2_1.statusIcon = "statusIcon";
+				sampleVo2_1.children = null;
+				
+				var sampleVo2_2 : TreeGridSampleVO = new TreeGridSampleVO();
+				sampleVo2_2.id = 6;
+				sampleVo2_2.name = null;
+				sampleVo2_2.type = "child1";
+				sampleVo2_2.jan = "Rob / 50%";
+				sampleVo2_2.feb = "Rob / 50%";
+				sampleVo2_2.mar = "Rob / 50%";
+				sampleVo2_2.apr = "Rob / 50%";
+				sampleVo2_2.may = "Rob / 50%";
+				sampleVo2_2.jun = "Rob / 50%";
+				sampleVo2_2.jul = "Rob / 50%";
+				sampleVo2_2.aug = "Rob / 50%";
+				sampleVo2_2.statusIcon = "statusIcon";
+				sampleVo2_2.children = null;
+				
+				var sampleVo2_3 : TreeGridSampleVO = new TreeGridSampleVO();
+				sampleVo2_3.id = 7;
+				sampleVo2_3.name = null;
+				sampleVo2_3.type = "child1";
+				sampleVo2_3.jan = "Rob / 50%";
+				sampleVo2_3.feb = "Rob / 50%";
+				sampleVo2_3.mar = "Rob / 50%";
+				sampleVo2_3.apr = "Rob / 50%";
+				sampleVo2_3.may = "Rob / 50%";
+				sampleVo2_3.jun = "Rob / 50%";
+				sampleVo2_3.jul = "Rob / 50%";
+				sampleVo2_3.aug = "Rob / 50%";
+				sampleVo2_3.statusIcon = "statusIcon";
+				sampleVo2_3.children = null;
+				
+				sampleVo1_1.children.addItem(sampleVo2_1);
+				sampleVo1_1.children.addItem(sampleVo2_2);
+				sampleVo1_1.children.addItem(sampleVo2_3);
+				
+				var sampleVo2_4 : TreeGridSampleVO = new TreeGridSampleVO();
+				sampleVo2_4.id = 8;
+				sampleVo2_4.name = null;
+				sampleVo2_4.type = "child2";
+				sampleVo2_4.jan = "Rob / 50%";
+				sampleVo2_4.feb = "Rob / 50%";
+				sampleVo2_4.mar = "Rob / 50%";
+				sampleVo2_4.apr = "Rob / 50%";
+				sampleVo2_4.may = "Rob / 50%";
+				sampleVo2_4.jun = "Rob / 50%";
+				sampleVo2_4.jul = "Rob / 50%";
+				sampleVo2_4.aug = "Rob / 50%";
+				sampleVo2_4.statusIcon = "statusIcon";
+				sampleVo2_4.children = null;
+				
+				var sampleVo2_5 : TreeGridSampleVO = new TreeGridSampleVO();
+				sampleVo2_5.id = 9;
+				sampleVo2_5.name = null;
+				sampleVo2_5.type = "child2";
+				sampleVo2_5.jan = "Rob / 50%";
+				sampleVo2_5.feb = "Rob / 50%";
+				sampleVo2_5.mar = "Rob / 50%";
+				sampleVo2_5.apr = "Rob / 50%";
+				sampleVo2_5.may = "Rob / 50%";
+				sampleVo2_5.jun = "Rob / 50%";
+				sampleVo2_5.jul = "Rob / 50%";
+				sampleVo2_5.aug = "Rob / 50%";
+				sampleVo2_5.statusIcon = "statusIcon";
+				sampleVo2_5.children = null;
+			
+				sampleVo1_3.children.addItem(sampleVo2_4);
+				sampleVo1_3.children.addItem(sampleVo2_5);
+				
+				dataProviderArrayCollection.addItem(sampleVo1);
+				return dataProviderArrayCollection;
+			}						
+			/********************* Collapsible Row Feature END ******************/				
+			
+			private function onTabNavigatorClick(event:Event):void
+			{
+				
+				if(tabNavigator.selectedIndex == 0)
+				{					
+					if(myFilter != null)					
+					{
+						myFilter.visible = true;	
+					}
+					if(myFilterCol != null)
+					{
+						myFilterCol.visible = false;						
+					}
+				}
+				else if(tabNavigator.selectedIndex == 1)
+				{	
+					if(myFilter != null)					
+					{
+						myFilter.visible = false;				
+					}
+					if(myFilterCol != null)
+					{					
+						myFilterCol.visible = true;	
+					}
+									
+				}
+				else if(tabNavigator.selectedIndex == 2)
+				{
+					if(myFilter != null)					
+					{
+						myFilter.visible = false;
+					}
+					if(myFilterCol != null)
+					{
+						myFilterCol.visible = false;
+					}
+				}
+				else if(tabNavigator.selectedIndex == 3)
+				{
+					if(myFilter != null)					
+					{
+						myFilter.visible = false;
+					}
+					if(myFilterCol != null)
+					{
+						myFilterCol.visible = false;
+					}						
+				}			
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:HTTPService id="myService" url="resource/books.xml" result="{result(event)}" />
+	<mx:Canvas styleName="mainContainerCanvas" verticalScrollPolicy="off" horizontalScrollPolicy="off" 
+		width="98%" height="100%">
+	
+		<mx:TabNavigator id="tabNavigator"  change="onTabNavigatorClick(event)" 
+			styleName="myTabNavigator" top="5" width="100%" height="100%">
+		        <!-- Define each panel using a VBox container. -->
+		        
+		        <mx:VBox id="CommonFeaturesVBox" label="Common DataGrid Features" styleName="tabNavigatorVBox" width="100%">
+		            <mx:HBox id="CommonFeaturesHBox" width="100%" >		            			            
+			            <mx1:LDataGrid id="datagrid"  configData="{sampleConfig}" initialize="initGrid()"  height="100%" width="80%" borderStyle="solid" creationComplete="initcomplete();" cornerRadius="20"/>
+		            </mx:HBox>		                
+		        </mx:VBox>
+		        
+		        <mx:VBox id="CellColorVBox" label="Cell Coloring Feature" styleName="tabNavigatorVBox" width="100%">               
+			        <mx:HBox id="CellColorHBox" width="100%">
+			        	<mx1:LDataGrid id="dataGridCellColor" configData="{sampleConfigCellColor}" height="100%" width="80%" borderStyle="solid" cornerRadius="20" creationComplete="initcompleteCol()"/>				                        
+			        </mx:HBox>
+		        </mx:VBox>
+				
+				<mx:VBox id="CollapsibleColumnsVBox" label="Collapsible Columns Feature" styleName="tabNavigatorVBox" width="100%">               
+					<mx:HBox id="CollapsibleColumnsHBox" width="100%">
+						<mx1:LDataGrid id="dataGridCollapsibleColumn" configData="{sampleConfigColumn}" initialize="initGridColumn()" height="100%" width="80%" borderStyle="solid" cornerRadius="20" />				
+					</mx:HBox>
+				</mx:VBox>
+		        
+		        <mx:VBox id="CollapsibleRowVBox" label="Collapsible Row Feature" styleName="tabNavigatorVBox" width="100%">               
+		        <mx:HBox id="CollapsibleRowHBox" width="100%">
+		        	<mx1:LDataGrid id="datagridTree" configData="{sampleConfigTree}" initialize="initTreeGrid()" height="100%" width="80%" borderStyle="solid" cornerRadius="20"/>
+		        </mx:HBox>
+		        </mx:VBox>           
+		    </mx:TabNavigator>
+		
+	</mx:Canvas>
+
+</lb:LApplication>

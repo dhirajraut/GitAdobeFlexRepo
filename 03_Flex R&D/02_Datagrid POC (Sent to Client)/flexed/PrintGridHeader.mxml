@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" verticalGap="0">
+    <mx:Script>
+        <![CDATA[
+            import mx.binding.utils.BindingUtils;
+            
+            [Bindable]
+            public var pNo:Number = 1;
+        
+        ]]>
+    </mx:Script>
+    <mx:HBox width="100%" verticalAlign="middle" id="headerContainer">
+        <mx:Label text="Custom Grid v1.0" verticalCenter="0" horizontalCenter="0"/>
+        <mx:Spacer width="100%"/>
+        <mx:Label id="pNumber" text="Page : {pNo.toString()}" verticalCenter="0" horizontalCenter="0"/>
+    </mx:HBox>
+    <mx:HRule height="1" width="100%" strokeColor="#90a5d1" />
+</mx:VBox>

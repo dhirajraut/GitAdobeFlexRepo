@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	borderStyle="solid" borderThickness="0">
+
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.RichTextEditor;
+			[Bindable]
+			public var myDP:Array = [
+			{label:"Artical 1", datePosted: new Date(2007, 10, 10)},
+			{label:"Artical 2", datePosted: new Date(2007, 01, 01)},
+			{label:"Artical 3", datePosted: new Date(2008, 09, 07)},
+			]
+		]]>
+	</mx:Script>	
+
+	<mx:DataGrid id="datagrid2" dataProvider="{myDP}" x="10" y="42" width="847" height="1193" borderStyle="inset" editable="true" 
+		dropEnabled="true" >
+		<mx:columns>
+			<mx:DataGridColumn dataField="label" headerText="BookName" resizable="true" sortable="false" editable="false"/>
+			<mx:DataGridColumn dataField="datePosted" headerText="AuthorName" resizable="true" sortable="false"
+				itemRenderer="mx.controls.RichTextEditor" rendererIsEditor="true" editorDataField="selectedDate"/>
+		</mx:columns>
+	</mx:DataGrid>
+
+	
+</mx:Application>

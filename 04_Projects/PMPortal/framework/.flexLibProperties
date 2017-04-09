@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+  <includeClasses>
+    <classEntry path="com.lehman.framework.foundation.components.datagrid.LDataGrid"/>
+    <classEntry path="com.lehman.framework.foundation.components.datagrid.LDataGridButton"/>
+    <classEntry path="com.lehman.framework.foundation.components.datagrid.LDataGridColumn"/>
+    <classEntry path="com.lehman.framework.foundation.components.datagrid.LDataGridConfig"/>
+    <classEntry path="com.lehman.framework.foundation.components.datagrid.LDataGridMenu"/>
+    <classEntry path="com.lehman.framework.foundation.components.datagrid.LDataGridStruct"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

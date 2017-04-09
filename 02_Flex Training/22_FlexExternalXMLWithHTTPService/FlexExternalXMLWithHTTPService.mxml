@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	initialize="bookstore1.send();" borderStyle="solid" borderThickness="0">
+	
+	<mx:HTTPService id="bookstore1" url="data/books.xml" />
+	<mx:DataGrid dataProvider="{bookstore1.lastResult.books.stock}" x="10" y="10" 
+		width="847" height="193" borderStyle="inset" 
+		dragEnabled="true" dropEnabled="true"
+		verticalScrollPolicy="off"
+		allowMultipleSelection="true"
+		/>
+	
+
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.dataGridClasses.DataGridColumn;
+			import mx.rpc.events.ResultEvent;
+			import mx.collections.ArrayCollection;
+			[Bindable]
+			public var resultSet:ArrayCollection;
+			
+			public function onResult(event:ResultEvent):void
+			{
+				resultSet = event.result.books.stock;
+			}
+			public function editColumn(data:Object, column:DataGridColumn):String
+			{
+				return "Mr. " + data.author + " (2nd)";
+			}
+			public function appendColumn(data:Object, column:DataGridColumn):String
+			{
+				return data.category + " - " + data.description;
+			}
+		]]>
+	</mx:Script>	
+	<mx:HTTPService id="bookstore2" url="data/books.xml" result="onResult(event)" />
+	<mx:DataGrid id="datagrid2" dataProvider="{resultSet}" x="10" y="253" width="847" height="193" borderStyle="inset" editable="true" 
+		dropEnabled="true" >
+		<mx:columns>
+			<mx:DataGridColumn dataField="name" headerText="BookName" resizable="true" sortable="false" editable="false"/>
+			<mx:DataGridColumn dataField="author" headerText="AuthorName" resizable="true" sortable="false" labelFunction="{editColumn}"/>
+			<mx:DataGridColumn dataField="category" headerText="Shelf" resizable="true" sortable="false" labelFunction="{appendColumn}"/>
+		</mx:columns>
+	</mx:DataGrid>
+	<mx:Button x="10" y="223" label="Fetch" click="bookstore2.send()"/>
+	<mx:Button x="76" y="223" label="Clear" click="resultSet.removeAll()"/>
+
+
+	<mx:XML id="userXML" source="data/books.xml" />
+	<mx:Script>
+		<![CDATA[
+			private function read():void {
+				var xmlList:XMLList = userXML.stock;
+				trace (xmlList.toXMLString());
+			}
+		]]>
+	</mx:Script>
+	<mx:Button x="199" y="223" label="Trace" click="read()"/>
+	
+</mx:Application>

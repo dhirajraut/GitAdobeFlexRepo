@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:local="*" width="793" height="442">
+<mx:Style source="Cssfiles/grid.css"/>
+    <mx:Style>
+    /* Link Button */
+    LinkButton {
+        text-decoration :none;
+        text-roll-over-color : #e35d04;
+        button-height : 17;
+        font-size : 10;
+    }
+    </mx:Style>
+    <local:RSSReader label="RSS Reader" width="774" height="394" y="0"/>
+</mx:Canvas>

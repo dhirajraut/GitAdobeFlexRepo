@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:grid="flexed.*" 
+	initialize="initGrid()" verticalGap="1" backgroundColor="#ffffff" 
+	width="780" height="370" cornerRadius="20"  borderStyle="solid">
+<mx:TraceTarget/>
+<mx:HTTPService id="httpRSS" url="resources/configuration.xml" resultFormat="object" fault="onFault(event)" result="onSuccess(event)"/>
+<mx:HTTPService id="mydata" url="{dataFileURL}" result="{onDataResult(event)}"/>
+<mx:Model id="configXML" source="resources/configuration.xml"/>
+
+
+
+
+<mx:Script>
+    <![CDATA[
+        import flexed.linkRenderer;
+        import ComboBoxRenderer;
+        import mx.rpc.events.FaultEvent;
+        import mx.controls.dataGridClasses.DataGridColumn;
+        import mx.controls.Alert;
+        import mx.collections.ArrayCollection;
+
+        import mx.formatters.DateFormatter;
+        import flash.net.navigateToURL;
+        import mx.collections.ArrayCollection;
+        import mx.rpc.events.ResultEvent;
+
+        /* Import Declarations */			
+			import mx.rpc.events.ResultEvent;
+			import mx.collections.ArrayCollection;
+			
+			[Bindable] 
+			public var colno:int; // This is used to specify no of columns for the DataGrid 
+			
+			[Bindable]
+			public var gridTitle:String; //This is used to hold the text of the title for the DataGrid
+			
+			[Bindable]
+			public var vscroll:String; //Ths is used to specify whether the verticle scroll bar is required or not
+			
+			[Bindable]
+			public var hscroll:String; //Ths is used to specify whether the horizontal scroll bar is required or not
+			
+			[Bindable]
+			private var wData:ArrayCollection; // This is used to specify Column Headers for the DataGrid
+					
+			
+			
+			[Bindable]
+			private var items:ArrayCollection; // This is used to store data to be displayed in the DataGrid
+			
+
+			[Bindable]
+			public var dataFileURL:String; // This is used to store the path of the DataFile
+			
+			[Bindable]
+			public var headercolor:Array; //Ths is used
+			
+			/* This method is used to read the configuration parameters from the configuration file */
+			private function colsHandler(theCols:Object):void  {	
+				colno=int(theCols.NoofColumns);
+				trace(colno);
+				gridTitle=theCols.gridtitle;	
+				trace(gridTitle);
+				vscroll=theCols.vscroll;
+				hscroll=theCols.hscroll;
+				dataFileURL=theCols.url;
+				trace(dataFileURL);
+				headercolor=theCols.headercolor;
+				
+			}
+			
+			/* This method is used to retrieve the column details from the XML file */
+			private function onResult(event:ResultEvent):void {
+				wData=event.result.column.coldetails.colname;
+			}
+
+			/* This method is used to retrieve data to be displayed in the DataGrid from the XML file */
+			private function onDataResult(event:ResultEvent):void {
+				items=event.result.books.stock;	
+	            trace(items.length);
+    	        myDataGrid.loadData(items);
+			}
+		
+        /**
+        * Columns for the grid.
+        * Note the use of formatDate 
+        * function for the date column.
+        */
+        public var gridColumns:ArrayCollection= new ArrayCollection([
+                        {colname:"Date",coldata:"date", dataType:"Date",labelfunction:formatDate},
+                        {colname:"Name",coldata:"name", indexColumn:true},
+                        {colname:"Author",colwidth:200,coldata:"author",coledit:"true"},
+                        {colname:"Category",coldata:"category",coledit:"true",editor:ComboBoxRenderer},
+                        {colname:"Link",coldata:"link",hide:true,coledit:"true",renderer: flexed.linkRenderer},
+                        {colname:"Description",coldata:"description",coledit:"true"},
+                        {colname:"Price",coldata:"price",coledit:"true"},
+                        {colname:"Selling Pct",coldata:"sellingpct",coledit:"true"}
+                        ]);
+
+        /**
+        * Retrieve data from the RSS feed and load
+        * the results into the grid.
+        */        
+        private function onSuccess(event:ResultEvent):void {
+        	wData=event.result.column.coldetails.colname;
+        	myDataGrid.drawColumns(wData);
+        	
+            if(event == null){
+                Alert.show("No feeds retrieved.");
+                myDataGrid.statusBar.text = "Feeds unavailable. Some Problem. Please retry later.";
+            }
+       }
+
+        /**
+        * Retrieve data from the RSS feed and load
+        * the results into the grid.
+        */        
+        private function onFault(event:FaultEvent):void {
+            Alert.show("No feeds retrieved. \n\n["+event+"]","HTTPService Request Failed.");
+            myDataGrid.statusBar.text = "HTTPService Failed. Try again after some time.";
+       }
+
+        /**
+        * Format Date. Used in the datagrid for 
+        * formatting the date recieved from the feed.
+        */       
+        private function formatDate(item:Object, col:DataGridColumn):String {
+            var date:String = item.date.toString();
+            var df:DateFormatter = new DateFormatter();
+            df.formatString = "DD.MM.YYYY";
+            return df.format(date);
+        }
+        
+        /**
+        * The init method which sends the RSS request 
+        * and also prepares the grid for the results.
+        */
+        private function initGrid():void{
+            myDataGrid.statusBar.text = "| Fetching feed data... Please wait... |";
+            httpRSS.send();
+            colsHandler(configXML);
+            mydata.send();
+            
+        }
+            
+    ]]>
+</mx:Script>
+        <grid:CGrid id="myDataGrid" printTitle="Blog Posts from MXNA [RSS Reader]" searchType="filter" allowPrint="false" gridTitle="{gridTitle}"  width="772" height="392"/> 
+</mx:VBox>

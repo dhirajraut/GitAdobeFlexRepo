@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	creationComplete="initApp()">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.managers.ToolTipManager;
+			import mx.effects.Parallel;
+			import mx.effects.Fade;
+			import mx.effects.Blur;
+			public function initApp():void {
+				var b:Blur = new Blur();
+				var f:Fade = new Fade();
+				f.alphaFrom = 1;
+				f.alphaTo = 0;
+				var p:Parallel = new Parallel();
+				p.addChild(b);
+				p.addChild(f);
+				ToolTipManager.showEffect = p;
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:Style>
+		ToolTip {
+			font-family:"Vladimir Script";
+			font-size:28;
+		}
+	</mx:Style>
+	<mx:Button x="199" y="52" label="ShowTooltip" toolTip="This is a tooltip"/>
+	
+	
+</mx:Application>

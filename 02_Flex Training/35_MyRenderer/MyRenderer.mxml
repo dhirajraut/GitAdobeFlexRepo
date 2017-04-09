@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="162" height="162">
+
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Image;
+			[Bindable]
+			public var lbl:String;
+			[Bindable]
+			public var img:Image;
+		]]>
+	</mx:Script>
+	<mx:Label text="{data.projectName}" x="0" y="0" width="171" height="19"/>
+	<mx:Image source="{data.image}" x="0" y="27" width="162" height="134"/>
+	
+</mx:VBox>

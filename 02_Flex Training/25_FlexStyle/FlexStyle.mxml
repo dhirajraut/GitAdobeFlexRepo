@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	
+	<mx:Style>
+		Label {
+			fontSize:58;
+		}
+		Button {
+			fillColors:#ff0000,#0000FF;
+			fontSize:58;
+			cornerRadius:10;
+		}
+		.redObjects {
+			color:#ff0000;
+		}
+		global {
+			fontFamily:"Vladimir Script";
+		}
+	</mx:Style>
+	
+	<mx:Label text="Some Text"/>
+	<mx:Label text="Some More Text"/>
+	<mx:Label text="And Some More" styleName="redObjects"/>
+	
+	<mx:Button label="Click"/>
+	<mx:Button label="No Click here"/>
+</mx:Application>

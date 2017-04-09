@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	xmlns:cuslbl="customComponent.*">
+	
+	<cuslbl:customLabel x="70" y="207" height="42" buttonLabel="Button1"/>
+	<cuslbl:customLabel x="70" y="120" height="45" buttonLabel="Button2"/>
+	<cuslbl:customLabel x="70" y="41" height="42" buttonLabel="Button3"/>
+	<cuslbl:customLabel x="70" y="266" height="39" buttonLabel="Button4"/>
+</mx:Application>

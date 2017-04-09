@@ -1,0 +1,53 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>_Flex1_FlexInit-generated.as</title>
+<link rel="stylesheet" type="text/css" href="../../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="asPackage">package</span> <span class="asBracket">{</span>
+<span class="asReserved">import</span> flash.utils.<span class="asOperator">*</span>;
+<span class="asReserved">import</span> mx.core.IFlexModuleFactory;
+<span class="asReserved">import</span> flash.system.<span class="asOperator">*</span>
+<span class="asReserved">import</span> mx.effects.EffectManager;
+<span class="asReserved">import</span> mx.core.mx_internal;
+
+<span class="asBracket">[</span>Mixin<span class="asBracket">]</span>
+<span class="asReserved">public</span> <span class="asClass">class</span> _Flex1_FlexInit
+<span class="asBracket">{</span>
+   <span class="asReserved">public</span> <span class="asFunction">function</span> _Flex1_FlexInit<span class="asBracket">()</span>
+   <span class="asBracket">{</span>
+       <span class="asReserved">super</span><span class="asBracket">()</span>;
+   <span class="asBracket">}</span>
+   <span class="asReserved">public</span> <span class="asReserved">static</span> <span class="asFunction">function</span> init<span class="asBracket">(</span>fbs<span class="asOperator">:</span>IFlexModuleFactory<span class="asBracket">)</span><span class="asOperator">:</span><span class="asReserved">void</span>
+   <span class="asBracket">{</span>
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;addedEffect&quot;</span>, <span class="asString">&quot;added&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;creationCompleteEffect&quot;</span>, <span class="asString">&quot;creationComplete&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;focusInEffect&quot;</span>, <span class="asString">&quot;focusIn&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;focusOutEffect&quot;</span>, <span class="asString">&quot;focusOut&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;hideEffect&quot;</span>, <span class="asString">&quot;hide&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;mouseDownEffect&quot;</span>, <span class="asString">&quot;mouseDown&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;mouseUpEffect&quot;</span>, <span class="asString">&quot;mouseUp&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;moveEffect&quot;</span>, <span class="asString">&quot;move&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;removedEffect&quot;</span>, <span class="asString">&quot;removed&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;resizeEffect&quot;</span>, <span class="asString">&quot;resize&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;resizeEndEffect&quot;</span>, <span class="asString">&quot;resizeEnd&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;resizeStartEffect&quot;</span>, <span class="asString">&quot;resizeStart&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;rollOutEffect&quot;</span>, <span class="asString">&quot;rollOut&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;rollOverEffect&quot;</span>, <span class="asString">&quot;rollOver&quot;</span><span class="asBracket">)</span>;
+      EffectManager.mx_internal<span class="asOperator">::</span>registerEffectTrigger<span class="asBracket">(</span><span class="asString">&quot;showEffect&quot;</span>, <span class="asString">&quot;show&quot;</span><span class="asBracket">)</span>;
+      <span class="asVar">var</span> styleNames<span class="asOperator">:</span>Array <span class="asOperator">=</span> <span class="asBracket">[</span><span class="asString">&quot;fontWeight&quot;</span>, <span class="asString">&quot;modalTransparencyBlur&quot;</span>, <span class="asString">&quot;textRollOverColor&quot;</span>, <span class="asString">&quot;backgroundDisabledColor&quot;</span>, <span class="asString">&quot;textIndent&quot;</span>, <span class="asString">&quot;barColor&quot;</span>, <span class="asString">&quot;fontSize&quot;</span>, <span class="asString">&quot;kerning&quot;</span>, <span class="asString">&quot;footerColors&quot;</span>, <span class="asString">&quot;textAlign&quot;</span>, <span class="asString">&quot;fontStyle&quot;</span>, <span class="asString">&quot;modalTransparencyDuration&quot;</span>, <span class="asString">&quot;textSelectedColor&quot;</span>, <span class="asString">&quot;modalTransparency&quot;</span>, <span class="asString">&quot;fontGridFitType&quot;</span>, <span class="asString">&quot;disabledColor&quot;</span>, <span class="asString">&quot;fontAntiAliasType&quot;</span>, <span class="asString">&quot;modalTransparencyColor&quot;</span>, <span class="asString">&quot;dropShadowColor&quot;</span>, <span class="asString">&quot;themeColor&quot;</span>, <span class="asString">&quot;letterSpacing&quot;</span>, <span class="asString">&quot;fontFamily&quot;</span>, <span class="asString">&quot;color&quot;</span>, <span class="asString">&quot;fontThickness&quot;</span>, <span class="asString">&quot;errorColor&quot;</span>, <span class="asString">&quot;headerColors&quot;</span>, <span class="asString">&quot;fontSharpness&quot;</span><span class="asBracket">]</span>;
+
+      <span class="asReserved">import</span> mx.styles.StyleManager;
+
+      <span class="asReserved">for</span> <span class="asBracket">(</span><span class="asVar">var</span> i<span class="asOperator">:</span>int <span class="asOperator">=</span> 0; i <span class="asOperator">&lt;</span> styleNames.length; i<span class="asOperator">++</span><span class="asBracket">)</span>
+      <span class="asBracket">{</span>
+         StyleManager.registerInheritingStyle<span class="asBracket">(</span>styleNames<span class="asBracket">[</span>i<span class="asBracket">])</span>;
+      <span class="asBracket">}</span>
+   <span class="asBracket">}</span>
+<span class="asBracket">}</span>  <span class="asComment">// FlexInit
+</span><span class="asBracket">}</span>  <span class="asComment">// package
+</span></pre></body>
+</html>

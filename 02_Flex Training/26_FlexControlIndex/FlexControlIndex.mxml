@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.TextInput;
+			import mx.controls.Alert;
+			public function checkIndex():void {
+				
+				mx.controls.Alert.show("this = " + this.name);
+				for (var i:int = 0; i < getChildren().length; i++) {
+					var controlName:String = getChildAt(i).name;
+					mx.controls.Alert.show("index " + i + " - " + controlName);
+				}
+			}
+		]]>
+	</mx:Script>
+	<mx:TextInput text="a"/>
+	
+	<mx:Panel x="107" y="41" width="265" height="200" layout="absolute">
+		<mx:Form x="0" y="0" width="245" height="124">
+			<mx:FormItem label="Text1">
+				<mx:TextInput text="b"/>
+			</mx:FormItem>
+			<mx:Button label="Dummy Button"/>
+			<mx:FormItem label="Text2">
+				<mx:TextInput text="c"/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:ControlBar>
+			<mx:Button label="Check" click="checkIndex()"/>
+		</mx:ControlBar>
+	</mx:Panel>
+	<mx:TextInput x="107" y="266" text="d"/>
+	
+	
+	
+	
+	
+	<mx:Script>
+		<![CDATA[
+			public function createComponent():void {
+				var ting:TextInput = new TextInput();
+				ting.text = "Runtime Addition";
+				this.addChild(ting);
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Button x="182" y="374" label="Runtime Add" click="createComponent()"/>
+</mx:Application>

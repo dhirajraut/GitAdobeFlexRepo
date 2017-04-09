@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:WebService id="myService" wsdl="http://172.25.35.73:8500/flex/MyService.cfc?wsdl" />
+	<mx:DataGrid dataProvider="{myService.getData.lastResult}" x="45" y="38" width="321" height="216"/>
+	<mx:Button x="45" y="274" label="Button" click="myService.getData();"/>
+	<mx:TraceTarget/>
+	
+</mx:Application>

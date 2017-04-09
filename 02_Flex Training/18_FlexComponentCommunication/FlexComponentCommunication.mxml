@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	xmlns:custom="customcomponent.*">
+	<mx:Script>
+		<![CDATA[
+			[Bindable]
+			public var uNameValue:String;
+			[Bindable]
+			public var uDesgValue:String;
+			[Bindable]
+			public var uOrgValue:String;
+			[Bindable]
+			public var uPrjValue:String;
+			
+			public function eventHandler(e:Event):void
+			{
+				uNameValue = "Dhiraj Raut";
+				uDesgValue = "Project Leader";
+				uOrgValue  = "L&T Infotech";
+			}
+			public function textHandler(e:TextEvent):void
+			{
+				uPrjValue = e.text;
+			}
+		]]>
+	</mx:Script>
+	
+	<custom:Receiver x="92.5" y="114" uName="{uNameValue}" uDesg="{uDesgValue}" uOrg="{uOrgValue}" uPrj="{uPrjValue}"/>
+	<custom:Dispatcher x="126.5" y="26" DispatcherEvent="eventHandler(event)" TextDispatcher="textHandler(event)"/>
+
+</mx:Application>

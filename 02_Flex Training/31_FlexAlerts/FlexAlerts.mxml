@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.TextInput;
+			import mx.events.CloseEvent;
+			import mx.controls.Alert;
+			[Embed (source="assets/Sunset.jpg")]
+			public var sampleIcon1:Class;
+			[Embed (source="assets/Water lilies.jpg")]
+			public var sampleIcon2:Class;
+			[Embed (source="assets/Winter.jpg")]
+			public var sampleIcon3:Class;
+			private function showAlert(event:Event):void {
+				var alrt:Alert = Alert.show("Clicked", "Important",
+				Alert.OK|Alert.CANCEL, this, alertClickHandler, sampleIcon1);
+			}
+			private function alertClickHandler(event:CloseEvent):void {
+				var buttonType:String;
+				if (event.detail == Alert.OK) {
+					buttonType = "OK";
+				}
+				else {
+					buttonType = "Cancel";
+				}
+				textInput.text = buttonType;
+			}
+		]]>
+	</mx:Script>
+	<mx:VBox x="110" y="10" height="307" width="213">
+		<mx:Button label="Show Alert" click="showAlert(event)"/>
+		<mx:TextInput id="textInput"/>
+	</mx:VBox>
+	
+</mx:Application>

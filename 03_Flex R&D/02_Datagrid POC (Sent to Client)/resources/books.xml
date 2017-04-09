@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<books>
+<stock>
+<name>The Picasso Code</name>
+<author>Dan Blue</author>
+<category>Fiction</category>
+<description>Cubist paintings reveal a secret society of people who really look like that</description>
+<link>http://www.google.com</link>
+<date>10/01/1999</date>
+<price>$20</price>
+<sellingpct>10%</sellingpct>
+</stock>
+<stock>
+<name>Here With the Wind</name>
+<author>Margaret Middle</author>
+<category>Fiction</category>
+<description>In this edition, nobody in the south really gives a damn</description>
+<link>http://www.google.com</link>
+<date>10/01/1999</date>
+<price>$20</price>
+<sellingpct>10%</sellingpct>
+</stock>
+<stock>
+<name>Harry Potluck and the Chamber of Money</name>
+<author>J.K. Roughly</author>
+<category>Fiction</category>
+<description>Young wizard finds the real pot of gold and retires</description>
+<link>http://www.google.com</link>
+<date>10/01/1999</date>
+<price>$20</price>
+<sellingpct>10%</sellingpct>
+</stock>
+<stock>
+<name>No Expectations</name>
+<author>Chuck Dickens</author>
+<category>Fiction</category>
+<description>Dickens finally reveals what he really thinks of people</description>
+<link>http://www.google.com</link>
+<date>10/01/1999</date>
+<price>$20</price>
+<sellingpct>10%</sellingpct>
+</stock>
+<stock>
+<name>Atlas Stretched</name>
+<author>Ann Rind</author>
+<category>Fiction</category>
+<description>Great inventors finally just take the money and run</description>
+<link>http://www.google.com</link>
+<date>10/01/1999</date>
+<price>$50</price>
+<sellingpct>10%</sellingpct>
+</stock>
+<stock>
+<name>Recycling Software</name>
+<author>Big Gates</author>
+<category>Nonfiction</category>
+<description>How to just change the name and interface of the same old software and sell it as new</description>
+<link>http://www.google.com</link>
+<date>10/01/1999</date>
+<price>$80</price>
+<sellingpct>10%</sellingpct>
+</stock>
+<stock>
+<name>Make Tons of Money</name>
+<author>Donald Rump</author>
+<category>Nonfiction</category>
+<description>Rump explains how he became a billionaire while constantly declaring bankruptcy</description>
+<link>http://www.google.com</link>
+<date>10/01/1999</date>
+<price>$20</price>
+<sellingpct>10%</sellingpct>
+</stock>
+<stock>
+<name>How to Win Enemies and Lose Friends</name>
+<author>Dale Crochety</author>
+<category>Nonfiction</category>
+<description>The ultimate how-to book for people who want to stay loners</description>
+<link>http://www.google.com</link>
+<date>10/01/1999</date>
+<price>$60</price>
+<sellingpct>30%</sellingpct>
+</stock>
+<stock>
+<name>My Lies</name>
+<author>Swill Clinton</author>
+<category>Nonfiction</category>
+<description>This former American president tries to define what a lie is</description>
+<link>http://www.google.com</link>
+<date>10/01/1999</date>
+<price>$90</price>
+<sellingpct>90%</sellingpct>
+</stock>
+<stock>
+<name>The Complete History of the World</name>
+<author>David McClutz</author>
+<category>Nonfiction</category>
+<description>McClutz gives you the entire history of all civilization in less than 300 pages</description>
+<link>http://www.google.com</link>
+<date>10/01/1999</date>
+<price>$30</price>
+<sellingpct>60%</sellingpct>
+</stock>
+</books>

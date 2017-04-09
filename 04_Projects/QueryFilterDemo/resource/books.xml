@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<books>
+<stock>
+<Name bgColor="0xffddee">The Picasso Code</Name>
+<Author>Dan Blue</Author>
+<Category >Fiction</Category>
+<Publisher color="cyan" bgColor="0xffddbb"> Orielly</Publisher>
+<Link >http://www.google.com</Link>
+<Date >1/9/2001</Date>
+<Price >20</Price>
+<Image>./resource/book.jpg</Image>
+</stock>
+<stock>
+<Name  bgColor="0xffddbb">Here With the Wind</Name>
+<Author  bgColor="0xffddbb">Margaret Middle</Author>
+<Category color="blue" bgColor="0xffddbb">Fiction</Category>
+<Publisher  bgColor="0xffddbb"> Tata McGrawHill</Publisher>
+<Link  bgColor="0xffddbb">http://www.dict.org</Link>
+<Date  bgColor="0xffddbb">11/02/2004</Date>
+<Price  bgColor="0xffddbb">35</Price>
+<Image  bgColor="0xffddbb">./resource/book.jpg</Image>
+</stock>
+<stock>
+<Name color="green" >No Expectations</Name>
+<Author >Chuck Dickens</Author>
+<Category >Fiction</Category>
+<Publisher  >Tata McGrawHill</Publisher>
+<Link >http://www.google.com</Link>
+<Date >05/02/2002</Date>
+<Price color="red" bgColor="0xeeddbb">25</Price>
+<Image >./resource/book.jpg</Image>
+</stock>
+<stock>
+<Name bgColor="0xffddbb">Recycling Software</Name>
+<Author bgColor="0xffddbb">Big Gates</Author>
+<Category  bgColor="0xffddbb">Non Fiction</Category>
+<Publisher  bgColor="0xffddbb"> Wrox</Publisher>
+<Link  bgColor="0xffddbb">http://www.google.com</Link>
+<Date bgColor="0xffddbb">05/12/2004</Date>
+<Price  bgColor="0xffddbb">50</Price>
+<Image  bgColor="0xffddbb">./resource/book.jpg</Image>
+</stock>
+
+</books>

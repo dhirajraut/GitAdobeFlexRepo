@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lb:LApplication xmlns:lb="com.lehman.framework.foundation.components.application.*" 
+	xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"	title="PMPortal" 
+	waterMask="@Embed(source='com/lehman/application/pmo/resources/images/watermask.png')"	appTheme="default"
+	appId="com.lehman.application.Athena" appIconSource="@Embed(source='com/lehman/application/pmo/resources/images/logo.png')"
+	xmlns:bubble="com.lehman.framework.foundation.components.bubble.*"
+	xmlns:list="com.lehman.framework.foundation.components.list.*"
+	xmlns:rms="com.lehman.application.pmo.view.resourcemanagement.*"
+	showToketPc="true"	
+	>
+	<mx:Style source="com/lehman/application/pmo/resources/css/grid.css"/>
+	<!--
+	//******************************* INFORMATION ******************************************//
+	//	Set Properties: 																	//
+	//		appId(Required): Developer must provide application id. The name should be      //
+	//             unique across all application. Perfer fully qualified name such as       //
+	//			   com.lehman.application.Athena											//
+	//		title(Optional): The title of your application. 								//
+	//		appIconSource(Optional): The source of your icon image. 						//
+	//		appTheme(Optional): default|flat (if not provided, "default" will be used)		//
+	//		waterMask(Optional): This is the source of your watermask icon. 		        //
+	//	    			Default will be provided  based on appTheme						    //
+	//      status(Optional): set the status bar text	                                    //
+	//		showToketPc(Optional): Specify whether ToketPC option will be available for user//
+	//				(If not provided, default is false )	                                //
+	//      help(Optional) : set help panel - see below										//
+	//  Event: 																			    //
+	//     LLApplicationEvent will be dispatched with type                                  //
+	//			LApplicationEvent.TOKETPC_SELECTION_CHANGE when ToketPC Mode check box is   //
+	//		    changed.                                                                    //
+	// 			- event.data is true(Boolean) if toketPC Mode checkbox is checked.          //
+	//    Dispatched when ToketPC Mode check box is changed.                                // 
+	//  - event.data  is true(Boolean) if toketPC Mode checkbox is checked.                 // 
+	//																					    //
+	// Function:                                                                            //
+	//   addToolBarButton - Allow the developer to add customized button at the top panel   //
+	//   removeToolBarButton - remove customized button										//
+	//
+	// Get Propropty:																	    //
+    //    Application.application.userLLID - Current user's lehmanlive id		     		//
+	//    Application.application.userXPID - Current user's  XP id							//
+	//    Application.application.userName - Current user's name							//
+	//**************************************************************************************//
+	-->
+	
+	<!--
+		///*****************///
+		/// How to set Help ///
+		///*****************///
+		
+		There is 2 ways to set help.
+		1. Using custom components.
+			Example, you have defined custom component for each of your help as the following
+			- "Welcome" Group. In this group, you have 3 views:
+				WelcomePage1.mxml
+				WelcomePage2.mxml
+				WelcomePage3.mxml
+			- "Contact" Group. In this group you have 1 view.
+				Contacts.mxml
+			
+		  // First Setting each help item
+		  var welcome :LHelpItem = new LHelpItem();
+		  welcome.label = "Welcome"; // Label that will display on tab header.
+		  var welcomePage1 :Class = WelcomePage1;
+		  welcome.views = [ WelcomePage1, 
+						  WelcomePage2,
+						  WelcomePage3 ];
+						  
+		  var contact :LHelpItem = new LHelpItem();
+		  contact.label = "Contact"; // Label that will display on tab header.
+		  contact.views = [ Contacts ];
+		
+		  // set helpObj into Application.help
+		  var helpObj :LHelp = new LHelp();
+		  helpObj.title = "Athena Help";
+	 	  helpObj.helpItems = [ welcome, contact ];
+		  this.help = helpObj; 
+		  
+		  // If you want to set the fix width and height, you can set using helpObj.width, and
+		  // helpObj.height. But it is optional, we will determine by using maximum width
+		  // and height of content.
+	    
+	      If you want to test, at initializationComplete(), comment out setHelpFromComponent(), and
+	      use setHelpFromXml. 		
+	       
+	    2. Using xml.
+	    	Xml has to be in the following format: ( valid view type are "image", "text", and "htmlText")
+	    	<help>
+	    		<tilte>Put your help title here</title>
+	    		<items>
+	    			<item>
+	    				<title>Group Title One</title>
+	    				<views>
+	    					<view type="image">
+	    						location of your image such as "http://myqa.lehman.com/SCM/MYC/athena/Athena%20V1/assets/icons/help1.png"
+	    					</view>
+	    					<view type="text">
+	    						help text
+	    					</view>
+	    					<view type="htmlText">
+	    						help html text
+	    					</view>
+	    				</views>
+	    			</item>
+	    			<item>
+	    				<title>Group Title Two</title>
+	    				<views>
+	    					<view type="image">
+	    						location of your image such as "http://myqa.lehman.com/SCM/MYC/athena/Athena%20V1/assets/icons/help1.png"
+	    					</view>
+	    				</views>
+	    			</item>
+	    	</help>
+	    
+	       	After you have xml.
+	       	// For with and height, if you have image type, we prefer that you set width and height
+	       	// because the image might not be loaded completly when we calculate the size of the window.
+	       	 var helpObj :LHelp = LHelp.fromXml(new XML(helpXml));
+	       	 helpObj.title = "Athena Help";
+	       	 this.help = helpObj; 
+	       	 
+	       If you want to test, at initializationComplete(), comment out setHelpFromComponent(), and
+	       use setHelpFromXml. 		
+	-->
+	<mx:List x="10" y="10" width="200" height="100%"/>
+	<mx:TabNavigator x="215" y="10" width="770" height="100%">
+		<rms:ResourceManagment   width="100%" height="100%"/>
+		<mx:Canvas label="Tab2" width="100%" height="100%"></mx:Canvas>
+		<mx:Canvas label="Tab3" width="100%" height="100%"></mx:Canvas>
+	</mx:TabNavigator>
+	
+</lb:LApplication>
+

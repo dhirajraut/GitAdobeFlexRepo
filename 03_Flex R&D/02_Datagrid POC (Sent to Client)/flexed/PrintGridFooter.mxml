@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" verticalGap="0">
+    <mx:Script>
+        <![CDATA[
+            [Bindable]
+            public var rTotal:Number = 0;
+        ]]>
+    </mx:Script>
+    <mx:HRule height="1" width="100%" strokeColor="#90a5d1" />
+    <mx:HBox width="100%" verticalAlign="middle">
+        <mx:Label text="http://flexed.wordpress.com" verticalCenter="0" horizontalCenter="0" right="10"/>
+        <mx:Spacer width="100%"/>
+        <mx:Label text="Total Records: {rTotal}" verticalCenter="0" horizontalCenter="0" right="10"/>
+    </mx:HBox>
+</mx:VBox>

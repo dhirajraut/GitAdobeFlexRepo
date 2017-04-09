@@ -1,0 +1,123 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>_globalStyle.as</title>
+<link rel="stylesheet" type="text/css" href="../../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="asPackage">package</span> 
+<span class="asBracket">{</span>
+
+<span class="asReserved">import</span> flash.display.Sprite;
+<span class="asReserved">import</span> mx.core.IFlexModuleFactory;
+<span class="asReserved">import</span> mx.core.mx_internal;
+<span class="asReserved">import</span> mx.styles.CSSStyleDeclaration;
+<span class="asReserved">import</span> mx.styles.StyleManager;
+<span class="asReserved">import</span> mx.skins.halo.HaloFocusRect;
+<span class="asReserved">import</span> mx.skins.halo.HaloBorder;
+
+<span class="asBracket">[</span><span class="asMetadata">ExcludeClass</span><span class="asBracket">]</span>
+
+<span class="asReserved">public</span> <span class="asClass">class</span> _globalStyle
+<span class="asBracket">{</span>
+
+    <span class="asReserved">public</span> <span class="asReserved">static</span> <span class="asFunction">function</span> init<span class="asBracket">(</span>fbs<span class="asOperator">:</span>IFlexModuleFactory<span class="asBracket">)</span><span class="asOperator">:</span><span class="asReserved">void</span>
+    <span class="asBracket">{</span>
+        <span class="asVar">var</span> style<span class="asOperator">:</span>CSSStyleDeclaration <span class="asOperator">=</span> StyleManager.getStyleDeclaration<span class="asBracket">(</span><span class="asString">&quot;global&quot;</span><span class="asBracket">)</span>;
+    
+        <span class="asReserved">if</span> <span class="asBracket">(</span><span class="asOperator">!</span>style<span class="asBracket">)</span>
+        <span class="asBracket">{</span>
+            style <span class="asOperator">=</span> <span class="asReserved">new</span> CSSStyleDeclaration<span class="asBracket">()</span>;
+            StyleManager.setStyleDeclaration<span class="asBracket">(</span><span class="asString">&quot;global&quot;</span>, style, <span class="asReserved">false</span><span class="asBracket">)</span>;
+        <span class="asBracket">}</span>
+    
+        <span class="asReserved">if</span> <span class="asBracket">(</span>style.defaultFactory <span class="asOperator">==</span> <span class="asReserved">null</span><span class="asBracket">)</span>
+        <span class="asBracket">{</span>
+            style.defaultFactory <span class="asOperator">=</span> <span class="asFunction">function</span><span class="asBracket">()</span><span class="asOperator">:</span><span class="asReserved">void</span>
+            <span class="asBracket">{</span>
+                <span class="asReserved">this</span>.fontWeight <span class="asOperator">=</span> <span class="asString">&quot;normal&quot;</span>;
+                <span class="asReserved">this</span>.modalTransparencyBlur <span class="asOperator">=</span> 3;
+                <span class="asReserved">this</span>.verticalGridLineColor <span class="asOperator">=</span> 0xd5dddd;
+                <span class="asReserved">this</span>.borderStyle <span class="asOperator">=</span> <span class="asString">&quot;inset&quot;</span>;
+                <span class="asReserved">this</span>.buttonColor <span class="asOperator">=</span> 0x6f7777;
+                <span class="asReserved">this</span>.borderCapColor <span class="asOperator">=</span> 0x919999;
+                <span class="asReserved">this</span>.textAlign <span class="asOperator">=</span> <span class="asString">&quot;left&quot;</span>;
+                <span class="asReserved">this</span>.stroked <span class="asOperator">=</span> <span class="asReserved">false</span>;
+                <span class="asReserved">this</span>.fillColors <span class="asOperator">=</span> <span class="asBracket">[</span>0xffffff, 0xcccccc, 0xffffff, 0xeeeeee<span class="asBracket">]</span>;
+                <span class="asReserved">this</span>.fontStyle <span class="asOperator">=</span> <span class="asString">&quot;normal&quot;</span>;
+                <span class="asReserved">this</span>.borderSides <span class="asOperator">=</span> <span class="asString">&quot;left top right bottom&quot;</span>;
+                <span class="asReserved">this</span>.borderThickness <span class="asOperator">=</span> 1;
+                <span class="asReserved">this</span>.modalTransparencyDuration <span class="asOperator">=</span> 100;
+                <span class="asReserved">this</span>.useRollOver <span class="asOperator">=</span> <span class="asReserved">true</span>;
+                <span class="asReserved">this</span>.strokeWidth <span class="asOperator">=</span> 1;
+                <span class="asReserved">this</span>.filled <span class="asOperator">=</span> <span class="asReserved">true</span>;
+                <span class="asReserved">this</span>.borderColor <span class="asOperator">=</span> 0xb7babc;
+                <span class="asReserved">this</span>.horizontalGridLines <span class="asOperator">=</span> <span class="asReserved">false</span>;
+                <span class="asReserved">this</span>.horizontalGridLineColor <span class="asOperator">=</span> 0xf7f7f7;
+                <span class="asReserved">this</span>.shadowCapColor <span class="asOperator">=</span> 0xd5dddd;
+                <span class="asReserved">this</span>.fontGridFitType <span class="asOperator">=</span> <span class="asString">&quot;pixel&quot;</span>;
+                <span class="asReserved">this</span>.horizontalAlign <span class="asOperator">=</span> <span class="asString">&quot;left&quot;</span>;
+                <span class="asReserved">this</span>.disabledColor <span class="asOperator">=</span> 0xaab3b3;
+                <span class="asReserved">this</span>.modalTransparencyColor <span class="asOperator">=</span> 0xdddddd;
+                <span class="asReserved">this</span>.borderSkin <span class="asOperator">=</span> mx.skins.halo.HaloBorder;
+                <span class="asReserved">this</span>.dropShadowColor <span class="asOperator">=</span> 0x000000;
+                <span class="asReserved">this</span>.paddingBottom <span class="asOperator">=</span> 0;
+                <span class="asReserved">this</span>.indentation <span class="asOperator">=</span> 17;
+                <span class="asReserved">this</span>.fontThickness <span class="asOperator">=</span> 0;
+                <span class="asReserved">this</span>.verticalGridLines <span class="asOperator">=</span> <span class="asReserved">true</span>;
+                <span class="asReserved">this</span>.embedFonts <span class="asOperator">=</span> <span class="asReserved">false</span>;
+                <span class="asReserved">this</span>.fontSharpness <span class="asOperator">=</span> 0;
+                <span class="asReserved">this</span>.shadowDirection <span class="asOperator">=</span> <span class="asString">&quot;center&quot;</span>;
+                <span class="asReserved">this</span>.selectionDuration <span class="asOperator">=</span> 250;
+                <span class="asReserved">this</span>.bevel <span class="asOperator">=</span> <span class="asReserved">true</span>;
+                <span class="asReserved">this</span>.fillColor <span class="asOperator">=</span> 0xffffff;
+                <span class="asReserved">this</span>.focusBlendMode <span class="asOperator">=</span> <span class="asString">&quot;normal&quot;</span>;
+                <span class="asReserved">this</span>.dropShadowEnabled <span class="asOperator">=</span> <span class="asReserved">false</span>;
+                <span class="asReserved">this</span>.textRollOverColor <span class="asOperator">=</span> 0x2b333c;
+                <span class="asReserved">this</span>.textIndent <span class="asOperator">=</span> 0;
+                <span class="asReserved">this</span>.fontSize <span class="asOperator">=</span> 10;
+                <span class="asReserved">this</span>.openDuration <span class="asOperator">=</span> 250;
+                <span class="asReserved">this</span>.closeDuration <span class="asOperator">=</span> 250;
+                <span class="asReserved">this</span>.kerning <span class="asOperator">=</span> <span class="asReserved">false</span>;
+                <span class="asReserved">this</span>.paddingTop <span class="asOperator">=</span> 0;
+                <span class="asReserved">this</span>.highlightAlphas <span class="asOperator">=</span> <span class="asBracket">[</span>0.3, 0<span class="asBracket">]</span>;
+                <span class="asReserved">this</span>.cornerRadius <span class="asOperator">=</span> 0;
+                <span class="asReserved">this</span>.horizontalGap <span class="asOperator">=</span> 8;
+                <span class="asReserved">this</span>.textSelectedColor <span class="asOperator">=</span> 0x2b333c;
+                <span class="asReserved">this</span>.paddingLeft <span class="asOperator">=</span> 0;
+                <span class="asReserved">this</span>.modalTransparency <span class="asOperator">=</span> 0.5;
+                <span class="asReserved">this</span>.roundedBottomCorners <span class="asOperator">=</span> <span class="asReserved">true</span>;
+                <span class="asReserved">this</span>.repeatDelay <span class="asOperator">=</span> 500;
+                <span class="asReserved">this</span>.selectionDisabledColor <span class="asOperator">=</span> 0xdddddd;
+                <span class="asReserved">this</span>.fontAntiAliasType <span class="asOperator">=</span> <span class="asString">&quot;advanced&quot;</span>;
+                <span class="asReserved">this</span>.focusSkin <span class="asOperator">=</span> mx.skins.halo.HaloFocusRect;
+                <span class="asReserved">this</span>.verticalGap <span class="asOperator">=</span> 6;
+                <span class="asReserved">this</span>.leading <span class="asOperator">=</span> 2;
+                <span class="asReserved">this</span>.shadowColor <span class="asOperator">=</span> 0xeeeeee;
+                <span class="asReserved">this</span>.backgroundAlpha <span class="asOperator">=</span> 1.0;
+                <span class="asReserved">this</span>.focusAlpha <span class="asOperator">=</span> 0.4;
+                <span class="asReserved">this</span>.borderAlpha <span class="asOperator">=</span> 1.0;
+                <span class="asReserved">this</span>.focusThickness <span class="asOperator">=</span> 2;
+                <span class="asReserved">this</span>.themeColor <span class="asOperator">=</span> 0x009dff;
+                <span class="asReserved">this</span>.backgroundSize <span class="asOperator">=</span> <span class="asString">&quot;auto&quot;</span>;
+                <span class="asReserved">this</span>.indicatorGap <span class="asOperator">=</span> 14;
+                <span class="asReserved">this</span>.letterSpacing <span class="asOperator">=</span> 0;
+                <span class="asReserved">this</span>.fontFamily <span class="asOperator">=</span> <span class="asString">&quot;Verdana&quot;</span>;
+                <span class="asReserved">this</span>.fillAlphas <span class="asOperator">=</span> <span class="asBracket">[</span>0.6, 0.4, 0.75, 0.65<span class="asBracket">]</span>;
+                <span class="asReserved">this</span>.color <span class="asOperator">=</span> 0x0b333c;
+                <span class="asReserved">this</span>.paddingRight <span class="asOperator">=</span> 0;
+                <span class="asReserved">this</span>.errorColor <span class="asOperator">=</span> 0xff0000;
+                <span class="asReserved">this</span>.verticalAlign <span class="asOperator">=</span> <span class="asString">&quot;top&quot;</span>;
+                <span class="asReserved">this</span>.focusRoundedCorners <span class="asOperator">=</span> <span class="asString">&quot;tl tr bl br&quot;</span>;
+                <span class="asReserved">this</span>.shadowDistance <span class="asOperator">=</span> 2;
+                <span class="asReserved">this</span>.repeatInterval <span class="asOperator">=</span> 35;
+            <span class="asBracket">}</span>;
+        <span class="asBracket">}</span>
+    <span class="asBracket">}</span>
+<span class="asBracket">}</span>
+
+<span class="asBracket">}</span>
+</pre></body>
+</html>

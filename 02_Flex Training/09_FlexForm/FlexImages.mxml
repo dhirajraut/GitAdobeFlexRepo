@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Canvas x="10" y="10" width="438" height="337">
+		<mx:RichTextEditor x="10" y="10" width="418" height="201">
+		</mx:RichTextEditor>
+		<mx:Button x="10" y="237" label="Button"/>
+		<mx:Form x="83" y="227" width="320" height="100">
+			<mx:FormItem label="Label">
+				<mx:TextInput id="inp"/>
+			</mx:FormItem>
+			<mx:FormItem>
+				<mx:Button label="Button" click="mx.controls.Alert.show(inp.text)"/>
+			</mx:FormItem>
+		</mx:Form>
+	</mx:Canvas>
+	
+</mx:Application>

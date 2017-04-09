@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="46" height="42">
+
+	<mx:Metadata>
+		[Event (name="colorEvent", type="mx.events.ColorPickerEvent")]
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ColorPickerEvent;
+			
+			private function colorSelected():void
+			{
+				var event:ColorPickerEvent = new ColorPickerEvent("colorEvent");
+				event.color = inputColorPicker.selectedColor;
+				dispatchEvent(event);
+			}
+		]]>
+	</mx:Script>
+	<mx:ColorPicker id="inputColorPicker" x="12" y="10" click="colorSelected()"/>
+	
+</mx:Canvas>

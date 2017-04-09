@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:ButtonBar dataProvider="myViewStack"/>
+	<mx:ViewStack id="myViewStack">
+		<mx:VBox height="180" width="183" backgroundColor="#80ff80" label="first">
+			<mx:Button label="Button"/>
+		</mx:VBox>
+		<mx:VBox height="180" width="184" backgroundColor="#80ffff" label="second" >
+			<mx:DateChooser width="144" height="130"/>
+		</mx:VBox>
+		<mx:VBox height="192" width="183" backgroundColor="#ff80ff" label="third" >
+			<mx:ComboBox></mx:ComboBox>
+		</mx:VBox>
+		<mx:VBox height="192" width="184" backgroundColor="#ff8080" label="forth" >
+			<mx:ColorPicker/>
+		</mx:VBox>
+	</mx:ViewStack>
+	<mx:ToggleButtonBar dataProvider="myViewStack" />
+	<mx:LinkBar dataProvider="myViewStack" />
+	
+	<mx:Accordion>
+		<mx:VBox height="180" width="183" backgroundColor="#80ff80" label="first">
+			<mx:Button label="Button"/>
+		</mx:VBox>
+		<mx:VBox height="180" width="184" backgroundColor="#80ffff" label="second" >
+			<mx:DateChooser width="144" height="130"/>
+		</mx:VBox>
+		<mx:VBox height="192" width="183" backgroundColor="#ff80ff" label="third" >
+			<mx:ComboBox></mx:ComboBox>
+		</mx:VBox>
+		<mx:VBox height="192" width="184" backgroundColor="#ff8080" label="forth" >
+			<mx:ColorPicker/>
+		</mx:VBox>
+	</mx:Accordion>
+</mx:Application>

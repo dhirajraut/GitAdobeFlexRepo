@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:states>
+		<mx:State name="SignupState">
+			<mx:AddChild relativeTo="{hbox1}" position="before">
+				<mx:FormItem label="Re-enter Password">
+					<mx:TextInput displayAsPassword="true"/>
+				</mx:FormItem>
+			</mx:AddChild>
+			<mx:SetProperty target="{button1}" name="label" value="Register"/>
+			<mx:SetProperty target="{button2}" name="label" value="Existing User? Click Here."/>
+			<mx:SetEventHandler target="{button2}" name="click" handler="this.currentState=''"/>
+			<mx:SetProperty target="{textinput1}" name="displayAsPassword" value="true"/>
+			<mx:SetProperty target="{formitem1}" name="width" value="282"/>
+		</mx:State>
+	</mx:states>
+	<mx:Form x="10" y="10" width="357" height="200">
+		<mx:FormItem label="Username" id="formitem1">
+			<mx:TextInput/>
+		</mx:FormItem>
+		<mx:FormItem label="Password">
+			<mx:TextInput id="textinput1" displayAsPassword="true"/>
+		</mx:FormItem>
+		<mx:HBox width="100%" id="hbox1">
+			<mx:Button label="Login" id="button1"/>
+			<mx:Button label="New User? Register Here." id="button2" click="this.currentState='SignupState'"/>
+		</mx:HBox>
+	</mx:Form>
+	
+</mx:Application>

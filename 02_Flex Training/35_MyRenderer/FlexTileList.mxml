@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+	xmlns:ns1="*" initialize="dataService.send()"> 
+
+	<mx:Script>
+		<![CDATA[
+			import mx.rpc.events.ResultEvent;
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			private var myData:ArrayCollection;
+			private function resultHandler(event:ResultEvent):void {
+				myData = event.result.titles.title;
+			}
+		]]>
+	</mx:Script>
+
+	<mx:HTTPService id="dataService" url="data/newTitles.xml" 
+			result="resultHandler(event)"/>
+	
+	<mx:Label text="Collections Header" fontSize="20" />
+	<mx:TileList id="myList" dataProvider="{myData}"
+		itemRenderer="MyRenderer" dragMoveEnabled="true" 
+		dropEnabled="true" dragEnabled="true"/>
+	<mx:Label text="{myList.selectedIndex}" />
+	<mx:Label text="{myList.selectedItem.name}" />
+
+</mx:Application>

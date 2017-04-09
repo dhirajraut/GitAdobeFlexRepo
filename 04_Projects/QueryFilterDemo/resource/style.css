@@ -1,0 +1,144 @@
+/* CSS file */
+
+Application {
+   backgroundColor: #ffffff;
+   backgroundGradientColors: #ffffff, #EEEEEE;
+   themeColor: #e69e0e;
+}
+
+.mainContainer
+{
+	paddingLeft :	5;
+	paddingRight: 	5;
+	horizontalCenter:	0; 
+	top:	12;
+	drop-shadow-enabled:true;
+	border-style:	solid; 
+	padding-bottom:	5; 
+	padding-top:	5;
+	corner-radius:5;
+	background-size: "100%";
+	background-image: "images/bodyBg.gif";
+ 
+}
+.summaryComponent
+{
+	background-size: "100%";
+	background-image: "images/summaryHeaderBg.png";		
+}
+
+.summaryComponentExpanded
+{
+	background-size: "100%";
+	background-image: "images/summaryHeaderExpandedBg.png";		
+}
+
+Alert{
+	color : #000000;
+	title-style-name : "alertTitle";
+	background-color: #ffffff;
+	corner-radius :6;
+	border-style :solid;
+}
+
+.alertTitle{
+	font-family :Verdana;
+	font-size :10;
+	font-weight :bold;
+	text-align :left;
+	color :#000000;
+}
+
+.homeSection
+{
+    cornerRadius:           4;
+    borderStyle:            "solid";
+    background-color:#EEEEEE;
+    padding-bottom:5;
+    padding-right:5;
+    padding-left:5;
+    padding-top:5;
+    background-alpha:.6;
+}
+
+ApplicationControlBar {
+   highlightAlphas: 0.54, 0.32;
+   fillAlphas: 0.66, 0.69;
+   fillColors: #cccccc, #eeeeee;
+   backgroundAlpha: 1;
+   cornerRadius: 5;
+   shadowDistance: 1; 
+   padding-top:2;
+   padding-bottom:2;
+   
+}
+
+Panel {
+   borderStyle: solid;
+   borderColor: #999999;
+   borderAlpha: 0.8;
+   headerHeight: 33;
+   highlightAlphas: 0.36, 0.44;
+   headerColors: #cccccc, #eeeeee;
+   shadowDistance: 0;
+   shadowDirection: center;
+   
+}
+
+Accordion {
+   borderStyle: solid;
+   borderThickness: 0;
+   headerHeight: 25;
+   backgroundAlpha: 1;
+   highlightAlphas: 0.3, 0.6;
+   fillAlphas: 0.6, 0.43, 0.03, 0.14;
+   backgroundColor: #ffffff;
+   borderColor: #f3f3f3;
+   dropShadowEnabled: true;
+   shadowDistance: 0;
+   shadowDirection: center;   
+   headerStyleName: "myaccordionHeader";
+   selectedFillColors: #999999, #cccccc;
+}
+
+.myaccordionHeader {
+   letterSpacing: 0;
+   headerColors: #cccccc, #eeeeee;
+}
+
+.myTabNavigator{	
+	tabStyleName: "myTabStyleName";	
+	lastTabStyleName: "myTabStyleName";
+	firstTabStyleName: "myTabStyleName";
+}
+
+.myTabStyleName{
+	fontSize: 10;
+	
+	borderStyle: solid;
+   borderThickness: 1;
+   headerHeight: 25;
+   backgroundAlpha: 1;
+   highlightAlphas: 0.3, 0.6;
+   fillAlphas: 0.6, 0.43, 0.03, 0.14;
+   backgroundColor: #ffffff;
+   borderColor: #cccccc;
+   dropShadowEnabled: true;
+   shadowDistance: 0;
+   shadowDirection: center;   
+   headerStyleName: "myaccordionHeader";
+   selectedFillColors: #999999, #cccccc;
+}
+.tabNavigatorVBox{
+   padding-bottom:5;
+   padding-right:5;
+   padding-left:5;
+   padding-top:5;
+}
+.mainContainerCanvas {
+	padding-bottom:2;
+   	padding-right:2;
+   	padding-left:2;
+   	padding-top:5;
+}
+

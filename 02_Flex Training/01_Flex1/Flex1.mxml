@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" backgroundGradientColors="[#0080ff, #ff8080]" viewSourceURL="srcview/index.html">
+
+<mx:Script>
+	<![CDATA[
+
+	]]>
+</mx:Script>
+<mx:Script source="ActionScript.as" />
+
+	<mx:Label text="Hello" />
+	<mx:Label text="World"  x="41" y="0"/>
+	<mx:Label text="Hello World"  x="27" y="37"/>
+	<mx:Button x="328" y="59" label="Alert Demo" click="mx.controls.Alert.show('hi') "/>
+	<mx:Button x="328" y="89" label="Button" click="alertScriptDemo('Dhiraj')" />
+	<mx:VBox x="135.5" y="59" height="18" width="140.5" backgroundColor="Red"/>
+	<mx:VBox x="135.5" y="85" height="18" width="140.5" backgroundColor="0x00ff00"/>
+	<mx:VBox x="135.5" y="110" height="18" width="140.5" backgroundColor="#0000ff"/>
+
+</mx:Application>

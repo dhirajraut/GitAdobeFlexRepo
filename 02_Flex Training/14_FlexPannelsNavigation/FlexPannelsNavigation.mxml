@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:ViewStack id="myViewStack" x="125" y="93">
+		<mx:Panel id="homePanel" x="84" y="81" width="250" height="265" layout="absolute" title="Homea" />
+		<mx:Panel id="aboutPanel" x="-10" y="-30" width="250" height="268" layout="absolute" title="About" />
+		<mx:Panel id="contactPanel" x="-10" y="-31" width="250" height="270" layout="absolute" title="Contact" />
+	</mx:ViewStack>	
+	<mx:Button x="125" y="63" label="{homePanel.title}" click="myViewStack.selectedIndex=0"/>
+	<mx:Button x="192" y="63" label="{aboutPanel.title}" click="myViewStack.selectedIndex=1"/>
+	<mx:Button x="261" y="63" label="{contactPanel.title}" click="myViewStack.selectedIndex=2"/>
+	<mx:Button x="203" y="383" label="Next" click="myViewStack.selectedIndex++"/>
+	<mx:Button x="125" y="383" label="Prev" click="myViewStack.selectedIndex--"/>
+	<mx:HSlider x="50" y="438" id="slider" width="178"/>
+	<mx:Label x="236" y="438" text="{slider.value}" width="88"/>
+</mx:Application>

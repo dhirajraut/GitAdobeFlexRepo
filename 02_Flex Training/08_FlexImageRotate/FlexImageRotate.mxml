@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Image id="img" source="miniSplash.jpg" width="200" height="200" enterFrame="change()" horizontalCenter="102" verticalCenter="68.5"/>
+	<mx:Script>
+		<![CDATA[
+			
+			private function change():void
+			{
+				img.rotation += 1;
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

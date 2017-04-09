@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	xmlns:custom="customcomponent.*">
+
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ColorPickerEvent;
+			[Bindable]
+			public var colorVal:int;
+			public function colorEventHandler(event:ColorPickerEvent):void
+			{
+				colorVal = event.color;
+			}
+		]]>
+	</mx:Script>
+
+	<custom:ColorCommunicator colorEvent="colorEventHandler(event)" x="10" y="10" />
+	<custom:AdvanceTextEditor x="10" y="60" colorValue="{colorVal}" />
+</mx:Application>

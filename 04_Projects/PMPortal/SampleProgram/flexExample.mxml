@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:mx1="com.lehman.framework.foundation.components.datagrid.*" layout="absolute">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import com.lehman.framework.foundation.components.datagrid.LDataGridColumn;
+			import mx.collections.ArrayCollection;
+			import com.lehman.framework.foundation.components.datagrid.LDataGridConfig;
+			
+			[Bindable]
+			public var sampleConfig:LDataGridConfig=new LDataGridConfig();
+			
+			public var columnCollection:ArrayCollection=new ArrayCollection();
+		
+		private function initGrid():void{			
+				var gridColumn:LDataGridColumn=new LDataGridColumn();
+				gridColumn.columnHeader="Employee Name";
+				gridColumn.columnWidth=200;
+				columnCollection.addItem(gridColumn);
+				
+				var gridColumn1:LDataGridColumn=new LDataGridColumn();
+				gridColumn1.columnHeader="Employee Address";
+				gridColumn1.columnWidth=200;
+				columnCollection.addItem(gridColumn1);				
+			
+			sampleConfig.columnCollection=columnCollection;			
+		}
+			
+		]]>
+	</mx:Script>
+	
+	<mx1:LDataGrid configData="{sampleConfig}" initialize="initGrid()"/>
+</mx:Application>

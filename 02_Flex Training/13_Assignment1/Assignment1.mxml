@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:states>
+		<mx:State name="Rich">
+			<mx:RemoveChild target="{form1}"/>
+			<mx:AddChild position="lastChild">
+				<mx:RichTextEditor x="71" y="31" text="This is Rich Text Editor">
+				</mx:RichTextEditor>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Button x="71" y="349" label="Back" click="this.currentState=''"/>
+			</mx:AddChild>
+		</mx:State>
+		<mx:State name="Normal">
+			<mx:RemoveChild target="{form1}"/>
+			<mx:AddChild position="lastChild">
+				<mx:TextArea x="93" y="89" width="164" height="68" text="This is Normal Text Area"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Button x="93" y="165" label="Back" click="this.currentState=''"/>
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	<mx:Form x="88" y="64" width="280" height="102" id="form1">
+		<mx:FormItem label="Style" id="style">
+			<mx:RadioButton label="Rich Text" id="rich"/>
+			<mx:RadioButton label="Normal Text" id="norm"/>
+		</mx:FormItem>
+		<mx:Button label="Go" click="getState()"/>
+	</mx:Form>
+	<mx:Script>
+		<![CDATA[
+			private function getState():void
+			{
+				if (rich.selected)
+					this.currentState="Rich";
+				else
+					this.currentState="Normal"
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

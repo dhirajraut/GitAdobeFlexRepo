@@ -1,0 +1,63 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>_ScrollBarStyle.as</title>
+<link rel="stylesheet" type="text/css" href="../../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="asPackage">package</span> 
+<span class="asBracket">{</span>
+
+<span class="asReserved">import</span> flash.display.Sprite;
+<span class="asReserved">import</span> mx.core.IFlexModuleFactory;
+<span class="asReserved">import</span> mx.core.mx_internal;
+<span class="asReserved">import</span> mx.styles.CSSStyleDeclaration;
+<span class="asReserved">import</span> mx.styles.StyleManager;
+<span class="asReserved">import</span> mx.skins.halo.ScrollArrowSkin;
+<span class="asReserved">import</span> mx.skins.halo.ScrollTrackSkin;
+<span class="asReserved">import</span> mx.skins.halo.ScrollThumbSkin;
+
+<span class="asBracket">[</span><span class="asMetadata">ExcludeClass</span><span class="asBracket">]</span>
+
+<span class="asReserved">public</span> <span class="asClass">class</span> _ScrollBarStyle
+<span class="asBracket">{</span>
+
+    <span class="asReserved">public</span> <span class="asReserved">static</span> <span class="asFunction">function</span> init<span class="asBracket">(</span>fbs<span class="asOperator">:</span>IFlexModuleFactory<span class="asBracket">)</span><span class="asOperator">:</span><span class="asReserved">void</span>
+    <span class="asBracket">{</span>
+        <span class="asVar">var</span> style<span class="asOperator">:</span>CSSStyleDeclaration <span class="asOperator">=</span> StyleManager.getStyleDeclaration<span class="asBracket">(</span><span class="asString">&quot;ScrollBar&quot;</span><span class="asBracket">)</span>;
+    
+        <span class="asReserved">if</span> <span class="asBracket">(</span><span class="asOperator">!</span>style<span class="asBracket">)</span>
+        <span class="asBracket">{</span>
+            style <span class="asOperator">=</span> <span class="asReserved">new</span> CSSStyleDeclaration<span class="asBracket">()</span>;
+            StyleManager.setStyleDeclaration<span class="asBracket">(</span><span class="asString">&quot;ScrollBar&quot;</span>, style, <span class="asReserved">false</span><span class="asBracket">)</span>;
+        <span class="asBracket">}</span>
+    
+        <span class="asReserved">if</span> <span class="asBracket">(</span>style.defaultFactory <span class="asOperator">==</span> <span class="asReserved">null</span><span class="asBracket">)</span>
+        <span class="asBracket">{</span>
+            style.defaultFactory <span class="asOperator">=</span> <span class="asFunction">function</span><span class="asBracket">()</span><span class="asOperator">:</span><span class="asReserved">void</span>
+            <span class="asBracket">{</span>
+                <span class="asReserved">this</span>.borderColor <span class="asOperator">=</span> 0xb7babc;
+                <span class="asReserved">this</span>.downArrowOverSkin <span class="asOperator">=</span> mx.skins.halo.ScrollArrowSkin;
+                <span class="asReserved">this</span>.thumbDownSkin <span class="asOperator">=</span> mx.skins.halo.ScrollThumbSkin;
+                <span class="asReserved">this</span>.upArrowOverSkin <span class="asOperator">=</span> mx.skins.halo.ScrollArrowSkin;
+                <span class="asReserved">this</span>.thumbOverSkin <span class="asOperator">=</span> mx.skins.halo.ScrollThumbSkin;
+                <span class="asReserved">this</span>.downArrowDownSkin <span class="asOperator">=</span> mx.skins.halo.ScrollArrowSkin;
+                <span class="asReserved">this</span>.downArrowDisabledSkin <span class="asOperator">=</span> mx.skins.halo.ScrollArrowSkin;
+                <span class="asReserved">this</span>.downArrowUpSkin <span class="asOperator">=</span> mx.skins.halo.ScrollArrowSkin;
+                <span class="asReserved">this</span>.thumbUpSkin <span class="asOperator">=</span> mx.skins.halo.ScrollThumbSkin;
+                <span class="asReserved">this</span>.trackColors <span class="asOperator">=</span> <span class="asBracket">[</span>0x94999b, 0xe7e7e7<span class="asBracket">]</span>;
+                <span class="asReserved">this</span>.upArrowDisabledSkin <span class="asOperator">=</span> mx.skins.halo.ScrollArrowSkin;
+                <span class="asReserved">this</span>.cornerRadius <span class="asOperator">=</span> 4;
+                <span class="asReserved">this</span>.upArrowUpSkin <span class="asOperator">=</span> mx.skins.halo.ScrollArrowSkin;
+                <span class="asReserved">this</span>.trackSkin <span class="asOperator">=</span> mx.skins.halo.ScrollTrackSkin;
+                <span class="asReserved">this</span>.upArrowDownSkin <span class="asOperator">=</span> mx.skins.halo.ScrollArrowSkin;
+            <span class="asBracket">}</span>;
+        <span class="asBracket">}</span>
+    <span class="asBracket">}</span>
+<span class="asBracket">}</span>
+
+<span class="asBracket">}</span>
+</pre></body>
+</html>

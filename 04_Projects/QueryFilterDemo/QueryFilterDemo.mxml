@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lb:LApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	xmlns:mx1="com.lehman.framework.foundation.components.datagrid.*"
+	xmlns:lb="com.lehman.framework.foundation.components.application.*"
+	xmlns:bubble="com.lehman.framework.foundation.components.bubble.*"
+	appTheme="default"
+	title="Query Filter"			
+	width="100%"
+	height="100%"	
+	 >
+	 
+	<mx:Style source="resource/style.css"/>
+	<mx:Script>
+		<![CDATA[
+		    import com.lehman.framework.foundation.components.queryfilter.LQueryFilter;
+        	import com.lehman.framework.foundation.components.datagrid.LDataGridControl;
+            import com.lehman.framework.foundation.components.datagrid.LDataGridColumn;            
+            import com.lehman.framework.foundation.components.datagrid.LDataGridConfig;             
+            import com.lehman.framework.foundation.components.datagrid.LDataGridMenu;                 	        	        	          
+            import com.lehman.framework.foundation.components.renders.LLinkRenderer;
+            import com.lehman.framework.foundation.components.renders.LImgRenderer;
+            import com.lehman.framework.foundation.components.renders.LAddRowRenderer;            
+        	import mx.collections.ArrayCollection;        	   
+        	import mx.controls.Alert;    
+
+			/********************* Common Datagrid Features ********************/
+            [Bindable]
+            public var sampleConfig:LDataGridConfig=new LDataGridConfig();
+            public var columnCollection:ArrayCollection=new ArrayCollection();
+                                                
+            [Bindable]
+            private var customLContextMenuItems:ArrayCollection;
+            private var customMenuItem1:LDataGridMenu;
+            private var customMenuItem2:LDataGridMenu;
+            
+            /* Variable declaration for controls to be displayed on top of dataGrid*/
+            [Bindable]
+            private var customControlItem:ArrayCollection;
+            private var customControl1:LDataGridControl;
+            private var customControl2:LDataGridControl;
+            private var customControl3:LDataGridControl;                        
+
+            [Bindable]
+            private var dataCollection:ArrayCollection=new ArrayCollection([{Name:"The Picasso Code",Author:"Margaret Middle",Category:"Fiction",Publisher:"O'reily",Link:"www.google.com",Date:new Date(2000,01,02),Price:"20",Image:"./resource/book.jpg"},
+                                                                  {Name:"Here With the Wind",Author:"Margaret Middle",Category:"Fiction",Publisher:"Tata McGrawHill",Link:"http://www.dict.org",Date:new Date(2004,11,1),Price:"35",Image:"./resource/book.jpg"},
+                                                                  {Name:"Harry Potluck and the Chamber of Money",Author:"J.K. Roughly",Category:"Adventure",Publisher:"Wrox",Link:"http://www.google.com",Date:new Date(2006,11,11),Price:"34",Image:"./resource/book.jpg"},
+                                                                  {Name:"No Expectations",Author:"Chuck Dickens",Category:"Fiction",Publisher:"Tata McGrawHill",Link:"http://www.google.com",Date:new Date(2001,10,09),Price:"25",Image:"./resource/book.jpg"},
+                                                                  {Name:"Atlas Stretched",Author:"Ann Rind",Category:"Non Fiction",Publisher:"O'reily",Link:"http://www.google.com",Date:new Date(2000,01,09),Price:"45",Image:"./resource/book.jpg"},
+                                                                  {Name:"Recycling Software",Author:"Big Gates",Category:"Non Fiction",Publisher:"Wrox",Link:"http://www.google.com",Date:new Date(2004,05,11),Price:"50",Image:"./resource/book.jpg"},
+                                                                  {Name:"Make Tons of Money",Author:"Donald Rump",Category:"Non Fiction",Publisher:"Wrox",Link:"http://www.google.com",Date:new Date(2004,0,08),Price:"45",Image:"./resource/book.jpg"},
+                                                                  {Name:"How to Win Enemies and Lose Friends",Author:"Dale Crochety",Category:"Non Fiction",Publisher:"Tata McGrawHill",Link:"http://www.google.com",Date:new Date(2003,01,09),Price:"45",Image:"./resource/book.jpg"},
+                                                                  {Name:"My Lies",Author:"Swill Clinton",Category:"Non Fiction",Publisher:"Tata McGrawHill",Link:"http://www.google.com",Date:new Date(2002,01,07),Price:"40",Image:"./resource/book.jpg"},
+                                                                  {Name:"The Complete History of the World",Author:"David McClutz",Category:"Non Fiction",Publisher:"Wrox",Link:"http://www.google.com",Date:new Date(2005,08,10),Price:"35",Image:"./resource/book.jpg"},    
+                                                                  {Name:"The Complete History of the World",Author:"aDavid McClutz",Category:"Non Fiction",Publisher:"Wrox",Link:"http://www.google.com",Date:new Date(2005,08,09),Price:"35",Image:"./resource/book.jpg"}]);    
+
+            /**
+            * This method prepares the configuration object to be set in the datagrid.
+            */
+            private function initGrid():void
+            {            
+                var gridColumn1:LDataGridColumn=new LDataGridColumn();
+                /* Ability render columns by passing column collection */
+                gridColumn1.columnHeader="Book Name"; // This is the column header, which will be displayed in the DataGrid.
+                gridColumn1.columnWidth=300; // Width of the column.
+                gridColumn1.columnDataField="Name"; // Mapping with datacollection.
+                /* Ability to sort a particular column programmatically */
+                gridColumn1.columnSortable=true; // To set whether the column is sortable.
+                gridColumn1.columnSortDecending=false; // true: for descending. false: for ascending
+                gridColumn1.columnSortPreference=1; // Sorting sequence. The value can be 1 or 2 or 3 etc.
+                gridColumn1.columnSortCaseInSensitive=true;//true: Case Insensitive, false; case sensitive.
+                gridColumn1.columnWordWrap=true//Set this true for wrapping the text for this column.
+                gridColumn1.columnRenderer=LAddRowRenderer;
+                gridColumn1.FilterType="TEXT";
+                columnCollection.addItem(gridColumn1);
+                
+                var gridColumn2:LDataGridColumn=new LDataGridColumn();
+                gridColumn2.columnHeader="Author Name";
+                gridColumn2.columnWidth=100;
+                gridColumn2.columnDataField="Author";               
+                gridColumn2.columnSortable=true;
+                gridColumn2.columnSortDecending=false;
+                gridColumn2.columnSortPreference=2;
+                gridColumn2.columnSortCaseInSensitive=false;
+                gridColumn2.columnWordWrap=false;
+               //gridColumn2.FilterType="CHECKBOX";
+				gridColumn2.FilterType="RADIOBUTTON";
+                gridColumn2.columnRenderer=LAddRowRenderer;
+                columnCollection.addItem(gridColumn2);
+                
+                var gridColumn3:LDataGridColumn=new LDataGridColumn();
+                gridColumn3.columnHeader="Book Category";               
+                gridColumn2.columnSortable=false;
+                gridColumn3.columnWidth=100;
+                gridColumn3.columnDataField="Category";
+               // gridColumn3.FilterType="DROPDOWN";
+                gridColumn3.FilterType="DROPDOWN";
+                gridColumn3.columnRenderer=LAddRowRenderer;
+                columnCollection.addItem(gridColumn3);
+                
+                var gridColumn4:LDataGridColumn=new LDataGridColumn();
+                gridColumn4.columnHeader="Publisher Name";
+                gridColumn4.columnWidth=100;
+                gridColumn4.columnDataField="Publisher";
+                gridColumn4.columnRenderer=LLinkRenderer;
+				gridColumn4.FilterType="CHECKBOX";
+                gridColumn4.columnLink="Link";                
+                columnCollection.addItem(gridColumn4);
+                
+                var gridColumn5:LDataGridColumn=new LDataGridColumn();
+                gridColumn5.columnHeader="Publish Date";
+                gridColumn5.columnWidth=100;
+                gridColumn5.columnDataField="Date";
+                gridColumn5.columnDataType="Date";
+                gridColumn5.FilterType="DATERANGE"
+                gridColumn5.columnRenderer=LAddRowRenderer;
+                gridColumn5.dateFormat="dd-MMM-YYYY";
+                columnCollection.addItem(gridColumn5);
+                
+                var gridColumn6:LDataGridColumn=new LDataGridColumn();
+                gridColumn6.columnHeader="MRP";
+                gridColumn6.columnWidth=100;
+                gridColumn6.columnDataField="Price";
+                gridColumn6.columnRenderer=LAddRowRenderer;                
+                gridColumn6.FilterType="NUMBERRANGE";                
+                columnCollection.addItem(gridColumn6);
+
+                var gridColumn7:LDataGridColumn=new LDataGridColumn();
+                gridColumn7.columnHeader="Read Online";
+                gridColumn7.columnWidth=50;
+                gridColumn7.columnDataField="Image";
+                gridColumn7.columnRenderer=LImgRenderer;
+                gridColumn7.columnLink="Link";
+                columnCollection.addItem(gridColumn7);
+                
+                sampleConfig.columnCollection=columnCollection;
+                sampleConfig.dataCollection=dataCollection;
+                sampleConfig.gridTitle="Book Details";     
+                sampleConfig.gridTitleFontFamily="Arial";   
+                sampleConfig.gridTitleFontSize="12";
+                sampleConfig.gridTitleFontStyle="italic";
+                sampleConfig.gridTitleFontWeight="bold";
+                
+                sampleConfig.isPreviewEnabled=false;
+                sampleConfig.previewMethod=callPreview;
+                sampleConfig.enableMultipleSelection=true;
+               
+               /* user specified controls to be displayed on top of datagrid*/
+                customControlItem=new ArrayCollection();
+                customControl1=new LDataGridControl();
+                customControl1.controlClass=mx.controls.Button;//specifying the control to be displayed
+                customControl1.controlLabel="my Button";//specifying the label to be displayed on the control
+                customControl1.controlHandler=myButtonHandler;//specifying the handler for the control.
+                customControl1.controlToolTip=customControl1.controlLabel + " Tooltip";//specifying the tooltip to be displayed on the control.
+                customControlItem.addItem(customControl1);
+                
+                customControl3=new LDataGridControl();
+                customControl3.controlClass=mx.controls.LinkButton;
+                customControl3.controlLabel="my Link";
+                customControl3.imageSource="./resource/iExplloreIcon.jpg"
+                customControl3.controlHandler=myLinkButtonHandler;
+                customControl3.controlToolTip="Link Tooltip";
+                customControlItem.addItem(customControl3);
+                
+                customControl2=new LDataGridControl();
+                customControl2.controlClass=mx.controls.Image;
+                customControl2.controlHandler=myImageHandler;
+                customControl2.controlToolTip="Image";
+                customControl2.imageSource="./resource/note.png"
+                customControlItem.addItem(customControl2);
+                
+				//custom context menu items
+                customLContextMenuItems = new ArrayCollection();
+                customMenuItem1 = new LDataGridMenu();
+                customMenuItem1.menuLabel = "Hide/Show"+ gridColumn1.columnHeader;
+                customMenuItem1.menuHandler = myMenuItemHandler;
+                customLContextMenuItems.addItem(customMenuItem1);                                
+                
+                sampleConfig.enableContextMenu = true;
+                sampleConfig.menuCollection=customLContextMenuItems;
+                sampleConfig.controlArray=customControlItem;
+                sampleConfig.headerControlAlign="right";                               
+                
+                /*setting the url of the image for show/hide popup*/
+                sampleConfig.showHideColumnPopupImgUrl="./resource/box.gif";
+                sampleConfig.showHideColumnEnable = true;      
+                
+                /*Enable Freeze Column Functionality*/
+                sampleConfig.enableFreezeColumn=true;
+                
+                /*Enable Freeze Row Functionality*/
+                sampleConfig.enableFreezeRow=true;                   
+               
+                /*Enable Add/Delete Row Functionality*/
+                sampleConfig.enableAddRecord = true;
+                sampleConfig.enableDeleteRecord = true;                       
+             }
+            
+           /**
+            * This function calls the displayIFrame function for preview
+            * 
+            * @param event takes an event of type MouseEvent
+            */
+            private function callPreview(event:MouseEvent):void
+            {                	
+	            if(datagrid.selectedIndex>=0)
+	            {
+	                datagrid.preview(dataCollection[datagrid.selectedIndex].Link,200);
+	            }
+            }
+            
+            /** 
+            * This function is for handling the click event of the user specified button control
+            *
+            *@param event it takes the mouse event
+            */
+            public function myButtonHandler(event:MouseEvent):void
+            {
+                Alert.show("Button click handler");
+            }
+            
+            /** 
+            * This function is for handling the click event of the user specified Image control
+            *
+            *@param event it takes the mouse event
+            */
+            public function myImageHandler(event:MouseEvent):void
+            {
+                Alert.show("Image click handler");
+            }
+            
+            /** 
+            * This function is for handling the click event of the user specified LinkButton control
+            *
+            *@param event it takes the mouse event
+            */
+            public function myLinkButtonHandler(event:MouseEvent):void
+            {
+                Alert.show("LinkButton click handler");
+            }
+            
+            /**
+            * This function is a Menu Item Handler.
+            * 
+            * @param event takes an event of type ContextMenuEvent
+            */
+            private function myMenuItemHandler(event:ContextMenuEvent):void
+            {
+                if(datagrid.isColumnVisible("Book Name"))
+                {
+                	datagrid.showColumn("Book Name" , false)
+                }
+                else
+                {
+                	datagrid.showColumn("Book Name" , true)
+                }
+            }			                                                    
+            
+            public function initcomplete():void
+            {
+                var queryFilter:LQueryFilter = new LQueryFilter();
+                queryFilter.sourceGrid = datagrid;
+                queryFilter.renderComponent();                		
+				queryFilter.percentWidth=25;								 
+				CommonFeaturesHBox.addChild(queryFilter);                          				
+            }                                               
+            /********************* Common Datagrid Features END ********************/								
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Canvas styleName="mainContainerCanvas" verticalScrollPolicy="auto" horizontalScrollPolicy="off"
+		width="98%" height="100%">					        
+		        <mx:VBox id="CommonFeaturesVBox" label="Query Filter Features" styleName="tabNavigatorVBox" width="100%" height="100%"  >
+		            <mx:HBox id="CommonFeaturesHBox" width="100%" height="100%" >		            			            
+			            <mx1:LDataGrid id="datagrid"  configData="{sampleConfig}" initialize="initGrid()" 
+			            	creationComplete="initcomplete();" 	width="75%" height="100%" borderStyle="solid" 		            	
+			            	horizontalScrollPolicy="off" />
+		            </mx:HBox>		                
+		        </mx:VBox>		    		
+	</mx:Canvas>
+
+</lb:LApplication>

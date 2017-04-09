@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:TextArea id="itemList" height="155"/>
+	
+	<mx:Model id="bookDataModel">
+		<books>
+			<bookName>Secret</bookName>
+			<bookName>Harry Potter</bookName>
+			<bookName>book3</bookName>
+		</books>
+	</mx:Model>
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			public function addToCart(newItem:String):void {
+				itemList.text += newItem + "\n";
+			}
+		]]>
+	</mx:Script>
+	<mx:ArrayCollection id="bookDataArray" source="{bookDataModel.bookName}" />
+	<mx:Repeater dataProvider="{bookDataArray}" id="bookDataRepeater">
+		<mx:Label text="{bookDataRepeater.currentIndex} {bookDataRepeater.currentItem}" />
+		<mx:Button  label="Add To Cart" 
+			click="addToCart(event.target.getRepeaterItem())" />
+	</mx:Repeater>
+	
+</mx:Application>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	creationComplete="add(event)"
+	initialize="add(event)"
+	applicationComplete="add(event)">
+	
+	<mx:Script>
+		<![CDATA[
+//			public function add(eventName:String):void
+//			{
+//				eventList.text += eventName + "\n";
+//			}
+			public function add(event:Event):void
+			{
+				eventList.text += event.target.id + " - " + event.type + "\n";
+			}
+		]]>
+	</mx:Script>
+	<mx:TextArea id="eventList" x="73" y="42" width="292" height="293" />
+	<mx:Button label="Life is an event..." id="TargetButton"
+		preinitialize="add(event)"
+		initialize="add(event)"
+		creationComplete="add(event)"
+		click="add(event)"
+		buttonDown="add(event)"
+		mouseDown="add(event)"
+		mouseOver="add(event)"
+		mouseOut="add(event)"/>
+</mx:Application>

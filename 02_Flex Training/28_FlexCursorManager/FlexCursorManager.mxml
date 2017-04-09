@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Script>
+		<![CDATA[
+			import mx.managers.CursorManager;
+		]]>
+	</mx:Script>
+
+	<mx:Button x="199" y="35" label="Busy" click="CursorManager.setBusyCursor()"/>
+	<mx:Button x="199" y="65" label="Relax" click="CursorManager.removeBusyCursor()"/>
+	
+</mx:Application>

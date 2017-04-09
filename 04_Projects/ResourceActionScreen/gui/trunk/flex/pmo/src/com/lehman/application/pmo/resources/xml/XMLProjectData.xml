@@ -1,0 +1,13 @@
+<root>
+<node label="PMPortal" type="project">
+<node label="Dhiraj Raut" type="resource"/>
+<node label="Harish Gharge" type="resource">
+<node label="abc" type="Resource_action"/>
+</node>
+<node label="Gaurav Goyal" type="resource"/>
+<node label="Deepti" type="resource"/>
+<node label="Argo" type="resource"/>
+<node label="Aruna" type="resource"/>
+<node label="Neeti" type="resource"/>
+</node>
+</root>
